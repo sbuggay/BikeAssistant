@@ -23,7 +23,6 @@
 		56FDB14D1884BCF2009DE59D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FDB14B1884BCF2009DE59D /* InfoPlist.strings */; };
 		56FDB14F1884BCF2009DE59D /* BikeAssistantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FDB14E1884BCF2009DE59D /* BikeAssistantTests.m */; };
 		56FDB1591884D656009DE59D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1581884D656009DE59D /* MapKit.framework */; };
-		56FDB15F1884F09A009DE59D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FDB15E1884F09A009DE59D /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +57,6 @@
 		56FDB14C1884BCF2009DE59D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56FDB14E1884BCF2009DE59D /* BikeAssistantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BikeAssistantTests.m; sourceTree = "<group>"; };
 		56FDB1581884D656009DE59D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		56FDB15D1884F09A009DE59D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ../SettingsViewController.h; sourceTree = "<group>"; };
-		56FDB15E1884F09A009DE59D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ../SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +122,6 @@
 				56FDB1301884BCF2009DE59D /* AppDelegate.m */,
 				56FDB1321884BCF2009DE59D /* Main_iPhone.storyboard */,
 				56FDB1351884BCF2009DE59D /* Main_iPad.storyboard */,
-				56FDB15D1884F09A009DE59D /* SettingsViewController.h */,
-				56FDB15E1884F09A009DE59D /* SettingsViewController.m */,
 				56FDB1381884BCF2009DE59D /* ViewController.h */,
 				56FDB1391884BCF2009DE59D /* ViewController.m */,
 				56FDB13B1884BCF2009DE59D /* Images.xcassets */,
@@ -265,7 +260,6 @@
 				56FDB13A1884BCF2009DE59D /* ViewController.m in Sources */,
 				56FDB1311884BCF2009DE59D /* AppDelegate.m in Sources */,
 				56FDB12D1884BCF2009DE59D /* main.m in Sources */,
-				56FDB15F1884F09A009DE59D /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

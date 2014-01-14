@@ -56,7 +56,7 @@
                                           distanceFromLocation:startLocation];
     
     NSString *tripString = [[NSString alloc]
-                            initWithFormat:@"%f",
+                            initWithFormat:@"%fm",
                             distanceBetween];
     self.distance.text = tripString;
 }
