@@ -22,3 +22,4 @@ Libraries
 Resources
 ------------
 * [Bicycle performance](http://en.wikipedia.org/wiki/Bicycle_performance)
+* [Breadcrumbing in iOS](https://developer.apple.com/library/ios/samplecode/Breadcrumb/Introduction/Intro.html#//apple_ref/doc/uid/DTS40010048-Intro-DontLinkElementID_2)
