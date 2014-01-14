@@ -18,3 +18,7 @@ Long-term goals
 Libraries
 ------------
 * [CorePlot](https://github.com/core-plot/core-plot)
+
+Resources
+------------
+* [Bicycle performance](http://en.wikipedia.org/wiki/Bicycle_performance)
