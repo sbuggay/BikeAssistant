@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 @end
 
@@ -23,7 +24,25 @@
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
+    [self timer];
 }
+
+-(void)timer {
+        self.seconds = 0;
+        NSTimer* timer = [NSTimer timerWithTimeInterval:1.0f
+                                                                       target:self
+                                                                     selector:@selector(updateLabel:)
+                                                                     userInfo:nil
+                                                                      repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
+}
+
+-(void) updateLabel:(NSTimer *) timer {
+        self.seconds++;
+        self.timerLabel.text = [NSString stringWithFormat:@"%i", self.seconds];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
