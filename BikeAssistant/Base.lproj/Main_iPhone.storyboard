@@ -145,21 +145,44 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmy-15-AVv">
-                                <rect key="frame" x="123" y="385" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="60" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmy-15-AVv">
+                                <rect key="frame" x="150" y="176" width="20" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkl-2R-pxH">
+                                <rect key="frame" x="144" y="81" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startTimerButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="URU-kz-YLe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="My Interval Timer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWa-79-0B4">
+                                <rect key="frame" x="94" y="147" width="133" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fWa-79-0B4" secondAttribute="trailing" constant="93" id="frg-IO-tcT"/>
+                            <constraint firstItem="fWa-79-0B4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="94" id="ukf-TD-zj2"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="GPS" id="2jU-v2-gAx"/>
                     <connections>
                         <outlet property="distance" destination="9dJ-uX-6nE" id="z4N-9B-KBY"/>
                         <outlet property="elevation" destination="ifL-JV-NeU" id="0vG-yQ-UaG"/>
+                        <outlet property="intervalTimerLabel" destination="fWa-79-0B4" id="KXw-L0-amS"/>
                         <outlet property="latitude" destination="ifD-Lk-BIp" id="8Oy-jJ-rRB"/>
                         <outlet property="longitude" destination="G88-mz-O3M" id="VDC-dU-Pra"/>
+                        <outlet property="startButton" destination="pkl-2R-pxH" id="Oby-8J-31o"/>
                         <outlet property="timerLabel" destination="Wmy-15-AVv" id="9Nj-3n-A4U"/>
                     </connections>
                 </viewController>

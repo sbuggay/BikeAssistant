@@ -10,6 +10,7 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property BOOL isFinalIntervalTimer;
 
 @end
 
@@ -24,12 +25,13 @@
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
-    [self timer];
+    
 }
 
 -(void)timer {
-        self.seconds = 0;
-        NSTimer* timer = [NSTimer timerWithTimeInterval:1.0f
+    self.seconds = 30;
+self.intervalTimerLabel.text = @"Warm up";
+    NSTimer* timer = [NSTimer timerWithTimeInterval:1.0f
                                                                        target:self
                                                                      selector:@selector(updateLabel:)
                                                                      userInfo:nil
@@ -39,8 +41,21 @@
 }
 
 -(void) updateLabel:(NSTimer *) timer {
-        self.seconds++;
+        self.seconds--;
         self.timerLabel.text = [NSString stringWithFormat:@"%i", self.seconds];
+    if (self.seconds == 0 && !self.isFinalIntervalTimer)
+    {
+        self.intervalTimerLabel.text = @"Cool Down";
+        self.isFinalIntervalTimer = YES;
+        self.seconds = 20;
+        
+    }
+    else if (self.seconds == 0)
+    {
+        [timer invalidate];
+        [self.startButton setEnabled:YES];
+        self.intervalTimerLabel.text = @"My Interval Timer";
+    }
 }
 
 
@@ -80,4 +95,9 @@
     self.distance.text = tripString;
 }
 
+- (IBAction)startTimerButton:(id)sender {
+    self.isFinalIntervalTimer = NO;
+    [self.startButton setEnabled:NO];
+    [self timer];
+}
 @end

@@ -23,5 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *elevation;
 @property (weak, nonatomic) IBOutlet UILabel *distance;
 @property int seconds;
+- (IBAction)startTimerButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UILabel *intervalTimerLabel;
 
 @end
