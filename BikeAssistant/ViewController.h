@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *longitude;
 @property (weak, nonatomic) IBOutlet UILabel *elevation;
 @property (weak, nonatomic) IBOutlet UILabel *distance;
-@property int seconds;
+@property int seconds, minutes, hours;
 - (IBAction)startTimerButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UILabel *intervalTimerLabel;
