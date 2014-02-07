@@ -23,6 +23,7 @@
 		56FDB14D1884BCF2009DE59D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FDB14B1884BCF2009DE59D /* InfoPlist.strings */; };
 		56FDB14F1884BCF2009DE59D /* BikeAssistantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FDB14E1884BCF2009DE59D /* BikeAssistantTests.m */; };
 		56FDB1591884D656009DE59D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1581884D656009DE59D /* MapKit.framework */; };
+		9DA3E42318A45156005DA070 /* CaloriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA3E42218A45156005DA070 /* CaloriesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		56FDB14C1884BCF2009DE59D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56FDB14E1884BCF2009DE59D /* BikeAssistantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BikeAssistantTests.m; sourceTree = "<group>"; };
 		56FDB1581884D656009DE59D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		9DA3E42118A45156005DA070 /* CaloriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaloriesViewController.h; sourceTree = "<group>"; };
+		9DA3E42218A45156005DA070 /* CaloriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaloriesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				56FDB12F1884BCF2009DE59D /* AppDelegate.h */,
 				56FDB1301884BCF2009DE59D /* AppDelegate.m */,
 				56FDB1321884BCF2009DE59D /* Main_iPhone.storyboard */,
+				9DA3E42118A45156005DA070 /* CaloriesViewController.h */,
+				9DA3E42218A45156005DA070 /* CaloriesViewController.m */,
 				56FDB1351884BCF2009DE59D /* Main_iPad.storyboard */,
 				56FDB1381884BCF2009DE59D /* ViewController.h */,
 				56FDB1391884BCF2009DE59D /* ViewController.m */,
@@ -257,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DA3E42318A45156005DA070 /* CaloriesViewController.m in Sources */,
 				56FDB13A1884BCF2009DE59D /* ViewController.m in Sources */,
 				56FDB1311884BCF2009DE59D /* AppDelegate.m in Sources */,
 				56FDB12D1884BCF2009DE59D /* main.m in Sources */,
@@ -478,6 +484,7 @@
 				56FDB1541884BCF2009DE59D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56FDB1551884BCF2009DE59D /* Build configuration list for PBXNativeTarget "BikeAssistantTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +493,7 @@
 				56FDB1571884BCF2009DE59D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

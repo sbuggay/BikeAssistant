@@ -355,20 +355,38 @@
             </objects>
             <point key="canvasLocation" x="-474" y="2178"/>
         </scene>
-        <!--View Controller - Calories-->
+        <!--Calories View Controller - Calories-->
         <scene sceneID="LWu-cc-QSZ">
             <objects>
-                <viewController id="7W3-Hh-wgG" sceneMemberID="viewController">
+                <viewController id="7W3-Hh-wgG" customClass="CaloriesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bct-ob-z48"/>
                         <viewControllerLayoutGuide type="bottom" id="Gap-uq-y5w"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hpD-9h-1PT">
+                    <view key="view" contentMode="scaleToFill" id="hpD-9h-1PT" customClass="Ca">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzT-4H-N0s">
+                                <rect key="frame" x="20" y="138" width="280" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Watts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBL-AF-0vG">
+                                <rect key="frame" x="20" y="219" width="280" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calories" id="KHg-Vs-f6f"/>
+                    <connections>
+                        <outlet property="caloriesLabel" destination="uzT-4H-N0s" id="xMJ-Qf-A3D"/>
+                        <outlet property="wattsLabel" destination="pBL-AF-0vG" id="f9j-2Y-CeH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAF-gM-IKF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
