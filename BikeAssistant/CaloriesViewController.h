@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CaloriesViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *heightLabel;
+@property (weak, nonatomic) IBOutlet UILabel *weightLabel;
 @property (weak, nonatomic) IBOutlet UILabel *caloriesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *wattsLabel;
 @property double totalWeight, distance, totalTime, resistance;

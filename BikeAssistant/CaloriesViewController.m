@@ -27,7 +27,27 @@
 {
     [super viewDidLoad];
     [self timer];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    if (![defaults valueForKey:@"weight"]) {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Your weight has not been set!"
+                                                          message:@"Please head over to settings to set this."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        
+        [message show];
+    }
+
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [_heightLabel setText:[NSString stringWithFormat:@"%ld", [defaults integerForKey:@"height"]]];
+    [_weightLabel setText:[NSString stringWithFormat:@"%ld", [defaults integerForKey:@"weight"]]];
+    
+
 }
 
 - (void)didReceiveMemoryWarning
