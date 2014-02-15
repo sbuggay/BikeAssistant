@@ -77,7 +77,7 @@
             </objects>
             <point key="canvasLocation" x="-487" y="820"/>
         </scene>
-        <!--View Controller - GPS-->
+        <!--View Controller - Interval Timer-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -168,6 +168,20 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ0-27-GW8">
+                                <rect key="frame" x="0.0" y="67" width="114" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create Interval">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjS-vG-pxd">
+                                <rect key="frame" x="204" y="67" width="111" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Interval History">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -175,7 +189,7 @@
                             <constraint firstItem="fWa-79-0B4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="94" id="ukf-TD-zj2"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="GPS" id="2jU-v2-gAx"/>
+                    <tabBarItem key="tabBarItem" title="Interval Timer" id="2jU-v2-gAx"/>
                     <connections>
                         <outlet property="distance" destination="9dJ-uX-6nE" id="z4N-9B-KBY"/>
                         <outlet property="elevation" destination="ifL-JV-NeU" id="0vG-yQ-UaG"/>
@@ -337,7 +351,7 @@
             </objects>
             <point key="canvasLocation" x="-487" y="2180"/>
         </scene>
-        <!--Calories View Controller - Calories-->
+        <!--Calories View Controller - Statistics-->
         <scene sceneID="LWu-cc-QSZ">
             <objects>
                 <viewController id="7W3-Hh-wgG" customClass="CaloriesViewController" sceneMemberID="viewController">
@@ -377,7 +391,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calories" id="KHg-Vs-f6f"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" id="KHg-Vs-f6f"/>
                     <connections>
                         <outlet property="caloriesLabel" destination="uzT-4H-N0s" id="xMJ-Qf-A3D"/>
                         <outlet property="heightLabel" destination="PP0-mA-YX3" id="MEt-vc-KqD"/>
