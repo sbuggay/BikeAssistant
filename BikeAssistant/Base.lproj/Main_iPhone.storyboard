@@ -75,7 +75,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDY-T1-GS8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-487" y="820"/>
+            <point key="canvasLocation" x="-115" y="764"/>
         </scene>
         <!--View Controller - Interval Timer-->
         <scene sceneID="ufC-wZ-h7g">
@@ -174,6 +174,9 @@
                                 <state key="normal" title="Create Interval">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="pbY-lC-dNW" kind="push" id="KV3-Yn-ADg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjS-vG-pxd">
                                 <rect key="frame" x="204" y="67" width="111" height="30"/>
@@ -181,6 +184,9 @@
                                 <state key="normal" title="Interval History">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="8BU-5T-9cX" kind="push" id="1Oe-mx-9xn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -202,7 +208,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63" y="747"/>
+            <point key="canvasLocation" x="-645" y="2265"/>
+        </scene>
+        <!--Create Interval View Controller-->
+        <scene sceneID="Tl2-92-dh2">
+            <objects>
+                <tableViewController id="pbY-lC-dNW" customClass="CreateIntervalViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gbE-1b-611">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="r7Y-p7-Jxn">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r7Y-p7-Jxn" id="n0z-bE-6mR">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pbY-lC-dNW" id="WOi-Vi-nBr"/>
+                            <outlet property="delegate" destination="pbY-lC-dNW" id="Ctz-Uk-mcz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="MjH-xN-kUH"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FIq-Vz-KBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-965" y="3025"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7ix-TL-Sf1">
@@ -275,7 +310,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S67-0X-Dzd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63" y="1485"/>
+            <point key="canvasLocation" x="-23" y="2265"/>
+        </scene>
+        <!--Interval History View Controller-->
+        <scene sceneID="7lk-FI-vRl">
+            <objects>
+                <tableViewController id="8BU-5T-9cX" customClass="IntervalHistoryViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gWe-1T-NtW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="t1C-fP-oL4">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t1C-fP-oL4" id="5hb-26-Sji">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8BU-5T-9cX" id="Xd8-Zn-Rho"/>
+                            <outlet property="delegate" destination="8BU-5T-9cX" id="hFD-U5-ZWq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Jn4-d3-sws"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ynh-Bf-jCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-354" y="3025"/>
         </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="KHR-Bf-bn8">
@@ -349,7 +413,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TQ4-hm-VIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-487" y="2180"/>
+            <point key="canvasLocation" x="635" y="764"/>
         </scene>
         <!--Calories View Controller - Statistics-->
         <scene sceneID="LWu-cc-QSZ">
@@ -401,7 +465,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAF-gM-IKF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="2180"/>
+            <point key="canvasLocation" x="624" y="2265"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l1k-5e-Tsa">
