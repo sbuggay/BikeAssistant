@@ -13,6 +13,7 @@
 @end
 
 @implementation CaloriesViewController
+@synthesize locationManager, startLocation;;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +27,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.delegate = self;
+    [locationManager startUpdatingLocation];
+    
     [self timer];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -76,6 +83,36 @@
     // Watts Generated Formula
     double wattsGenerated = (_totalWeight * _resistance * _distance) / _totalTime;
     _wattsLabel.text = [NSString stringWithFormat: @"Watts Generated: %f.2", wattsGenerated];
+}
+
+-(void)locationManager:(CLLocationManager *)manager
+   didUpdateToLocation:(CLLocation *)newLocation
+          fromLocation:(CLLocation *)oldLocation
+{
+    NSString *currentLatitude = [[NSString alloc]
+                                 initWithFormat:@"%g",
+                                 newLocation.coordinate.latitude];
+    self.latitudeLabel.text = currentLatitude;
+    
+    NSString *currentLongitude = [[NSString alloc]
+                                  initWithFormat:@"%g",
+                                  newLocation.coordinate.longitude];
+    self.longitudeLabel.text = currentLongitude;
+    NSString *currentAltitude = [[NSString alloc]
+                                 initWithFormat:@"%gm",
+                                 newLocation.altitude];
+    self.altitudeLabel.text = currentAltitude;
+    
+    if (startLocation == nil)
+        self.startLocation = newLocation;
+    
+    CLLocationDistance distanceBetween = [newLocation
+                                          distanceFromLocation:startLocation];
+    
+    NSString *tripString = [[NSString alloc]
+                            initWithFormat:@"%fm",
+                            distanceBetween];
+    self.distanceLabel.text = tripString;
 }
 
 @end
