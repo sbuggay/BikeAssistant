@@ -7,21 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
 
 @interface ViewController : UIViewController
-<CLLocationManagerDelegate>
-{
-    CLLocationManager *locationManager;
-    CLLocation *startLocation;
 
-}
-@property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) CLLocation *startLocation;
-@property (weak, nonatomic) IBOutlet UILabel *latitude;
-@property (weak, nonatomic) IBOutlet UILabel *longitude;
-@property (weak, nonatomic) IBOutlet UILabel *elevation;
-@property (weak, nonatomic) IBOutlet UILabel *distance;
 @property int seconds, minutes, hours;
 - (IBAction)startTimerButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
