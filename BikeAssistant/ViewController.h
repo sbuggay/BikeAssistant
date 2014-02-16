@@ -12,8 +12,7 @@
 @interface ViewController : UIViewController
 <CLLocationManagerDelegate>
 {
-    CLLocationManager *locationManager;
-    CLLocation *startLocation;
+
 
 }
 @property (strong, nonatomic) CLLocationManager *locationManager;
