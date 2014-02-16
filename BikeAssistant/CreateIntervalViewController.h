@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AddIntervalViewController.h"
+
 @interface CreateIntervalViewController : UITableViewController
+{
+    NSMutableArray *intervals;
+}
 
 @end
