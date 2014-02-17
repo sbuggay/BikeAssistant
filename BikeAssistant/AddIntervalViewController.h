@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "Interval.h"
+#import "CreateIntervalViewController.h"
 
 @interface AddIntervalViewController : UIViewController
 {
