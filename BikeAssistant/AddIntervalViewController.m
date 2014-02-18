@@ -13,18 +13,27 @@
 
 - (IBAction)finishedButton:(id) sender {
     
-    int totalSeconds;
+    int totalSeconds = 0;
     
     //Check to see if name and time were inputted
     //Verify name is unique to THIS interval
     //Update Interval object
     
-    totalSeconds = [[_iSeconds text] intValue] * 3600;
-    totalSeconds += [[_iSeconds text] intValue] * 60;
+    totalSeconds = [[_iHours text] intValue] * 3600;
+    totalSeconds += [[_iMinutes text] intValue] * 60;
     totalSeconds += [[_iSeconds text] intValue];
     
     self.interval.intervalName = [_iName text];
     self.interval.seconds = &(totalSeconds);
+    
+    //NSString *alertMessage = @"Hours: %i Minutes:%i Seconds:%i", *hours, *minutes, *seconds;
+    NSString *alertMessage;
+    
+    alertMessage = [NSString stringWithFormat:@"Hours: %i", totalSeconds];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    [alert show];
     
     [self performSegueWithIdentifier:@"returnToCreateInterval" sender:self];
    

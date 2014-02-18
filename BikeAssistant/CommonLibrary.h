@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CommonLibrary : NSObject
+@interface CommonLibrary : NSObject{
+    int timeToHours;
+    int timeToMinutes;
+    int timeToSeconds;
+}
+
+-(int) timeToHours:(int) seconds;
+-(int) timeToMinutes:(int) seconds;
+-(int) timeToSeconds:(int) seconds;
+
 
 @end

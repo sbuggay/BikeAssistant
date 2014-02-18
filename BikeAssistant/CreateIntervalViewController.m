@@ -68,8 +68,24 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    CommonLibrary *myLibrary = [[CommonLibrary alloc] init];
+    Interval *temp = [intervals objectAtIndex:indexPath.row];
+    
     cell.textLabel.text =  [[intervals objectAtIndex:indexPath.row] intervalName ];
     
+    int hours = [myLibrary timeToHours:temp.seconds];
+    int minutes = [myLibrary timeToMinutes:temp.seconds];
+    //int seconds = [myLibrary timeToSeconds:temp.seconds];
+    int seconds = [temp seconds];
+    
+    //NSString *alertMessage = @"Hours: %i Minutes:%i Seconds:%i", *hours, *minutes, *seconds;
+    NSString *alertMessage;
+    
+    alertMessage = [NSString stringWithFormat:@"Hours: %i", seconds];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+
+    //[alert show];
     
     return cell;
 }
@@ -124,11 +140,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     AddIntervalViewController *vc = [segue destinationViewController];
+    CommonLibrary *myLibrary = [[CommonLibrary alloc] init];
     
     Interval *temp = [[Interval alloc] init];
     [intervals addObject:temp];
-    
-    
     
     vc.interval = temp;
     
