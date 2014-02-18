@@ -50,10 +50,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [_heightLabel setText:[NSString stringWithFormat:@"%ld", [defaults integerForKey:@"height"]]];
-    [_weightLabel setText:[NSString stringWithFormat:@"%ld", [defaults integerForKey:@"weight"]]];
-    
+
 
 }
 
@@ -79,10 +76,10 @@
     self.resistance = .1;
     // Calories Burned Formula
     double caloriesBurned = ((.046 * (_distance/_totalTime) * _totalWeight) + (.066 * pow((_distance/_totalTime), 3)) * _totalTime);
-    _caloriesLabel.text = [NSString stringWithFormat: @"Calories Burned: %f.2", caloriesBurned];
+    _caloriesLabel.text = [NSString stringWithFormat: @"%.2f", caloriesBurned];
     // Watts Generated Formula
     double wattsGenerated = (_totalWeight * _resistance * _distance) / _totalTime;
-    _wattsLabel.text = [NSString stringWithFormat: @"Watts Generated: %f.2", wattsGenerated];
+    _wattsLabel.text = [NSString stringWithFormat: @"%.2f", wattsGenerated];
 }
 
 -(void)locationManager:(CLLocationManager *)manager
