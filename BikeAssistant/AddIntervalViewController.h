@@ -10,7 +10,7 @@
 
 #import "Interval.h"
 #import "CreateIntervalViewController.h"
-#import "TimeConversion.h"
+
 
 @interface AddIntervalViewController : UIViewController
 {
