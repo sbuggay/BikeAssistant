@@ -24,6 +24,7 @@
     
 }
 
+
 -(void)timer {
     self.seconds = 10;
     self.minutes = 1;

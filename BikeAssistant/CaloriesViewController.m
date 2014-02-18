@@ -19,7 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -45,14 +45,14 @@
         
         [message show];
     }
-
+    
     
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-
-
+    [self updateLabel:Nil];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
