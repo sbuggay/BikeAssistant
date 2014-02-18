@@ -124,7 +124,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="MTD-mN-GXh">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MTD-mN-GXh">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MTD-mN-GXh" id="l3P-8x-D8T">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -287,8 +287,16 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="iHours" destination="bUn-vo-KDs" id="gbK-f9-4Gp"/>
+                        <outlet property="iMinutes" destination="hGH-Z7-4Zo" id="TJK-tc-C4G"/>
+                        <outlet property="iName" destination="clb-88-AmP" id="m7e-53-GX9"/>
+                        <outlet property="iSeconds" destination="ePV-Gg-MKt" id="qPX-Kk-Mq4"/>
+                        <segue destination="3ik-gw-XRj" kind="unwind" identifier="returnToCreateInterval" unwindAction="returnToCreateInterval:" id="89H-rt-joK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQR-rm-sL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3ik-gw-XRj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-965" y="3731"/>
         </scene>

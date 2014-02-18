@@ -17,27 +17,19 @@
     //Check to see if name and time were inputted
     //Verify name is unique to THIS interval
     //Update Interval object
-    //Display message that adding was successful
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Interval Added Successfully. Press back if you're done." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    self.interval.intervalName = [_iName text];
+    self.interval.seconds = [[_iSeconds text] intValue];
     
-    [alert show];
-    
-       
-    //Prepare for additional timers by clearing inputs
+    [self performSegueWithIdentifier:@"returnToCreateInterval" sender:self];
+   
 }
 
 -(void) viewDidLoad {
-    self.interval.intervalName = @"test2";
+    self.interval.intervalName = @"Default";
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-    
-    
-    
-   
-    
+- (IBAction)goBackToFirstView:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

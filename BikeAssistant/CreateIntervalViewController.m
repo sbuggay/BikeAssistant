@@ -68,10 +68,14 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text =  [[intervals objectAtIndex:indexPath.row] intervalName];
+    cell.textLabel.text =  [[intervals objectAtIndex:indexPath.row] intervalName ];
     
     
     return cell;
+}
+
+- (IBAction)returnToCreateInterval:(UIStoryboardSegue*)segue {
+    
 }
 
 /*
@@ -123,8 +127,7 @@
     
     Interval *temp = [[Interval alloc] init];
     [intervals addObject:temp];
-
-    NSLog(@"%ld", [intervals count]);
+ 
     vc.interval = temp;
     
 }
