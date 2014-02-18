@@ -30,6 +30,7 @@
 		56FDB14F1884BCF2009DE59D /* BikeAssistantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FDB14E1884BCF2009DE59D /* BikeAssistantTests.m */; };
 		56FDB1591884D656009DE59D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1581884D656009DE59D /* MapKit.framework */; };
 		9DA3E42318A45156005DA070 /* CaloriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA3E42218A45156005DA070 /* CaloriesViewController.m */; };
+		D4027E8618B2E0C900D17A02 /* TimeConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = D4027E8518B2E0C900D17A02 /* TimeConversion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		56FDB1581884D656009DE59D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9DA3E42118A45156005DA070 /* CaloriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaloriesViewController.h; sourceTree = "<group>"; };
 		9DA3E42218A45156005DA070 /* CaloriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaloriesViewController.m; sourceTree = "<group>"; };
+		D4027E8418B2E0C900D17A02 /* TimeConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeConversion.h; sourceTree = "<group>"; };
+		D4027E8518B2E0C900D17A02 /* TimeConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeConversion.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,8 @@
 			children = (
 				56FDB12F1884BCF2009DE59D /* AppDelegate.h */,
 				56FDB1301884BCF2009DE59D /* AppDelegate.m */,
+				D4027E8418B2E0C900D17A02 /* TimeConversion.h */,
+				D4027E8518B2E0C900D17A02 /* TimeConversion.m */,
 				56FDB1321884BCF2009DE59D /* Main_iPhone.storyboard */,
 				0740826A18B180670085A16F /* Interval.h */,
 				0740826B18B180670085A16F /* Interval.m */,
@@ -300,6 +305,7 @@
 				0703621F18A985C0006AB301 /* SettingsViewController.m in Sources */,
 				072705E118A98A160094A5AB /* MapViewController.m in Sources */,
 				01EC2D8318B034110035BD78 /* CreateIntervalViewController.m in Sources */,
+				D4027E8618B2E0C900D17A02 /* TimeConversion.m in Sources */,
 				56FDB1311884BCF2009DE59D /* AppDelegate.m in Sources */,
 				56FDB12D1884BCF2009DE59D /* main.m in Sources */,
 			);
