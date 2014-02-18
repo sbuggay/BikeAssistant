@@ -26,4 +26,13 @@
     return seconds;
 }
 
+-(UIAlertView *) simpleAlert:(NSString*)titleIn: (NSString*)messageIn:(NSString*)buttonTextIn
+{
+    return [[UIAlertView alloc] initWithTitle:titleIn message:messageIn delegate:nil cancelButtonTitle:buttonTextIn otherButtonTitles:nil, nil];
+}
+
+-(UIAlertView *) superSimpleAlert:(NSString*)messageIn
+{
+    return [[UIAlertView alloc] initWithTitle:@"Alert" message:messageIn delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+}
 @end
