@@ -13,12 +13,18 @@
 
 - (IBAction)finishedButton:(id) sender {
     
+    int totalSeconds;
     
     //Check to see if name and time were inputted
     //Verify name is unique to THIS interval
     //Update Interval object
+    
+    totalSeconds = [[_iSeconds text] intValue] * 3600;
+    totalSeconds += [[_iSeconds text] intValue] * 60;
+    totalSeconds += [[_iSeconds text] intValue];
+    
     self.interval.intervalName = [_iName text];
-    self.interval.seconds = [[_iSeconds text] intValue];
+    self.interval.seconds = &(totalSeconds);
     
     [self performSegueWithIdentifier:@"returnToCreateInterval" sender:self];
    

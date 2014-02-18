@@ -127,7 +127,9 @@
     
     Interval *temp = [[Interval alloc] init];
     [intervals addObject:temp];
- 
+    
+    
+    
     vc.interval = temp;
     
 }
