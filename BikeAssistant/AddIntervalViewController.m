@@ -26,15 +26,6 @@
     self.interval.intervalName = [_iName text];
     self.interval.seconds = &(totalSeconds);
     
-    //NSString *alertMessage = @"Hours: %i Minutes:%i Seconds:%i", *hours, *minutes, *seconds;
-    NSString *alertMessage;
-    
-    alertMessage = [NSString stringWithFormat:@"Hours: %i", totalSeconds];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    
-    [alert show];
-    
     [self performSegueWithIdentifier:@"returnToCreateInterval" sender:self];
    
 }

@@ -9,14 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface CommonLibrary : NSObject{
-    int timeToHours;
-    int timeToMinutes;
-    int timeToSeconds;
+    NSNumber * timeToHours;
+    NSNumber * timeToMinutes;
+    NSNumber * timeToSeconds;
 }
 
--(int) timeToHours:(int) seconds;
--(int) timeToMinutes:(int) seconds;
--(int) timeToSeconds:(int) seconds;
-
+-(NSNumber *) timeToHours:(int) seconds;
+-(NSNumber *) timeToMinutes:(int) seconds;
+-(NSNumber *) timeToSeconds:(int) seconds;
 
 @end

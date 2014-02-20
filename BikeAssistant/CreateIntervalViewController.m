@@ -73,19 +73,15 @@
     
     cell.textLabel.text =  [[intervals objectAtIndex:indexPath.row] intervalName ];
     
-    int hours = [myLibrary timeToHours:temp.seconds];
-    int minutes = [myLibrary timeToMinutes:temp.seconds];
-    //int seconds = [myLibrary timeToSeconds:temp.seconds];
-    int seconds = [temp seconds];
+    NSNumber *hours = [myLibrary timeToHours:*(temp.seconds)];
+    NSNumber *minutes = [myLibrary timeToMinutes:*temp.seconds];
+    NSNumber *seconds = [myLibrary timeToSeconds:*(temp.seconds)];
     
-    //NSString *alertMessage = @"Hours: %i Minutes:%i Seconds:%i", *hours, *minutes, *seconds;
     NSString *alertMessage;
     
-    alertMessage = [NSString stringWithFormat:@"Hours: %i", seconds];
+    alertMessage = [NSString stringWithFormat:@"Hours: %ld - Minutes: %ld - Seconds: %ld", (long)[hours integerValue], (long)[minutes integerValue], (long)[seconds integerValue]];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-
-    //[alert show];
+    NSLog(@"%@", alertMessage);
     
     return cell;
 }
@@ -140,7 +136,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     AddIntervalViewController *vc = [segue destinationViewController];
-    CommonLibrary *myLibrary = [[CommonLibrary alloc] init];
     
     Interval *temp = [[Interval alloc] init];
     [intervals addObject:temp];

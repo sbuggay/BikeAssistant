@@ -9,24 +9,39 @@
 #import "CommonLibrary.h"
 
 @implementation CommonLibrary
--(int) timeToHours:(int) seconds
+-(NSNumber *) timeToHours:(int) seconds
 {
-    return seconds/3600;
+    NSLog(@"Seconds from method: %i", seconds);
+    return [NSNumber numberWithInt:seconds/3600];
 }
 
--(int) timeToMinutes:(int) seconds
+-(NSNumber *) timeToMinutes:(int) seconds
 {
-    seconds = seconds % [self timeToHours:seconds];
-    return seconds/60;
+    if (seconds > 3600) {
+        seconds = seconds % [[self timeToHours:seconds] intValue];
+        seconds = seconds/60;
+    }
+    else if(seconds > 60){
+        seconds = seconds/60;
+    }
+    else{
+        seconds = 0;
+    }
+    
+    return [NSNumber numberWithInt:seconds];
 }
 
--(int) timeToSeconds:(int) seconds
+-(NSNumber *) timeToSeconds:(int) seconds
 {
-    seconds = seconds % [self timeToMinutes:seconds];
-    return seconds;
+    if(seconds > 60){
+    seconds = seconds % [[self timeToMinutes:seconds] intValue];
+    
+    }
+    
+    return [NSNumber numberWithInt:seconds];
 }
 
--(UIAlertView *) simpleAlert:(NSString*)titleIn: (NSString*)messageIn:(NSString*)buttonTextIn
+-(UIAlertView *) simpleAlert:(NSString*)titleIn message:(NSString*)messageIn button:(NSString*)buttonTextIn
 {
     return [[UIAlertView alloc] initWithTitle:titleIn message:messageIn delegate:nil cancelButtonTitle:buttonTextIn otherButtonTitles:nil, nil];
 }

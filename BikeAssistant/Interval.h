@@ -10,6 +10,6 @@
 
 @interface Interval : NSObject
 @property (copy, nonatomic) NSString *intervalName;
-@property (assign, nonatomic) NSInteger *seconds;
+@property (assign, nonatomic) int *seconds;
 
 @end
