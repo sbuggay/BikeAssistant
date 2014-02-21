@@ -10,10 +10,13 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface ViewController : UIViewController
+- (IBAction)getIntervalName:(id)sender;
 
 
 @property int seconds, minutes, hours;
 - (IBAction)startTimerButton:(id)sender;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UILabel *intervalTimerLabel;
 

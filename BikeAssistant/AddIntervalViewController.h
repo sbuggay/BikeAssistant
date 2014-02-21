@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "IntervalTimer.h"
 #import "Interval.h"
 #import "CreateIntervalViewController.h"
 
@@ -17,6 +18,7 @@
     
 }
 @property (strong, nonatomic) Interval *interval;
+@property (strong, nonatomic) IntervalTimer *intervalTimer;
 @property (weak, nonatomic) IBOutlet UITextField *iName;
 @property (weak, nonatomic) IBOutlet UITextField *iHours;
 @property (weak, nonatomic) IBOutlet UITextField *iMinutes;

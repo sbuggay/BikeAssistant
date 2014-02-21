@@ -137,10 +137,16 @@
 }
 
 
-
 - (IBAction)startTimerButton:(id)sender {
     self.isFinalIntervalTimer = NO;
     [self.startButton setEnabled:NO];
     [self timer];
+}
+
+
+- (IBAction)getIntervalName:(id)sender {
+
+    
+    //[self performSegueWithIdentifier:@"returnToCreateInterval" sender:self];
 }
 @end

@@ -23,15 +23,23 @@
     totalSeconds += [[_iMinutes text] intValue] * 60;
     totalSeconds += [[_iSeconds text] intValue];
     
-    self.interval.intervalName = [_iName text];
-    self.interval.seconds = &(totalSeconds);
+    self.intervalTimer.intervalName = [_iName text];
+    self.intervalTimer.seconds = &(totalSeconds);
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    self.intervalTimer.intervalName =  [NSString stringWithFormat:@"%@%@", self.intervalTimer.intervalName,[defaults valueForKey:@"intervalName"]];
+    NSString *myTime = [NSString stringWithFormat:@"%i", *self.intervalTimer.seconds];
+
+    [defaults setValue:self.intervalTimer.intervalName forKey:self.intervalTimer.intervalName];
+    [defaults setValue:myTime forKey:[NSString stringWithFormat:@"%@Timer", self.intervalTimer.intervalName]];
     
     [self performSegueWithIdentifier:@"returnToCreateInterval" sender:self];
    
 }
 
 -(void) viewDidLoad {
-    self.interval.intervalName = @"Default";
+    self.intervalTimer.intervalName = @"Default";
 }
 
 - (IBAction)goBackToFirstView:(id)sender {

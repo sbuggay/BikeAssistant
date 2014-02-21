@@ -23,6 +23,36 @@
     return self;
 }
 
+- (NSString *)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    UITableView *tableView = [[UITableView alloc]init];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    self.myInterval = [[Interval alloc]init];
+   
+    
+    self.myInterval.name = [[alertView textFieldAtIndex:0] text];
+    cell.textLabel.text = [[alertView textFieldAtIndex:0] text];
+    NSLog(@"input: %@", [[alertView textFieldAtIndex:0] text]);
+    
+  
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
+    
+    Interval *inter = [[Interval alloc]init];
+    NSString *keyName = self.myInterval.name;
+    [defaults setValue:self.myInterval.name forKey:keyName];
+    [defaults setValue:self.myInterval.name forKey:@"intervalName"];
+    
+
+    
+    
+    [self.tableView reloadData];
+    return [[alertView textFieldAtIndex:0] text];
+}
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,9 +64,15 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    intervals = [[NSMutableArray alloc] init];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Name" message:@"Enter name of Interval" delegate:self cancelButtonTitle:@"save" otherButtonTitles:nil, nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
     
-    NSLog(@"view did load");
+
+    
+    
+    
+   // myInterval.intervalName = [self alertView:alert clickedButtonAtIndex:0];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -68,23 +104,33 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    CommonLibrary *myLibrary = [[CommonLibrary alloc] init];
-    Interval *temp = [intervals objectAtIndex:indexPath.row];
+    //CommonLibrary *myLibrary = [[CommonLibrary alloc] init];
+    //Interval *temp = [intervals objectAtIndex:indexPath.row];
     
-    cell.textLabel.text =  [[intervals objectAtIndex:indexPath.row] intervalName ];
+    NSDictionary *dictionary = [[NSDictionary alloc] init];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
     
-    NSNumber *hours = [myLibrary timeToHours:*(temp.seconds)];
-    NSNumber *minutes = [myLibrary timeToMinutes:*temp.seconds];
-    NSNumber *seconds = [myLibrary timeToSeconds:*(temp.seconds)];
     
-    NSString *alertMessage;
+    dictionary = [defaults dictionaryForKey:@"dictionary"];
     
-    alertMessage = [NSString stringWithFormat:@"Hours: %ld - Minutes: %ld - Seconds: %ld", (long)[hours integerValue], (long)[minutes integerValue], (long)[seconds integerValue]];
     
-    NSLog(@"%@", alertMessage);
+    NSMutableArray *arrayOfIntervals = [[NSMutableArray alloc]init];
+    
+    
+    arrayOfIntervals = [dictionary objectForKey:@"intervals"];
+    
+    NSString *intervalName = [arrayOfIntervals objectAtIndex:0];
+    
+    cell.textLabel.text = intervalName;
+    
+    //NSNumber *hours = [myLibrary timeToHours:*(temp.seconds)];
+    //NSNumber *minutes = [myLibrary timeToMinutes:*temp.seconds];
+    //NSNumber *seconds = [myLibrary timeToSeconds:*(temp.seconds)];
+
     
     return cell;
 }
+
 
 - (IBAction)returnToCreateInterval:(UIStoryboardSegue*)segue {
     
