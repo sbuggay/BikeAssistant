@@ -23,7 +23,6 @@
 		56FDB1311884BCF2009DE59D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FDB1301884BCF2009DE59D /* AppDelegate.m */; };
 		56FDB1341884BCF2009DE59D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FDB1321884BCF2009DE59D /* Main_iPhone.storyboard */; };
 		56FDB1371884BCF2009DE59D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FDB1351884BCF2009DE59D /* Main_iPad.storyboard */; };
-		56FDB13A1884BCF2009DE59D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FDB1391884BCF2009DE59D /* ViewController.m */; };
 		56FDB13C1884BCF2009DE59D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FDB13B1884BCF2009DE59D /* Images.xcassets */; };
 		56FDB1431884BCF2009DE59D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1421884BCF2009DE59D /* XCTest.framework */; };
 		56FDB1441884BCF2009DE59D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1201884BCF2009DE59D /* Foundation.framework */; };
@@ -74,8 +73,6 @@
 		56FDB1301884BCF2009DE59D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		56FDB1331884BCF2009DE59D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		56FDB1361884BCF2009DE59D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		56FDB1381884BCF2009DE59D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		56FDB1391884BCF2009DE59D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		56FDB13B1884BCF2009DE59D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		56FDB1411884BCF2009DE59D /* BikeAssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeAssistantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FDB1421884BCF2009DE59D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -164,8 +161,6 @@
 				0740826E18B180D30085A16F /* AddIntervalViewController.m */,
 				01EC2D8118B034110035BD78 /* CreateIntervalViewController.h */,
 				01EC2D8218B034110035BD78 /* CreateIntervalViewController.m */,
-				56FDB1381884BCF2009DE59D /* ViewController.h */,
-				56FDB1391884BCF2009DE59D /* ViewController.m */,
 				0703621D18A985C0006AB301 /* SettingsViewController.h */,
 				0703621E18A985C0006AB301 /* SettingsViewController.m */,
 				9DA3E42118A45156005DA070 /* CaloriesViewController.h */,
@@ -313,7 +308,6 @@
 				9DA3E42318A45156005DA070 /* CaloriesViewController.m in Sources */,
 				0740826C18B180670085A16F /* IntervalTimer.m in Sources */,
 				0740826F18B180D30085A16F /* AddIntervalViewController.m in Sources */,
-				56FDB13A1884BCF2009DE59D /* ViewController.m in Sources */,
 				0703621F18A985C0006AB301 /* SettingsViewController.m in Sources */,
 				012F93A918B991C3000B18DD /* IntervalTimerViewController.m in Sources */,
 				072705E118A98A160094A5AB /* MapViewController.m in Sources */,

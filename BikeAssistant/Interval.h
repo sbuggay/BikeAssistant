@@ -14,9 +14,6 @@
     NSMutableArray *intervals;
 }
 
--(void)addTimer:(IntervalTimer *)myTimer;
--(void)encodeWithCoder:(Interval *)encoder;
--(void) saveCustomObject:(Interval *)obj;
 @property (strong, nonatomic) NSString *name;
 
 @end

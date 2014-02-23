@@ -14,6 +14,15 @@
 
 @implementation CreateIntervalViewController
 
+NSString *tempIntName = @"tempIntervalName";
+NSString *dictName = @"myDictionary";
+NSString *stempArray = @"tempArray";
+
+- (IBAction)finishButton:(id)sender {
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -34,14 +43,14 @@
     
     self.myInterval.name = [[alertView textFieldAtIndex:0] text];
     cell.textLabel.text = [[alertView textFieldAtIndex:0] text];
-    NSLog(@"input: %@", [[alertView textFieldAtIndex:0] text]);
+ 
     
     NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
-    [defaults setValue:_myInterval.name forKey:@"tempIntervalName"];
+    [defaults setValue:_myInterval.name forKey:tempIntName];
     
     NSMutableArray *myArray = [[NSMutableArray alloc]init];
     NSMutableArray *myTempArray = [[NSMutableArray alloc]init];
-    NSMutableDictionary *dictionary = [[defaults dictionaryForKey:@"myDictionary"]mutableCopy];
+    NSMutableDictionary *dictionary = [[defaults dictionaryForKey:dictName]mutableCopy];
     
     if (dictionary == nil) {
         dictionary = [[NSMutableDictionary alloc]init];
@@ -50,8 +59,8 @@
     [dictionary setObject:myArray forKey:_myInterval.name];
     
     //[dictionary writeToFile:@"myDictinoary" atomically:YES];
-    [defaults setObject:dictionary forKey:@"myDictionary"];
-    [defaults setObject:myTempArray forKey:@"tempArray"];
+    [defaults setObject:dictionary forKey:dictName];
+    [defaults setObject:myTempArray forKey:stempArray];
     
     [self.tableView reloadData];
     return [[alertView textFieldAtIndex:0] text];
@@ -104,7 +113,7 @@
     // Return the number of rows in the section.
     NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
     NSMutableArray *tempArray = [[NSMutableArray alloc]init];
-    tempArray = [defaults objectForKey:@"tempArray"];
+    tempArray = [defaults objectForKey:stempArray];
     return [tempArray count];
 }
 
@@ -112,14 +121,13 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    CommonLibrary *myLibrary = [[CommonLibrary alloc] init];
+
     
     NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
     NSMutableArray *myArray = [[NSMutableArray alloc]init];
-    NSMutableDictionary *dictionary = [[defaults dictionaryForKey:@"myDictionary"]mutableCopy];
+    NSMutableDictionary *dictionary = [[defaults dictionaryForKey:dictName]mutableCopy];
     
-    myArray = [[dictionary objectForKey:[defaults valueForKey:@"tempIntervalName"]]mutableCopy];
+    myArray = [[dictionary objectForKey:[defaults valueForKey:tempIntName]]mutableCopy];
     
     if(dictionary == nil){
         dictionary = [[NSMutableDictionary alloc]init];
@@ -130,17 +138,7 @@
     
     cell.textLabel.text = [myArray objectAtIndex:indexPath.row * 2];
     
-    NSLog(@"%@", [defaults valueForKey:@"tempIntervalName"]);
-    
-    NSNumber *hours = [myLibrary timeToHours:[[myArray objectAtIndex:(indexPath.row * 2) + 1] integerValue]];
-    NSNumber *minutes = [myLibrary timeToMinutes:[[myArray objectAtIndex:(indexPath.row * 2) + 1] integerValue]];
-    NSNumber *seconds = [myLibrary timeToSeconds:[[myArray objectAtIndex:(indexPath.row * 2) + 1] integerValue]];
-    
-    NSLog(@"Number of Hours: %@", hours);
-    NSLog(@"Number of Minutes: %@", minutes);
-    NSLog(@"Number of Seconds: %@", seconds);
-    
-    [dictionary writeToFile:@"myDictionary" atomically:YES];
+    [dictionary writeToFile:dictName atomically:YES];
     
     return cell;
 }
