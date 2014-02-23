@@ -1,21 +1,50 @@
 //
-//  ViewController.m
+//  IntervalTimerViewController.m
 //  BikeAssistant
 //
-//  Created by Devan Buggay on 1/13/14.
+//  Created by Chauncey Philpot on 2/22/14.
 //  Copyright (c) 2014 Devan Buggay. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "IntervalTimerViewController.h"
 
-@interface ViewController ()
+@interface IntervalTimerViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property BOOL isFinalIntervalTimer;
 
 @end
 
-@implementation ViewController
+@implementation IntervalTimerViewController
 
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -39,45 +68,38 @@
         myArray = [[NSMutableArray alloc]init];
     }
     
-    return 1;
+    return ([dictionary count] + 1);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     
     NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
-    NSMutableArray *myArray = [[NSMutableArray alloc]init];
     NSMutableDictionary *dictionary = [[defaults dictionaryForKey:@"myDictionary"]mutableCopy];
-    
-    myArray = [[dictionary objectForKey:[defaults valueForKey:@"tempIntervalName"]]mutableCopy];
     
     if(dictionary == nil){
         dictionary = [[NSMutableDictionary alloc]init];
     }
-    if(myArray == nil){
-        myArray = [[NSMutableArray alloc]init];
+    
+    int i = 0;
+    NSString *intervalName = [[NSString alloc]init];
+    for (NSString* key in dictionary) {
+        
+        if(i == indexPath.row){
+            intervalName = key;
+        }
+        i = i + 1;
     }
     
-    //cell.textLabel.text = [myArray objectAtIndex:indexPath.row * 2];
-    cell.textLabel.text = @"test";
-
-    
-    
+    cell.textLabel.text = intervalName;
+  
     [dictionary writeToFile:@"myDictionary" atomically:YES];
     
     return cell;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    UITableView *tableView = [[UITableView alloc]init];
-    
-	// Do any additional setup after loading the view, typically from a nib.
-    
 }
 
 -(void)timer {
@@ -186,23 +208,55 @@
 }
 
 
-- (void)didReceiveMemoryWarning
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }   
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+/*
+#pragma mark - Navigation
+
+// In a story board-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
 
+ */
 
-- (IBAction)startTimerButton:(id)sender {
-    self.isFinalIntervalTimer = NO;
-    [self.startButton setEnabled:NO];
-    [self timer];
-}
-
-
-- (IBAction)getIntervalName:(id)sender {
-
-    
-    //[self performSegueWithIdentifier:@"returnToCreateInterval" sender:self];
-}
 @end

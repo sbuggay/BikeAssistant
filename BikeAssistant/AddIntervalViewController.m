@@ -26,13 +26,37 @@
     self.intervalTimer.intervalName = [_iName text];
     self.intervalTimer.seconds = &(totalSeconds);
 
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+   
+    NSMutableArray *tempArray = [[NSMutableArray alloc]init];
     
-    self.intervalTimer.intervalName =  [NSString stringWithFormat:@"%@%@", self.intervalTimer.intervalName,[defaults valueForKey:@"intervalName"]];
-    NSString *myTime = [NSString stringWithFormat:@"%i", *self.intervalTimer.seconds];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
+    NSMutableArray *myArray = [[NSMutableArray alloc]init];
+    NSMutableDictionary *dictionary = [[defaults dictionaryForKey:@"myDictionary"]mutableCopy];
+    
+    myArray = [[dictionary objectForKey:[defaults valueForKey:@"tempIntervalName"]]mutableCopy];
+    tempArray = [[defaults objectForKey:@"tempArray"]mutableCopy];
+    
+    if(dictionary == nil){
+        dictionary = [[NSMutableDictionary alloc]init];
+    }
+    if(myArray == nil){
+        myArray = [[NSMutableArray alloc]init];
+    }
+    NSNumber *seconds = [NSNumber numberWithInt:totalSeconds];
+    
+    [myArray addObject:[_iName text]];
+    [myArray addObject:seconds];
+    [tempArray addObject:[_iName text]];
 
-    [defaults setValue:self.intervalTimer.intervalName forKey:self.intervalTimer.intervalName];
-    [defaults setValue:myTime forKey:[NSString stringWithFormat:@"%@Timer", self.intervalTimer.intervalName]];
+    
+    int index = [myArray count] -2;
+    
+    NSLog(@"%@", [myArray objectAtIndex:index]);
+    
+    [dictionary setObject:myArray forKey:[defaults valueForKey:@"tempIntervalName"]];
+    
+    [defaults setObject:dictionary forKey:@"myDictionary"];
+    [defaults setObject:tempArray forKey:@"tempArray"];
     
     [self performSegueWithIdentifier:@"returnToCreateInterval" sender:self];
    

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		012F93A918B991C3000B18DD /* IntervalTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 012F93A818B991C3000B18DD /* IntervalTimerViewController.m */; };
 		01BBA3CC18B6ADC900842ADD /* Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BBA3CB18B6ADC900842ADD /* Interval.m */; };
 		01EC2D8318B034110035BD78 /* CreateIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EC2D8218B034110035BD78 /* CreateIntervalViewController.m */; };
 		01EC2D8618B0342F0035BD78 /* IntervalHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EC2D8518B0342F0035BD78 /* IntervalHistoryViewController.m */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		012F93A718B991C3000B18DD /* IntervalTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalTimerViewController.h; sourceTree = "<group>"; };
+		012F93A818B991C3000B18DD /* IntervalTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalTimerViewController.m; sourceTree = "<group>"; };
 		01BBA3CA18B6ADC900842ADD /* Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interval.h; sourceTree = "<group>"; };
 		01BBA3CB18B6ADC900842ADD /* Interval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interval.m; sourceTree = "<group>"; };
 		01EC2D8118B034110035BD78 /* CreateIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateIntervalViewController.h; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 				56FDB12F1884BCF2009DE59D /* AppDelegate.h */,
 				56FDB1301884BCF2009DE59D /* AppDelegate.m */,
 				56FDB1321884BCF2009DE59D /* Main_iPhone.storyboard */,
+				012F93A718B991C3000B18DD /* IntervalTimerViewController.h */,
+				012F93A818B991C3000B18DD /* IntervalTimerViewController.m */,
 				0740826A18B180670085A16F /* IntervalTimer.h */,
 				0740826B18B180670085A16F /* IntervalTimer.m */,
 				01BBA3CA18B6ADC900842ADD /* Interval.h */,
@@ -310,6 +315,7 @@
 				0740826F18B180D30085A16F /* AddIntervalViewController.m in Sources */,
 				56FDB13A1884BCF2009DE59D /* ViewController.m in Sources */,
 				0703621F18A985C0006AB301 /* SettingsViewController.m in Sources */,
+				012F93A918B991C3000B18DD /* IntervalTimerViewController.m in Sources */,
 				072705E118A98A160094A5AB /* MapViewController.m in Sources */,
 				01EC2D8318B034110035BD78 /* CreateIntervalViewController.m in Sources */,
 				56FDB1311884BCF2009DE59D /* AppDelegate.m in Sources */,

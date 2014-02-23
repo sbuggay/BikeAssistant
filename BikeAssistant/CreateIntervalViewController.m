@@ -30,22 +30,28 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     self.myInterval = [[Interval alloc]init];
-   
+    
     
     self.myInterval.name = [[alertView textFieldAtIndex:0] text];
     cell.textLabel.text = [[alertView textFieldAtIndex:0] text];
     NSLog(@"input: %@", [[alertView textFieldAtIndex:0] text]);
     
-  
     NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
+    [defaults setValue:_myInterval.name forKey:@"tempIntervalName"];
     
-    Interval *inter = [[Interval alloc]init];
-    NSString *keyName = self.myInterval.name;
-    [defaults setValue:self.myInterval.name forKey:keyName];
-    [defaults setValue:self.myInterval.name forKey:@"intervalName"];
+    NSMutableArray *myArray = [[NSMutableArray alloc]init];
+    NSMutableArray *myTempArray = [[NSMutableArray alloc]init];
+    NSMutableDictionary *dictionary = [[defaults dictionaryForKey:@"myDictionary"]mutableCopy];
     
-
+    if (dictionary == nil) {
+        dictionary = [[NSMutableDictionary alloc]init];
+    }
     
+    [dictionary setObject:myArray forKey:_myInterval.name];
+    
+    //[dictionary writeToFile:@"myDictinoary" atomically:YES];
+    [defaults setObject:dictionary forKey:@"myDictionary"];
+    [defaults setObject:myTempArray forKey:@"tempArray"];
     
     [self.tableView reloadData];
     return [[alertView textFieldAtIndex:0] text];
@@ -96,7 +102,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [intervals count];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
+    NSMutableArray *tempArray = [[NSMutableArray alloc]init];
+    tempArray = [defaults objectForKey:@"tempArray"];
+    return [tempArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,29 +113,34 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    //CommonLibrary *myLibrary = [[CommonLibrary alloc] init];
-    //Interval *temp = [intervals objectAtIndex:indexPath.row];
+    CommonLibrary *myLibrary = [[CommonLibrary alloc] init];
     
-    NSDictionary *dictionary = [[NSDictionary alloc] init];
     NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
+    NSMutableArray *myArray = [[NSMutableArray alloc]init];
+    NSMutableDictionary *dictionary = [[defaults dictionaryForKey:@"myDictionary"]mutableCopy];
     
+    myArray = [[dictionary objectForKey:[defaults valueForKey:@"tempIntervalName"]]mutableCopy];
     
-    dictionary = [defaults dictionaryForKey:@"dictionary"];
+    if(dictionary == nil){
+        dictionary = [[NSMutableDictionary alloc]init];
+    }
+    if(myArray == nil){
+        myArray = [[NSMutableArray alloc]init];
+    }
     
+    cell.textLabel.text = [myArray objectAtIndex:indexPath.row * 2];
     
-    NSMutableArray *arrayOfIntervals = [[NSMutableArray alloc]init];
+    NSLog(@"%@", [defaults valueForKey:@"tempIntervalName"]);
     
+    NSNumber *hours = [myLibrary timeToHours:[[myArray objectAtIndex:(indexPath.row * 2) + 1] integerValue]];
+    NSNumber *minutes = [myLibrary timeToMinutes:[[myArray objectAtIndex:(indexPath.row * 2) + 1] integerValue]];
+    NSNumber *seconds = [myLibrary timeToSeconds:[[myArray objectAtIndex:(indexPath.row * 2) + 1] integerValue]];
     
-    arrayOfIntervals = [dictionary objectForKey:@"intervals"];
+    NSLog(@"Number of Hours: %@", hours);
+    NSLog(@"Number of Minutes: %@", minutes);
+    NSLog(@"Number of Seconds: %@", seconds);
     
-    NSString *intervalName = [arrayOfIntervals objectAtIndex:0];
-    
-    cell.textLabel.text = intervalName;
-    
-    //NSNumber *hours = [myLibrary timeToHours:*(temp.seconds)];
-    //NSNumber *minutes = [myLibrary timeToMinutes:*temp.seconds];
-    //NSNumber *seconds = [myLibrary timeToSeconds:*(temp.seconds)];
-
+    [dictionary writeToFile:@"myDictionary" atomically:YES];
     
     return cell;
 }

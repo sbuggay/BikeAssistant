@@ -18,7 +18,7 @@
 -(NSNumber *) timeToMinutes:(int) seconds
 {
     if (seconds > 3600) {
-        seconds = seconds % [[self timeToHours:seconds] intValue];
+        seconds = seconds - ([[self timeToHours:seconds] intValue] * 3600);
         seconds = seconds/60;
     }
     else if(seconds > 60){
@@ -34,7 +34,8 @@
 -(NSNumber *) timeToSeconds:(int) seconds
 {
     if(seconds > 60){
-    seconds = seconds % [[self timeToMinutes:seconds] intValue];
+    seconds = seconds - ([[self timeToHours:seconds] intValue] * 3600);
+    seconds = seconds - ([[self timeToMinutes:seconds] intValue] * 60);
     
     }
     
