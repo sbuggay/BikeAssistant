@@ -30,7 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+   
+    [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height-self.tableView.frame.size.height) animated:YES];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -89,13 +90,18 @@
     NSString *intervalName = [[NSString alloc]init];
     for (NSString* key in dictionary) {
         
-        if(i == indexPath.row){
+        if(i == indexPath.row - 1){
             intervalName = key;
         }
         i = i + 1;
     }
     
-    cell.textLabel.text = intervalName;
+    if(indexPath.row == 0){
+        cell.textLabel.text = @"Create Interval";
+    }
+    else{
+        cell.textLabel.text = intervalName;
+    }
   
     [dictionary writeToFile:@"myDictionary" atomically:YES];
     

@@ -90,6 +90,11 @@ NSString *stempArray = @"tempArray";
    // myInterval.intervalName = [self alertView:alert clickedButtonAtIndex:0];
 }
 
+- (void)refresh:(NSNotification *)notification
+{
+    [self.tableView reloadData];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [self.tableView reloadData];
 }
