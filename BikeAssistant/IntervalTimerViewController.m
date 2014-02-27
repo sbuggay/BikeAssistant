@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property BOOL isFinalIntervalTimer;
 
+
 @end
 
 @implementation IntervalTimerViewController
@@ -27,10 +28,19 @@
     return self;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSString *pressedButton = [_cellList objectAtIndex:indexPath.row];
+    
+    NSLog(@"%@", pressedButton);
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    _cellList = [[NSMutableArray alloc]init];
     [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height-self.tableView.frame.size.height) animated:YES];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -96,11 +106,14 @@
         i = i + 1;
     }
     
+    
     if(indexPath.row == 0){
         cell.textLabel.text = @"Create Interval";
+        [_cellList addObject:@"Create Interval"];
     }
     else{
         cell.textLabel.text = intervalName;
+        [_cellList addObject:intervalName];
     }
   
     [dictionary writeToFile:@"myDictionary" atomically:YES];

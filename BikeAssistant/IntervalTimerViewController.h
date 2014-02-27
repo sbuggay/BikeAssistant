@@ -20,5 +20,6 @@
 @property int seconds, minutes, hours;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UILabel *intervalTimerLabel;
+@property (strong, nonatomic) NSMutableArray* cellList;
 
 @end
