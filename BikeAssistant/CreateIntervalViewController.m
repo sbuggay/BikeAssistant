@@ -38,27 +38,13 @@ NSString *stempArray = @"tempArray";
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    self.myInterval = [[Interval alloc]init];
-    
-    
-    self.myInterval.name = [[alertView textFieldAtIndex:0] text];
     cell.textLabel.text = [[alertView textFieldAtIndex:0] text];
  
+    [defaults setValue:[[alertView textFieldAtIndex:0] text] forKey:tempIntName];
     
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
-    [defaults setValue:_myInterval.name forKey:tempIntName];
-    
-    NSMutableArray *myArray = [[NSMutableArray alloc]init];
     NSMutableArray *myTempArray = [[NSMutableArray alloc]init];
-    NSMutableDictionary *dictionary = [[defaults dictionaryForKey:dictName]mutableCopy];
     
-    if (dictionary == nil) {
-        dictionary = [[NSMutableDictionary alloc]init];
-    }
-    
-    [dictionary setObject:myArray forKey:_myInterval.name];
-    
-    //[dictionary writeToFile:@"myDictinoary" atomically:YES];
+    [dictionary setObject:myArray forKey:[[alertView textFieldAtIndex:0] text]];
     [defaults setObject:dictionary forKey:dictName];
     [defaults setObject:myTempArray forKey:stempArray];
     
@@ -81,12 +67,19 @@ NSString *stempArray = @"tempArray";
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Name" message:@"Enter name of Interval" delegate:self cancelButtonTitle:@"save" otherButtonTitles:nil, nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    defaults = [[NSUserDefaults alloc]init];
+    dictionary = [[defaults dictionaryForKey:dictName]mutableCopy];
+    myArray = [[NSMutableArray alloc]init];
+    
+    
+    if (dictionary == nil) {
+        dictionary = [[NSMutableDictionary alloc]init];
+    }
+    
     [alert show];
     
 
-    
-    
-    
    // myInterval.intervalName = [self alertView:alert clickedButtonAtIndex:0];
 }
 
@@ -116,21 +109,13 @@ NSString *stempArray = @"tempArray";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
-    NSMutableArray *tempArray = [[NSMutableArray alloc]init];
-    tempArray = [defaults objectForKey:stempArray];
-    return [tempArray count];
+    return [myArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
-    
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
-    NSMutableArray *myArray = [[NSMutableArray alloc]init];
-    NSMutableDictionary *dictionary = [[defaults dictionaryForKey:dictName]mutableCopy];
     
     myArray = [[dictionary objectForKey:[defaults valueForKey:tempIntName]]mutableCopy];
     

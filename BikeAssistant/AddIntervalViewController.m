@@ -22,16 +22,12 @@
     totalSeconds = [[_iHours text] intValue] * 3600;
     totalSeconds += [[_iMinutes text] intValue] * 60;
     totalSeconds += [[_iSeconds text] intValue];
-    
-    self.intervalTimer.intervalName = [_iName text];
-    self.intervalTimer.seconds = &(totalSeconds);
 
-   
     NSMutableArray *tempArray = [[NSMutableArray alloc]init];
-    
     NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
     NSMutableArray *myArray = [[NSMutableArray alloc]init];
     NSMutableDictionary *dictionary = [[defaults dictionaryForKey:@"myDictionary"]mutableCopy];
+    NSNumber *seconds = [NSNumber numberWithInt:totalSeconds];
     
     myArray = [[dictionary objectForKey:[defaults valueForKey:@"tempIntervalName"]]mutableCopy];
     tempArray = [[defaults objectForKey:@"tempArray"]mutableCopy];
@@ -42,19 +38,13 @@
     if(myArray == nil){
         myArray = [[NSMutableArray alloc]init];
     }
-    NSNumber *seconds = [NSNumber numberWithInt:totalSeconds];
+    
     
     [myArray addObject:[_iName text]];
     [myArray addObject:seconds];
     [tempArray addObject:[_iName text]];
-
-    
-    int index = [myArray count] -2;
-    
-    NSLog(@"%@", [myArray objectAtIndex:index]);
     
     [dictionary setObject:myArray forKey:[defaults valueForKey:@"tempIntervalName"]];
-    
     [defaults setObject:dictionary forKey:@"myDictionary"];
     [defaults setObject:tempArray forKey:@"tempArray"];
     
@@ -63,7 +53,7 @@
 }
 
 -(void) viewDidLoad {
-    self.intervalTimer.intervalName = @"Default";
+   
 }
 
 - (IBAction)goBackToFirstView:(id)sender {

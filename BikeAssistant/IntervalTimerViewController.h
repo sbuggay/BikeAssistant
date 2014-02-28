@@ -11,14 +11,12 @@
 @interface IntervalTimerViewController : UITableViewController
 
 - (IBAction)getIntervalName:(id)sender;
--(void)timer;
 -(void) updateLabel:(NSTimer *) timer;
--(void) fixTime;
 -(NSString *) formatTime;
 - (IBAction)startTimerButton:(id)sender;
 
 @property int seconds, minutes, hours;
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
+
 @property (weak, nonatomic) IBOutlet UILabel *intervalTimerLabel;
 @property (strong, nonatomic) NSMutableArray* cellList;
 

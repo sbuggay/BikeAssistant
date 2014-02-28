@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 
 #import "AddIntervalViewController.h"
-#import "CommonLibrary.h"
 #import "Interval.h"
 
 @interface CreateIntervalViewController : UITableViewController
 {
     NSMutableArray *intervals;
+    NSUserDefaults *defaults;
+    NSMutableArray *myArray;
+    NSMutableDictionary *dictionary;
 }
 
 @property (strong, nonatomic) Interval *myInterval;

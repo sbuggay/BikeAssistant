@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		012F93A918B991C3000B18DD /* IntervalTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 012F93A818B991C3000B18DD /* IntervalTimerViewController.m */; };
+		0195A66118C025BD00C5A01A /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0195A66018C025BD00C5A01A /* Timer.m */; };
 		01BBA3CC18B6ADC900842ADD /* Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BBA3CB18B6ADC900842ADD /* Interval.m */; };
 		01EC2D8318B034110035BD78 /* CreateIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EC2D8218B034110035BD78 /* CreateIntervalViewController.m */; };
 		01EC2D8618B0342F0035BD78 /* IntervalHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EC2D8518B0342F0035BD78 /* IntervalHistoryViewController.m */; };
 		0703621F18A985C0006AB301 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0703621E18A985C0006AB301 /* SettingsViewController.m */; };
 		072705E118A98A160094A5AB /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 072705E018A98A160094A5AB /* MapViewController.m */; };
-		0740826C18B180670085A16F /* IntervalTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0740826B18B180670085A16F /* IntervalTimer.m */; };
 		0740826F18B180D30085A16F /* AddIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0740826E18B180D30085A16F /* AddIntervalViewController.m */; };
 		56FDB1211884BCF2009DE59D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1201884BCF2009DE59D /* Foundation.framework */; };
 		56FDB1231884BCF2009DE59D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1221884BCF2009DE59D /* CoreGraphics.framework */; };
@@ -47,6 +47,8 @@
 /* Begin PBXFileReference section */
 		012F93A718B991C3000B18DD /* IntervalTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalTimerViewController.h; sourceTree = "<group>"; };
 		012F93A818B991C3000B18DD /* IntervalTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalTimerViewController.m; sourceTree = "<group>"; };
+		0195A65F18C025BC00C5A01A /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		0195A66018C025BD00C5A01A /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		01BBA3CA18B6ADC900842ADD /* Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interval.h; sourceTree = "<group>"; };
 		01BBA3CB18B6ADC900842ADD /* Interval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interval.m; sourceTree = "<group>"; };
 		01EC2D8118B034110035BD78 /* CreateIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateIntervalViewController.h; sourceTree = "<group>"; };
@@ -57,8 +59,6 @@
 		0703621E18A985C0006AB301 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		072705DF18A98A160094A5AB /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		072705E018A98A160094A5AB /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		0740826A18B180670085A16F /* IntervalTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalTimer.h; sourceTree = "<group>"; };
-		0740826B18B180670085A16F /* IntervalTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalTimer.m; sourceTree = "<group>"; };
 		0740826D18B180D30085A16F /* AddIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIntervalViewController.h; sourceTree = "<group>"; };
 		0740826E18B180D30085A16F /* AddIntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIntervalViewController.m; sourceTree = "<group>"; };
 		56FDB11D1884BCF2009DE59D /* BikeAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,18 +145,13 @@
 		56FDB1261884BCF2009DE59D /* BikeAssistant */ = {
 			isa = PBXGroup;
 			children = (
-				56FDB12F1884BCF2009DE59D /* AppDelegate.h */,
-				56FDB1301884BCF2009DE59D /* AppDelegate.m */,
 				56FDB1321884BCF2009DE59D /* Main_iPhone.storyboard */,
-				012F93A718B991C3000B18DD /* IntervalTimerViewController.h */,
-				012F93A818B991C3000B18DD /* IntervalTimerViewController.m */,
-				0740826A18B180670085A16F /* IntervalTimer.h */,
-				0740826B18B180670085A16F /* IntervalTimer.m */,
 				01BBA3CA18B6ADC900842ADD /* Interval.h */,
 				01BBA3CB18B6ADC900842ADD /* Interval.m */,
-				56FDB1351884BCF2009DE59D /* Main_iPad.storyboard */,
-				01EC2D8418B0342F0035BD78 /* IntervalHistoryViewController.h */,
-				01EC2D8518B0342F0035BD78 /* IntervalHistoryViewController.m */,
+				0195A65F18C025BC00C5A01A /* Timer.h */,
+				0195A66018C025BD00C5A01A /* Timer.m */,
+				012F93A718B991C3000B18DD /* IntervalTimerViewController.h */,
+				012F93A818B991C3000B18DD /* IntervalTimerViewController.m */,
 				0740826D18B180D30085A16F /* AddIntervalViewController.h */,
 				0740826E18B180D30085A16F /* AddIntervalViewController.m */,
 				01EC2D8118B034110035BD78 /* CreateIntervalViewController.h */,
@@ -167,6 +162,11 @@
 				9DA3E42218A45156005DA070 /* CaloriesViewController.m */,
 				072705DF18A98A160094A5AB /* MapViewController.h */,
 				072705E018A98A160094A5AB /* MapViewController.m */,
+				56FDB1351884BCF2009DE59D /* Main_iPad.storyboard */,
+				56FDB12F1884BCF2009DE59D /* AppDelegate.h */,
+				56FDB1301884BCF2009DE59D /* AppDelegate.m */,
+				01EC2D8418B0342F0035BD78 /* IntervalHistoryViewController.h */,
+				01EC2D8518B0342F0035BD78 /* IntervalHistoryViewController.m */,
 				56FDB13B1884BCF2009DE59D /* Images.xcassets */,
 				56FDB1271884BCF2009DE59D /* Supporting Files */,
 				D4027E8A18B2E6E200D17A02 /* CommonLibrary.h */,
@@ -305,8 +305,8 @@
 				D4027E8C18B2E6E300D17A02 /* CommonLibrary.m in Sources */,
 				01EC2D8618B0342F0035BD78 /* IntervalHistoryViewController.m in Sources */,
 				01BBA3CC18B6ADC900842ADD /* Interval.m in Sources */,
+				0195A66118C025BD00C5A01A /* Timer.m in Sources */,
 				9DA3E42318A45156005DA070 /* CaloriesViewController.m in Sources */,
-				0740826C18B180670085A16F /* IntervalTimer.m in Sources */,
 				0740826F18B180D30085A16F /* AddIntervalViewController.m in Sources */,
 				0703621F18A985C0006AB301 /* SettingsViewController.m in Sources */,
 				012F93A918B991C3000B18DD /* IntervalTimerViewController.m in Sources */,
