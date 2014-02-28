@@ -29,7 +29,7 @@
     NSMutableDictionary *dictionary = [[defaults dictionaryForKey:@"myDictionary"]mutableCopy];
     NSNumber *seconds = [NSNumber numberWithInt:totalSeconds];
     
-    myArray = [[dictionary objectForKey:[defaults valueForKey:@"tempIntervalName"]]mutableCopy];
+    myArray = [[dictionary objectForKey:[defaults valueForKey:@"tempIntervalName5"]]mutableCopy];
     tempArray = [[defaults objectForKey:@"tempArray"]mutableCopy];
     
     if(dictionary == nil){
@@ -44,7 +44,7 @@
     [myArray addObject:seconds];
     [tempArray addObject:[_iName text]];
     
-    [dictionary setObject:myArray forKey:[defaults valueForKey:@"tempIntervalName"]];
+    [dictionary setObject:myArray forKey:[defaults valueForKey:@"tempIntervalName5"]];
     [defaults setObject:dictionary forKey:@"myDictionary"];
     [defaults setObject:tempArray forKey:@"tempArray"];
     

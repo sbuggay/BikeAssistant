@@ -14,7 +14,7 @@
 
 @implementation CreateIntervalViewController
 
-NSString *tempIntName = @"tempIntervalName";
+NSString *tempIntName = @"tempIntervalName5";
 NSString *dictName = @"myDictionary";
 NSString *stempArray = @"tempArray";
 
@@ -70,9 +70,11 @@ NSString *stempArray = @"tempArray";
     
     defaults = [[NSUserDefaults alloc]init];
     dictionary = [[defaults dictionaryForKey:dictName]mutableCopy];
-    myArray = [[NSMutableArray alloc]init];
+    myArray = [[dictionary objectForKey:[defaults valueForKey:tempIntName]]mutableCopy];
     
-    
+    if (myArray == nil){
+        myArray = [[NSMutableArray alloc]init];
+    }
     if (dictionary == nil) {
         dictionary = [[NSMutableDictionary alloc]init];
     }
@@ -83,12 +85,14 @@ NSString *stempArray = @"tempArray";
    // myInterval.intervalName = [self alertView:alert clickedButtonAtIndex:0];
 }
 
-- (void)refresh:(NSNotification *)notification
-{
-    [self.tableView reloadData];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
+    dictionary = [[defaults dictionaryForKey:dictName]mutableCopy];
+    myArray = [[dictionary objectForKey:[defaults valueForKey:tempIntName]]mutableCopy];
+    if (myArray == nil){
+        myArray = [[NSMutableArray alloc]init];
+    }
+   
+    
     [self.tableView reloadData];
 }
 
@@ -117,7 +121,7 @@ NSString *stempArray = @"tempArray";
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    myArray = [[dictionary objectForKey:[defaults valueForKey:tempIntName]]mutableCopy];
+    
     
     if(dictionary == nil){
         dictionary = [[NSMutableDictionary alloc]init];

@@ -10,32 +10,15 @@
 
 @interface Interval : NSObject
 {
-    NSString *intervalName;
-    NSMutableDictionary *intervals;
-    NSMutableDictionary *timers;
-    NSString *timerName;
-    NSNumber *seconds;
-    NSNumber *minutes;
-    NSNumber *hours;
-    UILabel *intervalNameLabel;
-    UILabel *timerLabel;
-    BOOL isFinalIntervalTimer;
+    int currentTimer;
+    NSMutableArray *timers;
     
 }
 
 
-
-
-- (void) saveInterval:(NSMutableDictionary *) intervals;
-- (void) loadInterval:(NSString *) key;
-- (void) loadTimer:(NSString *)key;
-- (NSMutableArray *) listOfIntervals;
-- (NSMutableArray *) listOfTimers:(NSString *)key;
--(void)timer:(NSString *)label;
--(void) fixTime;
--(void) updateLabel:(NSTimer *) timer;
--(void) countDown;
--(NSString *) formatTime;
--(BOOL) isFinalIntervalTimer;
+- (void) getInterval:(NSString *)key;
+- (NSNumber *) getTimer;
+- (NSString *) getTimeName;
+- (void) getNextTimer;
 
 @end
