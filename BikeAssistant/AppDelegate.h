@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import "PKRevealController.h"
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, PKRevealing>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) PKRevealController *revealController;
 
 @end

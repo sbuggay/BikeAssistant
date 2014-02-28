@@ -2,11 +2,13 @@
 //  MapViewController.m
 //  BikeAssistant
 //
-//  Created by Devan Buggay on 2/10/14.
+//  Created by Devan Buggay on 2/20/14.
 //  Copyright (c) 2014 Devan Buggay. All rights reserved.
 //
 
 #import "MapViewController.h"
+
+
 
 @interface MapViewController ()
 
@@ -26,23 +28,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _locationManager = [[CLLocationManager alloc] init];
-    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    _locationManager.delegate = self;
-    [_locationManager startUpdatingLocation];
+    
+    
+ 
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)locationManager:(CLLocationManager *)manager
-   didUpdateToLocation:(CLLocation *)newLocation
-          fromLocation:(CLLocation *)oldLocation
-{
-
 }
 
 @end

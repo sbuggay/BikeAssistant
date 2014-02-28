@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>94D50573-879C-4040-9824-15143CD9A122</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BikeAssistant</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DDF827AD-9003-416A-BFD1-6ACB34E1316B</key>
+		<string>https://github.com/pkluz/PKRevealController.git</string>
+		<key>E6BDED0E-C5BF-4362-9C68-0CBBFEBE3BA8</key>
+		<string>https://github.com/sbuggay/BikeAssistant</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BikeAssistant.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DDF827AD-9003-416A-BFD1-6ACB34E1316B</key>
+		<string>../../PKRevealController</string>
+		<key>E6BDED0E-C5BF-4362-9C68-0CBBFEBE3BA8</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/sbuggay/BikeAssistant</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E6BDED0E-C5BF-4362-9C68-0CBBFEBE3BA8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E6BDED0E-C5BF-4362-9C68-0CBBFEBE3BA8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BikeAssistant</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DDF827AD-9003-416A-BFD1-6ACB34E1316B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PKRevealController</string>
+		</dict>
+	</array>
+</dict>
+</plist>

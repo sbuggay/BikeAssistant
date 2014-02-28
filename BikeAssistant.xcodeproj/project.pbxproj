@@ -7,13 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01BBA3CC18B6ADC900842ADD /* Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BBA3CB18B6ADC900842ADD /* Interval.m */; };
-		01EC2D8318B034110035BD78 /* CreateIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EC2D8218B034110035BD78 /* CreateIntervalViewController.m */; };
-		01EC2D8618B0342F0035BD78 /* IntervalHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EC2D8518B0342F0035BD78 /* IntervalHistoryViewController.m */; };
-		0703621F18A985C0006AB301 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0703621E18A985C0006AB301 /* SettingsViewController.m */; };
-		072705E118A98A160094A5AB /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 072705E018A98A160094A5AB /* MapViewController.m */; };
-		0740826C18B180670085A16F /* IntervalTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0740826B18B180670085A16F /* IntervalTimer.m */; };
-		0740826F18B180D30085A16F /* AddIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0740826E18B180D30085A16F /* AddIntervalViewController.m */; };
+		079B521818B6D82300DB6AA1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079B521718B6D82300DB6AA1 /* MapViewController.m */; };
+		079B522218B6DB1D00DB6AA1 /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 079B522118B6DAF600DB6AA1 /* libPKRevealController.a */; };
 		56FDB1211884BCF2009DE59D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1201884BCF2009DE59D /* Foundation.framework */; };
 		56FDB1231884BCF2009DE59D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1221884BCF2009DE59D /* CoreGraphics.framework */; };
 		56FDB1251884BCF2009DE59D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1241884BCF2009DE59D /* UIKit.framework */; };
@@ -22,7 +17,6 @@
 		56FDB1311884BCF2009DE59D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FDB1301884BCF2009DE59D /* AppDelegate.m */; };
 		56FDB1341884BCF2009DE59D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FDB1321884BCF2009DE59D /* Main_iPhone.storyboard */; };
 		56FDB1371884BCF2009DE59D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FDB1351884BCF2009DE59D /* Main_iPad.storyboard */; };
-		56FDB13A1884BCF2009DE59D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FDB1391884BCF2009DE59D /* ViewController.m */; };
 		56FDB13C1884BCF2009DE59D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FDB13B1884BCF2009DE59D /* Images.xcassets */; };
 		56FDB1431884BCF2009DE59D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1421884BCF2009DE59D /* XCTest.framework */; };
 		56FDB1441884BCF2009DE59D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1201884BCF2009DE59D /* Foundation.framework */; };
@@ -30,11 +24,17 @@
 		56FDB14D1884BCF2009DE59D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FDB14B1884BCF2009DE59D /* InfoPlist.strings */; };
 		56FDB14F1884BCF2009DE59D /* BikeAssistantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FDB14E1884BCF2009DE59D /* BikeAssistantTests.m */; };
 		56FDB1591884D656009DE59D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1581884D656009DE59D /* MapKit.framework */; };
-		9DA3E42318A45156005DA070 /* CaloriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA3E42218A45156005DA070 /* CaloriesViewController.m */; };
 		D4027E8C18B2E6E300D17A02 /* CommonLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = D4027E8B18B2E6E300D17A02 /* CommonLibrary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		079B522018B6DAF600DB6AA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 079B521C18B6DAF600DB6AA1 /* PKRevealController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F9621E7B1815246000469E41;
+			remoteInfo = PKRevealController;
+		};
 		56FDB1461884BCF2009DE59D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56FDB1151884BCF1009DE59D /* Project object */;
@@ -45,20 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01BBA3CA18B6ADC900842ADD /* Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interval.h; sourceTree = "<group>"; };
-		01BBA3CB18B6ADC900842ADD /* Interval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interval.m; sourceTree = "<group>"; };
-		01EC2D8118B034110035BD78 /* CreateIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateIntervalViewController.h; sourceTree = "<group>"; };
-		01EC2D8218B034110035BD78 /* CreateIntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateIntervalViewController.m; sourceTree = "<group>"; };
-		01EC2D8418B0342F0035BD78 /* IntervalHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalHistoryViewController.h; sourceTree = "<group>"; };
-		01EC2D8518B0342F0035BD78 /* IntervalHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalHistoryViewController.m; sourceTree = "<group>"; };
-		0703621D18A985C0006AB301 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		0703621E18A985C0006AB301 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		072705DF18A98A160094A5AB /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		072705E018A98A160094A5AB /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		0740826A18B180670085A16F /* IntervalTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalTimer.h; sourceTree = "<group>"; };
-		0740826B18B180670085A16F /* IntervalTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalTimer.m; sourceTree = "<group>"; };
-		0740826D18B180D30085A16F /* AddIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIntervalViewController.h; sourceTree = "<group>"; };
-		0740826E18B180D30085A16F /* AddIntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIntervalViewController.m; sourceTree = "<group>"; };
+		079B521618B6D82300DB6AA1 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		079B521718B6D82300DB6AA1 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		079B521C18B6DAF600DB6AA1 /* PKRevealController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKRevealController.xcodeproj; path = PKRevealController/Source/PKRevealController.xcodeproj; sourceTree = "<group>"; };
+		079B522318B6DB6A00DB6AA1 /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = PKRevealController/Headers/PKRevealController.h; sourceTree = SOURCE_ROOT; };
+		079B522418B6DB6A00DB6AA1 /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "PKRevealController/Headers/UIViewController+PKRevealController.h"; sourceTree = SOURCE_ROOT; };
 		56FDB11D1884BCF2009DE59D /* BikeAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FDB1201884BCF2009DE59D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		56FDB1221884BCF2009DE59D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -71,8 +62,6 @@
 		56FDB1301884BCF2009DE59D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		56FDB1331884BCF2009DE59D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		56FDB1361884BCF2009DE59D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		56FDB1381884BCF2009DE59D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		56FDB1391884BCF2009DE59D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		56FDB13B1884BCF2009DE59D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		56FDB1411884BCF2009DE59D /* BikeAssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeAssistantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FDB1421884BCF2009DE59D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -80,8 +69,6 @@
 		56FDB14C1884BCF2009DE59D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56FDB14E1884BCF2009DE59D /* BikeAssistantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BikeAssistantTests.m; sourceTree = "<group>"; };
 		56FDB1581884D656009DE59D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		9DA3E42118A45156005DA070 /* CaloriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaloriesViewController.h; sourceTree = "<group>"; };
-		9DA3E42218A45156005DA070 /* CaloriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaloriesViewController.m; sourceTree = "<group>"; };
 		D4027E8A18B2E6E200D17A02 /* CommonLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonLibrary.h; sourceTree = "<group>"; };
 		D4027E8B18B2E6E300D17A02 /* CommonLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonLibrary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079B522218B6DB1D00DB6AA1 /* libPKRevealController.a in Frameworks */,
 				56FDB1591884D656009DE59D /* MapKit.framework in Frameworks */,
 				56FDB1231884BCF2009DE59D /* CoreGraphics.framework in Frameworks */,
 				56FDB1251884BCF2009DE59D /* UIKit.framework in Frameworks */,
@@ -111,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		079B521D18B6DAF600DB6AA1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				079B522118B6DAF600DB6AA1 /* libPKRevealController.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		56FDB1141884BCF1009DE59D = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +129,7 @@
 		56FDB11F1884BCF2009DE59D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				079B521C18B6DAF600DB6AA1 /* PKRevealController.xcodeproj */,
 				56FDB1581884D656009DE59D /* MapKit.framework */,
 				56FDB1201884BCF2009DE59D /* Foundation.framework */,
 				56FDB1221884BCF2009DE59D /* CoreGraphics.framework */,
@@ -145,28 +142,14 @@
 		56FDB1261884BCF2009DE59D /* BikeAssistant */ = {
 			isa = PBXGroup;
 			children = (
+				079B522318B6DB6A00DB6AA1 /* PKRevealController.h */,
+				079B522418B6DB6A00DB6AA1 /* UIViewController+PKRevealController.h */,
 				56FDB12F1884BCF2009DE59D /* AppDelegate.h */,
 				56FDB1301884BCF2009DE59D /* AppDelegate.m */,
 				56FDB1321884BCF2009DE59D /* Main_iPhone.storyboard */,
-				0740826A18B180670085A16F /* IntervalTimer.h */,
-				0740826B18B180670085A16F /* IntervalTimer.m */,
-				01BBA3CA18B6ADC900842ADD /* Interval.h */,
-				01BBA3CB18B6ADC900842ADD /* Interval.m */,
 				56FDB1351884BCF2009DE59D /* Main_iPad.storyboard */,
-				01EC2D8418B0342F0035BD78 /* IntervalHistoryViewController.h */,
-				01EC2D8518B0342F0035BD78 /* IntervalHistoryViewController.m */,
-				0740826D18B180D30085A16F /* AddIntervalViewController.h */,
-				0740826E18B180D30085A16F /* AddIntervalViewController.m */,
-				01EC2D8118B034110035BD78 /* CreateIntervalViewController.h */,
-				01EC2D8218B034110035BD78 /* CreateIntervalViewController.m */,
-				56FDB1381884BCF2009DE59D /* ViewController.h */,
-				56FDB1391884BCF2009DE59D /* ViewController.m */,
-				0703621D18A985C0006AB301 /* SettingsViewController.h */,
-				0703621E18A985C0006AB301 /* SettingsViewController.m */,
-				9DA3E42118A45156005DA070 /* CaloriesViewController.h */,
-				9DA3E42218A45156005DA070 /* CaloriesViewController.m */,
-				072705DF18A98A160094A5AB /* MapViewController.h */,
-				072705E018A98A160094A5AB /* MapViewController.m */,
+				079B521618B6D82300DB6AA1 /* MapViewController.h */,
+				079B521718B6D82300DB6AA1 /* MapViewController.m */,
 				56FDB13B1884BCF2009DE59D /* Images.xcassets */,
 				56FDB1271884BCF2009DE59D /* Supporting Files */,
 				D4027E8A18B2E6E200D17A02 /* CommonLibrary.h */,
@@ -267,6 +250,12 @@
 			mainGroup = 56FDB1141884BCF1009DE59D;
 			productRefGroup = 56FDB11E1884BCF2009DE59D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 079B521D18B6DAF600DB6AA1 /* Products */;
+					ProjectRef = 079B521C18B6DAF600DB6AA1 /* PKRevealController.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				56FDB11C1884BCF2009DE59D /* BikeAssistant */,
@@ -274,6 +263,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		079B522118B6DAF600DB6AA1 /* libPKRevealController.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPKRevealController.a;
+			remoteRef = 079B522018B6DAF600DB6AA1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		56FDB11B1884BCF2009DE59D /* Resources */ = {
@@ -303,17 +302,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4027E8C18B2E6E300D17A02 /* CommonLibrary.m in Sources */,
-				01EC2D8618B0342F0035BD78 /* IntervalHistoryViewController.m in Sources */,
-				01BBA3CC18B6ADC900842ADD /* Interval.m in Sources */,
-				9DA3E42318A45156005DA070 /* CaloriesViewController.m in Sources */,
-				0740826C18B180670085A16F /* IntervalTimer.m in Sources */,
-				0740826F18B180D30085A16F /* AddIntervalViewController.m in Sources */,
-				56FDB13A1884BCF2009DE59D /* ViewController.m in Sources */,
-				0703621F18A985C0006AB301 /* SettingsViewController.m in Sources */,
-				072705E118A98A160094A5AB /* MapViewController.m in Sources */,
-				01EC2D8318B034110035BD78 /* CreateIntervalViewController.m in Sources */,
 				56FDB1311884BCF2009DE59D /* AppDelegate.m in Sources */,
 				56FDB12D1884BCF2009DE59D /* main.m in Sources */,
+				079B521818B6D82300DB6AA1 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +444,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BikeAssistant/BikeAssistant-Prefix.pch";
 				INFOPLIST_FILE = "BikeAssistant/BikeAssistant-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -466,6 +458,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BikeAssistant/BikeAssistant-Prefix.pch";
 				INFOPLIST_FILE = "BikeAssistant/BikeAssistant-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
