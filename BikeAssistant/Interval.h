@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface Interval : NSObject
 {
     int currentTimer;
+    NSString *dictionaryName;
+    NSMutableDictionary *dictionary;
+    NSUserDefaults *defaults;
     NSMutableArray *timers;
     
 }
@@ -20,5 +24,8 @@
 - (NSNumber *) getTimer;
 - (NSString *) getTimeName;
 - (void) getNextTimer;
+- (NSMutableArray *) getListOfIntervals;
+- (void) saveInterval;
+- (BOOL) isLastTimer;
 
 @end
