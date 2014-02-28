@@ -1,0 +1,13 @@
+PODS:
+  - GPXParser (1.0)
+  - SWRevealViewController (1.1.1)
+
+DEPENDENCIES:
+  - GPXParser (~> 1.0)
+  - SWRevealViewController (~> 1.1)
+
+SPEC CHECKSUMS:
+  GPXParser: 223829d48543e06237c575922450b7d0c159b74d
+  SWRevealViewController: de412df00a42c2f90fde7f300de05c29e0cb7bf3
+
+COCOAPODS: 0.29.0

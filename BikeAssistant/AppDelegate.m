@@ -1,9 +1,9 @@
 //
 //  AppDelegate.m
-//  BikeAssistant
+//  SidebarDemo
 //
-//  Created by Devan Buggay on 1/13/14.
-//  Copyright (c) 2014 Devan Buggay. All rights reserved.
+//  Created by Simon on 28/6/13.
+//  Copyright (c) 2013 Appcoda. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -13,6 +13,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    
     return YES;
 }
 							
