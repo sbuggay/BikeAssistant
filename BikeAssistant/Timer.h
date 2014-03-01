@@ -17,13 +17,18 @@
     UILabel *timerNameLabel;
     UILabel *timerLabel;
     CommonLibrary *lib;
-    Interval *inter;
+    Interval *interval;
+    NSTimer* timer;
 }
 
+- (id) initWithLabels:(UILabel *)intervalLabel label:(UILabel *)timerLabelIn name:(NSString *)nameIn;
 - (void) timerStart;
 - (void) updateLabels;
 - (void) fixTime;
 - (NSString *) formatTime;
-- (void)timer;
+- (BOOL) didTimerFinish;
+- (BOOL) didIntervalFinish;
+- (void) timer;
+- (void) stopTimer;
 
 @end

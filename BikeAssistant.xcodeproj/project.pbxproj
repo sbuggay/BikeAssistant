@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		012AF11918C1525B00DE436F /* TestTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 012AF11818C1525B00DE436F /* TestTimerViewController.m */; };
+		012AF11C18C152DE00DE436F /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 012AF11B18C152DE00DE436F /* TimerViewController.m */; };
 		012F93A918B991C3000B18DD /* IntervalTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 012F93A818B991C3000B18DD /* IntervalTimerViewController.m */; };
 		0195A66118C025BD00C5A01A /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0195A66018C025BD00C5A01A /* Timer.m */; };
 		01BBA3CC18B6ADC900842ADD /* Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BBA3CB18B6ADC900842ADD /* Interval.m */; };
@@ -45,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		012AF11718C1525B00DE436F /* TestTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTimerViewController.h; sourceTree = "<group>"; };
+		012AF11818C1525B00DE436F /* TestTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTimerViewController.m; sourceTree = "<group>"; };
+		012AF11A18C152DE00DE436F /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
+		012AF11B18C152DE00DE436F /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		012F93A718B991C3000B18DD /* IntervalTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalTimerViewController.h; sourceTree = "<group>"; };
 		012F93A818B991C3000B18DD /* IntervalTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalTimerViewController.m; sourceTree = "<group>"; };
 		0195A65F18C025BC00C5A01A /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
@@ -146,6 +152,10 @@
 			isa = PBXGroup;
 			children = (
 				56FDB1321884BCF2009DE59D /* Main_iPhone.storyboard */,
+				012AF11718C1525B00DE436F /* TestTimerViewController.h */,
+				012AF11818C1525B00DE436F /* TestTimerViewController.m */,
+				012AF11A18C152DE00DE436F /* TimerViewController.h */,
+				012AF11B18C152DE00DE436F /* TimerViewController.m */,
 				01BBA3CA18B6ADC900842ADD /* Interval.h */,
 				01BBA3CB18B6ADC900842ADD /* Interval.m */,
 				0195A65F18C025BC00C5A01A /* Timer.h */,
@@ -304,6 +314,7 @@
 			files = (
 				D4027E8C18B2E6E300D17A02 /* CommonLibrary.m in Sources */,
 				01EC2D8618B0342F0035BD78 /* IntervalHistoryViewController.m in Sources */,
+				012AF11C18C152DE00DE436F /* TimerViewController.m in Sources */,
 				01BBA3CC18B6ADC900842ADD /* Interval.m in Sources */,
 				0195A66118C025BD00C5A01A /* Timer.m in Sources */,
 				9DA3E42318A45156005DA070 /* CaloriesViewController.m in Sources */,
@@ -313,6 +324,7 @@
 				072705E118A98A160094A5AB /* MapViewController.m in Sources */,
 				01EC2D8318B034110035BD78 /* CreateIntervalViewController.m in Sources */,
 				56FDB1311884BCF2009DE59D /* AppDelegate.m in Sources */,
+				012AF11918C1525B00DE436F /* TestTimerViewController.m in Sources */,
 				56FDB12D1884BCF2009DE59D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,32 +12,69 @@
 
 -(id) initWithLabels:(UILabel *)intervalLabel label:(UILabel *)timerLabelIn name:(NSString *)nameIn{
     
-    timerNameLabel = intervalLabel;
-    timerLabel = timerLabelIn;
-    intervalName = nameIn;
-    lib = [[CommonLibrary alloc]init];
-    inter = [[Interval alloc] init];
-    
+    self = [self init];
+    if(self){
+        timerNameLabel = intervalLabel;
+        timerLabel = timerLabelIn;
+        intervalName = nameIn;
+        lib = [[CommonLibrary alloc]init];
+        interval = [[Interval alloc] init];
+    }
     return self;
 }
 
 - (void) timerStart{
     
-}
-- (void) updateLabels{
+    [interval getInterval:intervalName];
+    time = [interval getTimer];
+    timerName = [interval getTimeName];
     
+    
+}
+
+- (BOOL) didTimerFinish{
+    BOOL didFinish = false;
+    if(time == 0){
+        didFinish = true;
+    }
+    
+    return didFinish;
+}
+
+- (BOOL) didIntervalFinish{
+    
+    return [interval isLastTimer];
+}
+
+- (void) updateLabels{
+    if([self didTimerFinish] == false){
+        timerNameLabel.text = timerName;
+        timerLabel.text = [NSString stringWithFormat:@"%@", time];
+    }
+    else if ([self didIntervalFinish] == false){
+        time = [interval getTimer];
+        timerName = [interval getTimeName];
+    }
+    else{
+        [self stopTimer];
+    }
 }
 
 -(void)timer{
     
     timerNameLabel.text = timerName;
-    NSTimer* timer = [NSTimer timerWithTimeInterval:1.0f
+    timer = [NSTimer timerWithTimeInterval:1.0f
                                              target:self
-                                           selector:@selector(updateLabels:)
+                                           selector:@selector(updateLabels)
                                            userInfo:nil
                                             repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
+}
+
+-(void) stopTimer{
+    [timer invalidate];
+    timer = nil;
 }
 
 -(void) fixTime {

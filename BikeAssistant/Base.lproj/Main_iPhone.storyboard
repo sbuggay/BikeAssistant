@@ -281,6 +281,7 @@
             <objects>
                 <tabBarController definesPresentationContext="YES" hidesBottomBarWhenPushed="YES" id="5W1-SF-wAU" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="HSZ-nr-PGn">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="l7R-iT-b5I">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0gu-lC-TET">
                                 <rect key="frame" x="16" y="5" width="71" height="33"/>
@@ -294,6 +295,17 @@
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xKF-EW-bFg">
+                            <rect key="frame" x="96" y="6" width="128" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Test Timer">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <segue destination="3Qn-el-QdS" kind="push" id="NIM-nq-rlr"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="TFQ-Au-LSw">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QDe-xK-Oas">
                                 <rect key="frame" x="233" y="5" width="71" height="33"/>
@@ -323,6 +335,81 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yij-CJ-XM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-487" y="1485"/>
+        </scene>
+        <!--Test Timer View Controller-->
+        <scene sceneID="h2C-ib-m4b">
+            <objects>
+                <tableViewController id="pfh-GV-et1" customClass="TestTimerViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fle-82-YgO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KFV-MX-qm0">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KFV-MX-qm0" id="bpa-dR-LLt">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pfh-GV-et1" id="Wlu-3T-mwg"/>
+                            <outlet property="delegate" destination="pfh-GV-et1" id="LU7-ci-bGc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Khz-qV-u9n"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NcX-iR-jIF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1334" y="2291"/>
+        </scene>
+        <!--Timer View Controller-->
+        <scene sceneID="BX5-eG-C2l">
+            <objects>
+                <viewController id="3Qn-el-QdS" customClass="TimerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rRW-nf-oYr"/>
+                        <viewControllerLayoutGuide type="bottom" id="drF-Pd-QzT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NOa-SJ-A9e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sU7-SP-xii">
+                                <rect key="frame" x="147" y="91" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Interval" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXn-Bc-uP9">
+                                <rect key="frame" x="142" y="178" width="56" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUs-mv-zvO">
+                                <rect key="frame" x="120" y="255" width="100" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PQC-Ep-16m"/>
+                    <connections>
+                        <outlet property="startButton" destination="sU7-SP-xii" id="CtW-oH-eDz"/>
+                        <outlet property="timerLabel" destination="BUs-mv-zvO" id="rIf-2R-xPD"/>
+                        <outlet property="timerNameLabel" destination="YXn-Bc-uP9" id="86T-bk-kbm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0G5-AQ-fMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="954" y="1527"/>
         </scene>
         <!--Map View Controller - Map-->
         <scene sceneID="fWC-lM-Sop">
