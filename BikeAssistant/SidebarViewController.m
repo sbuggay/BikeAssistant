@@ -10,7 +10,7 @@
 
 #import "SWRevealViewController.h"
 
-#import "MapViewController.h"
+#import "MainViewController.h"
 
 @interface SidebarViewController ()
 
@@ -32,7 +32,9 @@
 {
     [super viewDidLoad];
     
-    _menuItems = @[@"map", @"title", @"news", @"settings"];
+    _menuItems = @[@"map", @"routes", @"interval", @"settings"];
+    
+    self.title = @"Menu";
 
 }
 
