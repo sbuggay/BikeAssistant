@@ -31,6 +31,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *pressedButton = [_cellList objectAtIndex:indexPath.row];
+    globalDefaults = [[NSUserDefaults alloc]init];
+    globalDictionary = [[globalDefaults valueForKey:pressedButton]mutableCopy];
+    if(![pressedButton isEqual:@("Create Interval")]){
+    
+    }
+    
     NSLog(@"%@", pressedButton);
 }
 
@@ -71,7 +77,7 @@
     NSMutableArray *myArray = [[NSMutableArray alloc]init];
     NSMutableDictionary *dictionary = [[defaults dictionaryForKey:@"myDictionary"]mutableCopy];
     
-    myArray = [[dictionary objectForKey:[defaults valueForKey:@"tempIntervalName"]]mutableCopy];
+    myArray = [[dictionary objectForKey:[defaults valueForKey:@"tempIntervalName5"]]mutableCopy];
     
     if(dictionary == nil){
         dictionary = [[NSMutableDictionary alloc]init];
@@ -107,12 +113,14 @@
         i = i + 1;
     }
     
-    
-    if(indexPath.row == 0){
+    NSString *firstString = _cellList.firstObject;
+    if(indexPath.row == 0 && ![firstString isEqual:@("Create Interval")]){
+        
         cell.textLabel.text = @"Create Interval";
+        NSLog(@"%@", (firstString));
         [_cellList addObject:@"Create Interval"];
     }
-    else{
+    else if (![intervalName isEqual:@("")]){
         cell.textLabel.text = intervalName;
         [_cellList addObject:intervalName];
     }

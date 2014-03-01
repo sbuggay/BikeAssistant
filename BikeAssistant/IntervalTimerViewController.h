@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface IntervalTimerViewController : UITableViewController
-
+{
+    NSUserDefaults *globalDefaults;
+    NSMutableDictionary *globalDictionary;
+}
 - (IBAction)getIntervalName:(id)sender;
 -(void) updateLabel:(NSTimer *) timer;
 -(NSString *) formatTime;
 - (IBAction)startTimerButton:(id)sender;
+
 
 @property int seconds, minutes, hours;
 
