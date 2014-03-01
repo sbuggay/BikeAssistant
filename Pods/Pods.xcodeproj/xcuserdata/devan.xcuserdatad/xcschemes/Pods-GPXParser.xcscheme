@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4EE9485895894746BEF0E893"
+               BlueprintIdentifier = "2F9312D67211415386C378A6"
                BuildableName = "libPods-GPXParser.a"
                BlueprintName = "Pods-GPXParser"
                ReferencedContainer = "container:Pods.xcodeproj">
