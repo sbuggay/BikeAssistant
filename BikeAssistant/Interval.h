@@ -19,7 +19,7 @@
     
 }
 
-
+- (id) initWithDefaults;
 - (void) getInterval:(NSString *)key;
 - (NSNumber *) getTimer;
 - (NSString *) getTimeName;

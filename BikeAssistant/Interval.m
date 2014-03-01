@@ -17,7 +17,7 @@
     dictionary = [[defaults dictionaryForKey:dictionaryName]mutableCopy];
     timers = [[NSMutableArray alloc]init];
     [timers addObject:@"default"];
-    [timers addObject:0];
+    [timers addObject:[NSNumber numberWithInt:0]];
     
     return self;
 }
@@ -33,7 +33,7 @@
 - (BOOL) isLastTimer{
     bool isTrue = false;
     
-    if(currentTimer == [timers count]){
+    if(currentTimer == ([timers count]/2)-1){
         isTrue = true;
     }
     

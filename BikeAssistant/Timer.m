@@ -18,23 +18,24 @@
         timerLabel = timerLabelIn;
         intervalName = nameIn;
         lib = [[CommonLibrary alloc]init];
-        interval = [[Interval alloc] init];
+        interval = [[Interval alloc] initWithDefaults];
     }
     return self;
 }
 
 - (void) timerStart{
-    
+    [self stopTimer];
     [interval getInterval:intervalName];
     time = [interval getTimer];
     timerName = [interval getTimeName];
+    [self timer];
     
     
 }
 
 - (BOOL) didTimerFinish{
     BOOL didFinish = false;
-    if(time == 0){
+    if(time == [NSNumber numberWithInt:0]){
         didFinish = true;
     }
     
@@ -47,17 +48,27 @@
 }
 
 - (void) updateLabels{
+   
     if([self didTimerFinish] == false){
         timerNameLabel.text = timerName;
-        timerLabel.text = [NSString stringWithFormat:@"%@", time];
+        timerLabel.text = [self formatTime];
     }
     else if ([self didIntervalFinish] == false){
+        [interval getNextTimer];
         time = [interval getTimer];
         timerName = [interval getTimeName];
+        
+        timerNameLabel.text = timerName;
+        timerLabel.text = [self formatTime];
     }
     else{
         [self stopTimer];
+        timerNameLabel.text = @"Finished";
+        timerLabel.text = [self formatTime];
     }
+    int tempTime = [time integerValue];
+    tempTime--;
+    time = [NSNumber numberWithInt:tempTime];
 }
 
 -(void)timer{
