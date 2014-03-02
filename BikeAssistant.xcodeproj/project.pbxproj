@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0707547818C2AF1A007174C2 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707547718C2AF1A007174C2 /* LocationViewController.m */; };
+		0707547A18C30C88007174C2 /* fells_loop.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 0707547918C30C88007174C2 /* fells_loop.gpx */; };
 		07C9F64818C19A350060BAE3 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C9F64718C19A350060BAE3 /* Route.m */; };
 		07D89A6218C05BBD00AF9192 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D89A6118C05BBD00AF9192 /* Foundation.framework */; };
 		07D89A6418C05BBD00AF9192 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D89A6318C05BBD00AF9192 /* CoreGraphics.framework */; };
@@ -42,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0707547618C2AF1A007174C2 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		0707547718C2AF1A007174C2 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		0707547918C30C88007174C2 /* fells_loop.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = fells_loop.gpx; sourceTree = "<group>"; };
 		07C9F64618C19A350060BAE3 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
 		07C9F64718C19A350060BAE3 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
 		07D89A5E18C05BBD00AF9192 /* BikeAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +116,8 @@
 				07D89A9F18C05E0800AF9192 /* SidebarViewController.m */,
 				07FD5E6118C0F9FA008D6EEB /* RoutesViewController.h */,
 				07FD5E6218C0F9FA008D6EEB /* RoutesViewController.m */,
+				0707547618C2AF1A007174C2 /* LocationViewController.h */,
+				0707547718C2AF1A007174C2 /* LocationViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -166,6 +173,7 @@
 				07D89A9918C05E0800AF9192 /* AppDelegate.h */,
 				07D89A9A18C05E0800AF9192 /* AppDelegate.m */,
 				07D89A9B18C05E0800AF9192 /* MainStoryboard.storyboard */,
+				0707547918C30C88007174C2 /* fells_loop.gpx */,
 				07F4839518C067B2004ED369 /* menu.png */,
 				07F4839618C067B2004ED369 /* menu@2x.png */,
 				07D89A7C18C05BBD00AF9192 /* Images.xcassets */,
@@ -281,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0707547A18C30C88007174C2 /* fells_loop.gpx in Resources */,
 				07F4839718C067B2004ED369 /* menu.png in Resources */,
 				07D89AA518C05E0800AF9192 /* MainStoryboard.storyboard in Resources */,
 				07F4839818C067B2004ED369 /* menu@2x.png in Resources */,
@@ -339,6 +348,7 @@
 			files = (
 				07D89AA418C05E0800AF9192 /* AppDelegate.m in Sources */,
 				07D89AA618C05E0800AF9192 /* MainViewController.m in Sources */,
+				0707547818C2AF1A007174C2 /* LocationViewController.m in Sources */,
 				07FD5E6318C0F9FA008D6EEB /* RoutesViewController.m in Sources */,
 				07D89A6E18C05BBD00AF9192 /* main.m in Sources */,
 				07D89AA718C05E0800AF9192 /* SidebarViewController.m in Sources */,

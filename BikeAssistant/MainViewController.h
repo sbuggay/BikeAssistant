@@ -8,20 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
+
+#import "Route.h"
 
 
-@interface MainViewController : UIViewController
-
-
-<CLLocationManagerDelegate>
+@interface MainViewController : UIViewController <CLLocationManagerDelegate>
 {
     CLLocationManager *locationManager;
     CLLocation *startLocation;
-    
 }
+
 - (IBAction)showActionSheet:(id)sender;
 
+@property Route *currentRoute;
 
+@property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
 @property (weak, nonatomic) IBOutlet UIButton *locationButton;

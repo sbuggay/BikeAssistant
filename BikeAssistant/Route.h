@@ -12,8 +12,13 @@
 
 @interface Route : NSObject
 
+- (void) addPoint:(CLLocationCoordinate2D *)point;
+
+
+
 @property NSString *name;
 @property NSDate *date;
 @property NSMutableArray *dataPoints;
+@property GPX *gpx;
 
 @end
