@@ -12,6 +12,8 @@
 
 #import "LocationViewController.h"
 
+#import <IASKAppSettingsViewController.h>
+
 
 @interface MainViewController ()
 
@@ -96,13 +98,38 @@
 #pragma mark ActionSheet
 
 - (IBAction)showActionSheet:(id)sender {
-    NSLog(@"action");
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                             delegate:nil
+                                                             delegate:self
                                                     cancelButtonTitle:@"Cancel"
-                                                        destructiveButtonTitle:@"Delete Route"
-                                                    otherButtonTitles:@"Example", @"Action sheet", nil];
-    [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
+                                                        destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"New Route", @"Load Route", @"Settings", nil];
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    UIStoryboard *storyBoard = [self storyboard];
+     IASKAppSettingsViewController *settingsViewController  = [storyBoard instantiateViewControllerWithIdentifier:@"settings"];
+    
+    switch (buttonIndex) {
+        
+        case 0:
+            
+            
+
+            break;
+            
+        case 1:
+            
+            break;
+            
+        case 2:
+            [self.navigationController pushViewController:settingsViewController animated:YES];
+            break;
+        
+        default:
+            
+            break;
+    }
 }
 
 

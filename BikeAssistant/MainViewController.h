@@ -13,7 +13,7 @@
 #import "Route.h"
 
 
-@interface MainViewController : UIViewController <CLLocationManagerDelegate>
+@interface MainViewController : UIViewController <CLLocationManagerDelegate, UIActionSheetDelegate>
 {
     CLLocationManager *locationManager;
     CLLocation *startLocation;

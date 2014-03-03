@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0707547818C2AF1A007174C2 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707547718C2AF1A007174C2 /* LocationViewController.m */; };
 		0707547A18C30C88007174C2 /* fells_loop.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 0707547918C30C88007174C2 /* fells_loop.gpx */; };
+		0707547C18C3F3AD007174C2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707547B18C3F3AD007174C2 /* MessageUI.framework */; };
+		0707547E18C3FF93007174C2 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0707547D18C3FF93007174C2 /* Settings.bundle */; };
 		07C9F64818C19A350060BAE3 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C9F64718C19A350060BAE3 /* Route.m */; };
 		07D89A6218C05BBD00AF9192 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D89A6118C05BBD00AF9192 /* Foundation.framework */; };
 		07D89A6418C05BBD00AF9192 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D89A6318C05BBD00AF9192 /* CoreGraphics.framework */; };
@@ -47,6 +49,8 @@
 		0707547618C2AF1A007174C2 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		0707547718C2AF1A007174C2 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		0707547918C30C88007174C2 /* fells_loop.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = fells_loop.gpx; sourceTree = "<group>"; };
+		0707547B18C3F3AD007174C2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		0707547D18C3FF93007174C2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		07C9F64618C19A350060BAE3 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
 		07C9F64718C19A350060BAE3 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
 		07D89A5E18C05BBD00AF9192 /* BikeAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0707547C18C3F3AD007174C2 /* MessageUI.framework in Frameworks */,
 				07F4839C18C067EA004ED369 /* CoreLocation.framework in Frameworks */,
 				07F4839A18C067E3004ED369 /* MapKit.framework in Frameworks */,
 				07D89A6418C05BBD00AF9192 /* CoreGraphics.framework in Frameworks */,
@@ -154,6 +159,7 @@
 		07D89A6018C05BBD00AF9192 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0707547B18C3F3AD007174C2 /* MessageUI.framework */,
 				07F4839B18C067EA004ED369 /* CoreLocation.framework */,
 				07F4839918C067E3004ED369 /* MapKit.framework */,
 				07D89A6118C05BBD00AF9192 /* Foundation.framework */,
@@ -189,6 +195,7 @@
 				07D89A6A18C05BBD00AF9192 /* InfoPlist.strings */,
 				07D89A6D18C05BBD00AF9192 /* main.m */,
 				07D89A6F18C05BBD00AF9192 /* BikeAssistant-Prefix.pch */,
+				0707547D18C3FF93007174C2 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -295,6 +302,7 @@
 				07F4839818C067B2004ED369 /* menu@2x.png in Resources */,
 				07D89A7D18C05BBD00AF9192 /* Images.xcassets in Resources */,
 				07D89A6C18C05BBD00AF9192 /* InfoPlist.strings in Resources */,
+				0707547E18C3FF93007174C2 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
