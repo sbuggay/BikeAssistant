@@ -120,7 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07C9F64418C199C50060BAE3 /* ViewControllers */ = {
+		07A4210A18C62380007B3D09 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07D89A9B18C05E0800AF9192 /* MainStoryboard.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		07C9F64418C199C50060BAE3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				07D89A9C18C05E0800AF9192 /* MainViewController.h */,
@@ -136,7 +144,7 @@
 				07E8668118C4EE7100EA309B /* MetricsViewController.h */,
 				07E8668218C4EE7100EA309B /* MetricsViewController.m */,
 			);
-			name = ViewControllers;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		07C9F64518C199E00060BAE3 /* Models */ = {
@@ -187,14 +195,10 @@
 			isa = PBXGroup;
 			children = (
 				07C9F64518C199E00060BAE3 /* Models */,
-				07C9F64418C199C50060BAE3 /* ViewControllers */,
+				07A4210A18C62380007B3D09 /* Views */,
+				07C9F64418C199C50060BAE3 /* Controllers */,
 				07D89A9918C05E0800AF9192 /* AppDelegate.h */,
 				07D89A9A18C05E0800AF9192 /* AppDelegate.m */,
-				07D89A9B18C05E0800AF9192 /* MainStoryboard.storyboard */,
-				07E8668418C4F60700EA309B /* Auburn__Alabama.gpx */,
-				0707547918C30C88007174C2 /* fells_loop.gpx */,
-				07F4839518C067B2004ED369 /* menu.png */,
-				07F4839618C067B2004ED369 /* menu@2x.png */,
 				07D89A7C18C05BBD00AF9192 /* Images.xcassets */,
 				07D89A6818C05BBD00AF9192 /* Supporting Files */,
 			);
@@ -204,6 +208,10 @@
 		07D89A6818C05BBD00AF9192 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07E8668418C4F60700EA309B /* Auburn__Alabama.gpx */,
+				0707547918C30C88007174C2 /* fells_loop.gpx */,
+				07F4839518C067B2004ED369 /* menu.png */,
+				07F4839618C067B2004ED369 /* menu@2x.png */,
 				07D89A6918C05BBD00AF9192 /* BikeAssistant-Info.plist */,
 				07D89A6A18C05BBD00AF9192 /* InfoPlist.strings */,
 				07D89A6D18C05BBD00AF9192 /* main.m */,

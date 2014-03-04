@@ -37,18 +37,22 @@
     
     _routes = [[NSMutableArray alloc] init];
     
-    NSString *file=[[NSBundle mainBundle] pathForResource:@"Auburn__Alabama" ofType:@"gpx"];
+//    NSString *file=[[NSBundle mainBundle] pathForResource:@"Auburn__Alabama" ofType:@"gpx"];
+//    
+//    NSData *fileData = [NSData dataWithContentsOfFile:file];
+//    
+//    
+//    [GPXParser parse:fileData completion:^(BOOL success, GPX *gpx) {
+//        Route *temp = [[Route alloc] init];
+//        temp.gpx = gpx;
+//        [_routes addObject:temp];
+//        NSLog(@"%@", temp.gpx.filename);
+//    }];
+//
+    [_routes addObject:@"Auburn__Fells route"];
+    [_routes addObject:@"Auburn__Tour route"];
     
-    NSData *fileData = [NSData dataWithContentsOfFile:file];
-    
-    
-    [GPXParser parse:fileData completion:^(BOOL success, GPX *gpx) {
-        Route *temp = [[Route alloc] init];
-        temp.gpx = gpx;
-        [_routes addObject:temp];
-        NSLog(@"%@", temp.gpx.filename);
-    }];
-    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,9 +81,31 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [[[_routes objectAtIndex:indexPath.row] gpx] filename];
+    cell.textLabel.text = [_routes objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
+    // Get the object we are going to move
+    NSString *buff = [[NSString alloc] init];
+    buff = [_routes objectAtIndex:[destinationIndexPath row]];
+    
+    // We will delete and move it to another location so well have to retain it
+    //[task retain];
+    
+    // Remove it an move it to other place
+    [_routes removeObjectAtIndex:[sourceIndexPath row]];
+    [_routes insertObject:buff atIndex:[destinationIndexPath row]];
+}
+
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 1) {
+        return YES;
+    }
+    return YES;
 }
 
 @end
