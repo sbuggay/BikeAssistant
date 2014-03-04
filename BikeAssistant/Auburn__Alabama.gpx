@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="Geovative Solutions GeoTours" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+
+<metadata>
+  <name>Auburn, Alabama</name>
+  <desc>Commerce and tourism in the Auburn-Opelika area.</desc>
+  <author>
+    <name>My Community Maps, using GeoTours</name>
+    <link href="http://www.geovative.com/view?t=FIGD">
+      <text>Auburn, Alabama</text>
+    </link>
+  </author>
+  <link href="http://www.geovative.com/view?t=FIGD">
+    <text>Auburn, Alabama</text>
+  </link>
+  <time>2008-01-09T15:09:11</time>
+  <keywords>auburn opelika commerce tourism alabama university</keywords>
+</metadata>
+
+
+<wpt lat="32.608758" lon="-85.46757">
+<name>Chamber of Commerce</name>
+<desc>Welcome to the Auburn Opelika area.  Start your tour at the Visitors center located at 714 East Glen Avenue, continue west on Glen towards Ross Street</desc>
+<link href="Data/Location2530-1"/>
+<sym>Waypoint</sym>
+<extensions>
+        <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd">
+            <gpxx:Proximity>76.2</gpxx:Proximity>
+            <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        </gpxx:WaypointExtension>
+</extensions>
+</wpt>
+
+<wpt lat="32.609002" lon="-85.475211">
+<name>Veterans Memorial</name>
+<desc>You are approaching Veterans Memorial on the northeast corner of Dean Road and Ross Street. To continue the tour turn left on Ross Street.</desc>
+<link href="Data/Location2530-2"/>
+<sym>Waypoint</sym>
+<extensions>
+        <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd">
+            <gpxx:Proximity>76.2</gpxx:Proximity>
+            <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        </gpxx:WaypointExtension>
+</extensions>
+</wpt>
+
+<wpt lat="32.607418" lon="-85.475452">
+<name>Municipal Courthouse</name>
+<desc>You are passing on your right, Auburn City Municipal Courthouse and Department of Publich Safety.  To continue the tour, turn left on Magnolia Avenue.</desc>
+<link href="Data/Location2530-3"/>
+<sym>Waypoint</sym>
+<extensions>
+        <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd">
+            <gpxx:Proximity>76.2</gpxx:Proximity>
+            <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        </gpxx:WaypointExtension>
+</extensions>
+</wpt>
+
+<wpt lat="32.606564" lon="-85.473569">
+<name>AO004</name>
+<desc>You are entering the Pebble Hill historic district.  On your right is the The Baughman-Honour-Stiles House, locally known as "the castle"Because of its two-story turret and French Norman Style and just ahead is the Dillard Lawson House, also known as Greystone Mansion - now a hospitality house for special events and recptions.  Greystone gets its name from the origional owner builder who invented moisture proofing treatment which gave the stone a grey appearance.  To continue the tour, turn right on Debardeleben Street in front of Scott-Yarbrough House the center for Arts and Humanities.</desc>
+<link href="Data/Location2530-4"/>
+<sym>Waypoint</sym>
+<extensions>
+        <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd">
+            <gpxx:Proximity>76.2</gpxx:Proximity>
+            <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        </gpxx:WaypointExtension>
+</extensions>
+</wpt>
+
+<wpt lat="32.604215" lon="-85.47314">
+<name>Ebenezer Baptist Church</name>
+<desc>You are approaching the intersection with Thatch Avenue and the location of historic Ebenezer Baptist Church.  The church built by its congregation in 1865.  Today the church is home to houses the Auburn Unitarian Universalist Fellowship.  To continue the tour, turn left on Thatch avenue.</desc>
+<link href="Data/Location2530-5"/>
+<sym>Waypoint</sym>
+<extensions>
+        <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd">
+            <gpxx:Proximity>76.2</gpxx:Proximity>
+            <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        </gpxx:WaypointExtension>
+</extensions>
+</wpt>
+
+<wpt lat="32.604605" lon="-85.466213">
+<name>Auburn City Public Library</name>
+<desc>You are passing the Auburn City Public Library on your left.  To continue the tour turn left on Dean Road, in front of the Babtist Hill Cemetary another landmark of Auburn's black history.</desc>
+<link href="Data/Location2530-6"/>
+<sym>Waypoint</sym>
+<extensions>
+        <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd">
+            <gpxx:Proximity>76.2</gpxx:Proximity>
+            <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        </gpxx:WaypointExtension>
+</extensions>
+</wpt>
+
+<wpt lat="32.608986" lon="-85.464939">
+<name>Glen - Dean</name>
+<desc>You are approach the intersection of Glen Raod and Dean Avenue, where you will find conveniently located shops and resturants including Kroger grocery and Hastings bookstore.</desc>
+<link href="Data/Location2530-7"/>
+<sym>Waypoint</sym>
+<extensions>
+        <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd">
+            <gpxx:Proximity>76.2</gpxx:Proximity>
+            <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        </gpxx:WaypointExtension>
+</extensions>
+</wpt>
+</gpx>

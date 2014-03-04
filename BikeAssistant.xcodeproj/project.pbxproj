@@ -27,6 +27,9 @@
 		07D89AA518C05E0800AF9192 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D89A9B18C05E0800AF9192 /* MainStoryboard.storyboard */; };
 		07D89AA618C05E0800AF9192 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D89A9D18C05E0800AF9192 /* MainViewController.m */; };
 		07D89AA718C05E0800AF9192 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D89A9F18C05E0800AF9192 /* SidebarViewController.m */; };
+		07E8668018C4EE6800EA309B /* CLLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E8667F18C4EE6800EA309B /* CLLocationViewController.m */; };
+		07E8668318C4EE7100EA309B /* MetricsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E8668218C4EE7100EA309B /* MetricsViewController.m */; };
+		07E8668518C4F60700EA309B /* Auburn__Alabama.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 07E8668418C4F60700EA309B /* Auburn__Alabama.gpx */; };
 		07F4839718C067B2004ED369 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 07F4839518C067B2004ED369 /* menu.png */; };
 		07F4839818C067B2004ED369 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07F4839618C067B2004ED369 /* menu@2x.png */; };
 		07F4839A18C067E3004ED369 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F4839918C067E3004ED369 /* MapKit.framework */; };
@@ -74,6 +77,11 @@
 		07D89A9D18C05E0800AF9192 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		07D89A9E18C05E0800AF9192 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
 		07D89A9F18C05E0800AF9192 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
+		07E8667E18C4EE6800EA309B /* CLLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLocationViewController.h; sourceTree = "<group>"; };
+		07E8667F18C4EE6800EA309B /* CLLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLLocationViewController.m; sourceTree = "<group>"; };
+		07E8668118C4EE7100EA309B /* MetricsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetricsViewController.h; sourceTree = "<group>"; };
+		07E8668218C4EE7100EA309B /* MetricsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetricsViewController.m; sourceTree = "<group>"; };
+		07E8668418C4F60700EA309B /* Auburn__Alabama.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Auburn__Alabama.gpx; sourceTree = "<group>"; };
 		07F4839518C067B2004ED369 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		07F4839618C067B2004ED369 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		07F4839918C067E3004ED369 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -123,6 +131,10 @@
 				07FD5E6218C0F9FA008D6EEB /* RoutesViewController.m */,
 				0707547618C2AF1A007174C2 /* LocationViewController.h */,
 				0707547718C2AF1A007174C2 /* LocationViewController.m */,
+				07E8667E18C4EE6800EA309B /* CLLocationViewController.h */,
+				07E8667F18C4EE6800EA309B /* CLLocationViewController.m */,
+				07E8668118C4EE7100EA309B /* MetricsViewController.h */,
+				07E8668218C4EE7100EA309B /* MetricsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -179,6 +191,7 @@
 				07D89A9918C05E0800AF9192 /* AppDelegate.h */,
 				07D89A9A18C05E0800AF9192 /* AppDelegate.m */,
 				07D89A9B18C05E0800AF9192 /* MainStoryboard.storyboard */,
+				07E8668418C4F60700EA309B /* Auburn__Alabama.gpx */,
 				0707547918C30C88007174C2 /* fells_loop.gpx */,
 				07F4839518C067B2004ED369 /* menu.png */,
 				07F4839618C067B2004ED369 /* menu@2x.png */,
@@ -298,6 +311,7 @@
 			files = (
 				0707547A18C30C88007174C2 /* fells_loop.gpx in Resources */,
 				07F4839718C067B2004ED369 /* menu.png in Resources */,
+				07E8668518C4F60700EA309B /* Auburn__Alabama.gpx in Resources */,
 				07D89AA518C05E0800AF9192 /* MainStoryboard.storyboard in Resources */,
 				07F4839818C067B2004ED369 /* menu@2x.png in Resources */,
 				07D89A7D18C05BBD00AF9192 /* Images.xcassets in Resources */,
@@ -358,6 +372,8 @@
 				07D89AA618C05E0800AF9192 /* MainViewController.m in Sources */,
 				0707547818C2AF1A007174C2 /* LocationViewController.m in Sources */,
 				07FD5E6318C0F9FA008D6EEB /* RoutesViewController.m in Sources */,
+				07E8668018C4EE6800EA309B /* CLLocationViewController.m in Sources */,
+				07E8668318C4EE7100EA309B /* MetricsViewController.m in Sources */,
 				07D89A6E18C05BBD00AF9192 /* main.m in Sources */,
 				07D89AA718C05E0800AF9192 /* SidebarViewController.m in Sources */,
 				07C9F64818C19A350060BAE3 /* Route.m in Sources */,

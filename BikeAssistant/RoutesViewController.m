@@ -36,9 +36,19 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     _routes = [[NSMutableArray alloc] init];
-    [_routes addObject:@"test"];
-    [_routes addObject:@"test"];
-    [_routes addObject:@"test"];
+    
+    NSString *file=[[NSBundle mainBundle] pathForResource:@"Auburn__Alabama" ofType:@"gpx"];
+    
+    NSData *fileData = [NSData dataWithContentsOfFile:file];
+    
+    
+    [GPXParser parse:fileData completion:^(BOOL success, GPX *gpx) {
+        Route *temp = [[Route alloc] init];
+        temp.gpx = gpx;
+        [_routes addObject:temp];
+        NSLog(@"%@", temp.gpx.filename);
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,7 +77,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = @"test";
+    cell.textLabel.text = [[[_routes objectAtIndex:indexPath.row] gpx] filename];
     
     return cell;
 }

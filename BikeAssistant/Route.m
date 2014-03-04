@@ -11,8 +11,4 @@
 @implementation Route
 
 
-- (void) addPoint:(CLLocationCoordinate2D *)point {
-    
-}
-
 @end

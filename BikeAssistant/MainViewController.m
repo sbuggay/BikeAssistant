@@ -42,16 +42,38 @@
     [locationManager startUpdatingLocation];
     
     [_map setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
+    
+    CLLocationCoordinate2D noLocation;
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(noLocation, 500, 500);
+    MKCoordinateRegion adjustedRegion = [self.map regionThatFits:viewRegion];
+    [self.map setRegion:adjustedRegion animated:YES];
+    self.map.showsUserLocation = YES;
 
     
-#warning this is test code for gpx
-    NSString *file=[[NSBundle mainBundle] pathForResource:@"fells_loop" ofType:@"gpx"];
+    NSString *file=[[NSBundle mainBundle] pathForResource:@"Auburn__Alabama" ofType:@"gpx"];
     
     NSData *fileData = [NSData dataWithContentsOfFile:file];
 
+    
     [GPXParser parse:fileData completion:^(BOOL success, GPX *gpx) {
+        CLLocationCoordinate2D coordinates[[[gpx waypoints]count]];
+        int i = 0;
         NSLog(@"%@", [gpx waypoints]);
+        for (Waypoint *ckpt in [gpx waypoints])
+        {
+            coordinates[i] = CLLocationCoordinate2DMake([ckpt latitude] , [ckpt longitude]);
+            i++;
+            NSLog(@"%f | %f", [ckpt latitude], [ckpt longitude]);
+        }
+        
+        MKPolyline *route = [MKPolyline polylineWithCoordinates: coordinates count: [[gpx waypoints] count]];
+        [_map addOverlay:route];
+        
     }];
+    
+    
+    
+    
 
 }
 
@@ -68,13 +90,12 @@
     //simply get the speed provided by the phone from newLocation
     double gpsSpeed = newLocation.speed;
     
-    _locationLabel1.text = [NSString stringWithFormat:@"%2.f", gpsSpeed * 2.23694];
+    if (gpsSpeed < 0)
+        gpsSpeed = 0;
+    
+    _locationLabel1.text = [NSString stringWithFormat:@"%3.3f", gpsSpeed * 2.23694];
     
     
-//    MKPolyline *routeLine = [MKPolyline polylineWithCoordinates:_currentRoute.dataPoints count:[currentRoute.dataPoints count]];
-//    [_map setVisibleMapRect:[routeLine boundingMapRect]]; //If you want the route to be visible
-//    
-//    [_map addOverlay:routeLine];
 }
 
 
@@ -86,13 +107,13 @@
     
 }
 
-- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id < MKOverlay >)overlay
-{
-    MKPolylineRenderer *renderer =
-    [[MKPolylineRenderer alloc] initWithOverlay:overlay];
-    renderer.strokeColor = [UIColor blueColor];
-    renderer.lineWidth = 5.0;
-    return renderer;
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay {
+    
+    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
+    polylineView.strokeColor = [UIColor blueColor];
+    polylineView.lineWidth = 5.0;
+    return polylineView;
+    
 }
 
 #pragma mark ActionSheet
