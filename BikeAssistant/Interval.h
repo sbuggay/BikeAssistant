@@ -33,6 +33,8 @@
 - (void) addTimer:(NSNumber *)newTimerAmount newTimerName:(NSString *)newTimerName;
 - (BOOL) timerExist:(NSString *)timerName;
 - (NSNumber *) getTimer:(NSString *)timerName;
-- (void) deleteInterval;
+- (void) deleteInterval:(NSString *)intervalToDelete;
 - (void) addInterval;
+- (void) updateIntervalName:(NSString *)newName;
+- (void) deleteTimer:(NSString *)timerToDelete;
 @end
