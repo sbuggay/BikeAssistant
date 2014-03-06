@@ -34,6 +34,7 @@
 		56FDB1591884D656009DE59D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FDB1581884D656009DE59D /* MapKit.framework */; };
 		9DA3E42318A45156005DA070 /* CaloriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA3E42218A45156005DA070 /* CaloriesViewController.m */; };
 		D4027E8C18B2E6E300D17A02 /* CommonLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = D4027E8B18B2E6E300D17A02 /* CommonLibrary.m */; };
+		D4C5FB0D18C80F0800C9383F /* NameIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C5FB0C18C80F0800C9383F /* NameIntervalViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		9DA3E42218A45156005DA070 /* CaloriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaloriesViewController.m; sourceTree = "<group>"; };
 		D4027E8A18B2E6E200D17A02 /* CommonLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonLibrary.h; sourceTree = "<group>"; };
 		D4027E8B18B2E6E300D17A02 /* CommonLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonLibrary.m; sourceTree = "<group>"; };
+		D4C5FB0B18C80F0800C9383F /* NameIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameIntervalViewController.h; sourceTree = "<group>"; };
+		D4C5FB0C18C80F0800C9383F /* NameIntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameIntervalViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,8 @@
 				56FDB1271884BCF2009DE59D /* Supporting Files */,
 				D4027E8A18B2E6E200D17A02 /* CommonLibrary.h */,
 				D4027E8B18B2E6E300D17A02 /* CommonLibrary.m */,
+				D4C5FB0B18C80F0800C9383F /* NameIntervalViewController.h */,
+				D4C5FB0C18C80F0800C9383F /* NameIntervalViewController.m */,
 			);
 			path = BikeAssistant;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				9DA3E42318A45156005DA070 /* CaloriesViewController.m in Sources */,
 				0740826F18B180D30085A16F /* AddIntervalViewController.m in Sources */,
 				0703621F18A985C0006AB301 /* SettingsViewController.m in Sources */,
+				D4C5FB0D18C80F0800C9383F /* NameIntervalViewController.m in Sources */,
 				012F93A918B991C3000B18DD /* IntervalTimerViewController.m in Sources */,
 				072705E118A98A160094A5AB /* MapViewController.m in Sources */,
 				01EC2D8318B034110035BD78 /* CreateIntervalViewController.m in Sources */,

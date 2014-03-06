@@ -102,9 +102,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="pbY-lC-dNW" kind="push" id="FBW-tL-Arn"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -115,10 +112,54 @@
                     <tabBarItem key="tabBarItem" title="Interval Timer" id="rCl-Jj-vUL"/>
                     <navigationItem key="navigationItem" id="uDb-9t-ta3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="gl4-8a-IEP" kind="push" identifier="IntervalToNameSegue" id="cNd-fN-Roa"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdj-Ea-EqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-808" y="2326"/>
+            <point key="canvasLocation" x="-882" y="2328"/>
+        </scene>
+        <!--Name Interval View Controller-->
+        <scene sceneID="Rdh-XK-IWR">
+            <objects>
+                <viewController id="gl4-8a-IEP" customClass="NameIntervalViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hS5-nk-459"/>
+                        <viewControllerLayoutGuide type="bottom" id="ePZ-E8-2PN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wCh-tC-sUq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ak1-Mi-fJP">
+                                <rect key="frame" x="26" y="167" width="269" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Interval Timer Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIx-8a-lSL">
+                                <rect key="frame" x="76" y="116" width="169" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRn-fu-02d">
+                                <rect key="frame" x="132" y="235" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next ->">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="caz-AX-dnE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JnL-JK-dDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-408" y="2681"/>
         </scene>
         <!--Create Interval View Controller-->
         <scene sceneID="Tl2-92-dh2">
@@ -130,7 +171,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="bv5-G3-Bju" style="IBUITableViewCellStyleDefault" id="Mhc-8B-awp">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mhc-8B-awp" id="ik4-RT-uf2">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>

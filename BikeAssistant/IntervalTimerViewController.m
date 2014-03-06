@@ -18,6 +18,15 @@
 
 @implementation IntervalTimerViewController
 
+- (void)segueToNameInterval:(id) sender
+{
+    [self performSegueWithIdentifier:@"IntervalToNameSegue" sender:self];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,6 +47,7 @@
     }
     
     NSLog(@"%@", pressedButton);
+    [self segueToNameInterval:self];
 }
 
 - (void)viewDidLoad
