@@ -7,12 +7,18 @@
 //
 
 #import "NameIntervalViewController.h"
+#import "CreateIntervalViewController.h"
 
 @interface NameIntervalViewController ()
 
 @end
 
 @implementation NameIntervalViewController
+
+- (void)segueToCreateInterval:(id) sender
+{
+    [self performSegueWithIdentifier:@"NameToCreateSegue" sender:self];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,4 +41,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)nextButton:(id)sender {
+    if ([_nameTextField.text isEqual:@""])
+    {
+        
+      CommonLibrary *lib = [[CommonLibrary alloc]init];
+       UIAlertView *alert =  [lib superSimpleAlert:@"Please enter a name"];
+        [alert show];
+    }
+    else
+    {
+        _interval =[[Interval alloc] initWithDefaults];
+        [_interval setIntervalName:_nameTextField.text];
+        [self segueToCreateInterval:self];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CreateIntervalViewController *vc = [segue destinationViewController];
+    vc.myInterval = _interval;
+    
+}
 @end

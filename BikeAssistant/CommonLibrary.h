@@ -17,5 +17,6 @@
 -(NSNumber *) timeToHours:(int) seconds;
 -(NSNumber *) timeToMinutes:(int) seconds;
 -(NSNumber *) timeToSeconds:(int) seconds;
+-(UIAlertView *) superSimpleAlert:(NSString*)messageIn;
 
 @end

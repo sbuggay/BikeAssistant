@@ -19,6 +19,7 @@
     NSMutableDictionary *dictionary;
 }
 
+
 @property (strong, nonatomic) Interval *myInterval;
 
 

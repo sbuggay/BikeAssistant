@@ -65,8 +65,8 @@ NSString *stempArray = @"tempArray";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Name" message:@"Enter name of Interval" delegate:self cancelButtonTitle:@"save" otherButtonTitles:nil, nil];
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Name" message:@"Enter name of Interval" delegate:self cancelButtonTitle:@"save" otherButtonTitles:nil, nil];
+    //alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     
     defaults = [[NSUserDefaults alloc]init];
     dictionary = [[defaults dictionaryForKey:dictName]mutableCopy];
@@ -79,7 +79,7 @@ NSString *stempArray = @"tempArray";
         dictionary = [[NSMutableDictionary alloc]init];
     }
     
-    [alert show];
+    //[alert show];
     
 
    // myInterval.intervalName = [self alertView:alert clickedButtonAtIndex:0];
@@ -190,10 +190,7 @@ NSString *stempArray = @"tempArray";
 {
     AddIntervalViewController *vc = [segue destinationViewController];
     
-    Interval *temp = [[Interval alloc] init];
-    [intervals addObject:temp];
-    
-    vc.interval = temp;
+    vc.interval = _myInterval;
     
 }
 

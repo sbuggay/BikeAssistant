@@ -169,6 +169,8 @@
 				0740826E18B180D30085A16F /* AddIntervalViewController.m */,
 				01EC2D8118B034110035BD78 /* CreateIntervalViewController.h */,
 				01EC2D8218B034110035BD78 /* CreateIntervalViewController.m */,
+				D4C5FB0B18C80F0800C9383F /* NameIntervalViewController.h */,
+				D4C5FB0C18C80F0800C9383F /* NameIntervalViewController.m */,
 				0703621D18A985C0006AB301 /* SettingsViewController.h */,
 				0703621E18A985C0006AB301 /* SettingsViewController.m */,
 				9DA3E42118A45156005DA070 /* CaloriesViewController.h */,
@@ -184,8 +186,6 @@
 				56FDB1271884BCF2009DE59D /* Supporting Files */,
 				D4027E8A18B2E6E200D17A02 /* CommonLibrary.h */,
 				D4027E8B18B2E6E300D17A02 /* CommonLibrary.m */,
-				D4C5FB0B18C80F0800C9383F /* NameIntervalViewController.h */,
-				D4C5FB0C18C80F0800C9383F /* NameIntervalViewController.m */,
 			);
 			path = BikeAssistant;
 			sourceTree = "<group>";

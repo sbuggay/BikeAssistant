@@ -151,11 +151,18 @@
                                 <state key="normal" title="Next ->">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextButton:" destination="gl4-8a-IEP" eventType="touchUpInside" id="UkO-5W-Yu8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="caz-AX-dnE"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="ak1-Mi-fJP" id="ytp-3c-8jF"/>
+                        <segue destination="pbY-lC-dNW" kind="push" identifier="NameToCreateSegue" id="qaz-jU-8PQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnL-JK-dDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -171,7 +178,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="bv5-G3-Bju" style="IBUITableViewCellStyleDefault" id="Mhc-8B-awp">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mhc-8B-awp" id="ik4-RT-uf2">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>

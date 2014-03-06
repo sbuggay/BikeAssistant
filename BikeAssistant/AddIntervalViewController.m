@@ -23,31 +23,8 @@
     totalSeconds += [[_iMinutes text] intValue] * 60;
     totalSeconds += [[_iSeconds text] intValue];
 
-    NSMutableArray *tempArray = [[NSMutableArray alloc]init];
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
-    NSMutableArray *myArray = [[NSMutableArray alloc]init];
-    NSMutableDictionary *dictionary = [[defaults dictionaryForKey:@"myDictionary"]mutableCopy];
     NSNumber *seconds = [NSNumber numberWithInt:totalSeconds];
-    
-    myArray = [[dictionary objectForKey:[defaults valueForKey:@"tempIntervalName5"]]mutableCopy];
-    tempArray = [[defaults objectForKey:@"tempArray"]mutableCopy];
-    
-    if(dictionary == nil){
-        dictionary = [[NSMutableDictionary alloc]init];
-    }
-    if(myArray == nil){
-        myArray = [[NSMutableArray alloc]init];
-    }
-    
-    
-    [myArray addObject:[_iName text]];
-    [myArray addObject:seconds];
-    [tempArray addObject:[_iName text]];
-    
-    [dictionary setObject:myArray forKey:[defaults valueForKey:@"tempIntervalName5"]];
-    [defaults setObject:dictionary forKey:@"myDictionary"];
-    [defaults setObject:tempArray forKey:@"tempArray"];
-    
+
     [self performSegueWithIdentifier:@"returnToCreateInterval" sender:self];
    
 }
