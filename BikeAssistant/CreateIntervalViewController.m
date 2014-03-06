@@ -19,7 +19,7 @@ NSString *dictName = @"myDictionary";
 NSString *stempArray = @"tempArray";
 
 - (IBAction)finishButton:(id)sender {
-    
+    [_myInterval saveInterval];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -32,32 +32,13 @@ NSString *stempArray = @"tempArray";
     return self;
 }
 
-- (NSString *)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    UITableView *tableView = [[UITableView alloc]init];
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    cell.textLabel.text = [[alertView textFieldAtIndex:0] text];
- 
-    [defaults setValue:[[alertView textFieldAtIndex:0] text] forKey:tempIntName];
-    
-    NSMutableArray *myTempArray = [[NSMutableArray alloc]init];
-    
-    [dictionary setObject:myArray forKey:[[alertView textFieldAtIndex:0] text]];
-    [defaults setObject:dictionary forKey:dictName];
-    [defaults setObject:myTempArray forKey:stempArray];
-    
-    [self.tableView reloadData];
-    return [[alertView textFieldAtIndex:0] text];
-}
-
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    if(_myInterval != nil){
+        [_myInterval getInterval:[_myInterval getIntervalName]];
+    }
     //[nameInterval.contentView addSubView:]
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -68,31 +49,11 @@ NSString *stempArray = @"tempArray";
     //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Name" message:@"Enter name of Interval" delegate:self cancelButtonTitle:@"save" otherButtonTitles:nil, nil];
     //alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     
-    defaults = [[NSUserDefaults alloc]init];
-    dictionary = [[defaults dictionaryForKey:dictName]mutableCopy];
-    myArray = [[dictionary objectForKey:[defaults valueForKey:tempIntName]]mutableCopy];
-    
-    if (myArray == nil){
-        myArray = [[NSMutableArray alloc]init];
-    }
-    if (dictionary == nil) {
-        dictionary = [[NSMutableDictionary alloc]init];
-    }
-    
-    //[alert show];
-    
 
-   // myInterval.intervalName = [self alertView:alert clickedButtonAtIndex:0];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    dictionary = [[defaults dictionaryForKey:dictName]mutableCopy];
-    myArray = [[dictionary objectForKey:[defaults valueForKey:tempIntName]]mutableCopy];
-    if (myArray == nil){
-        myArray = [[NSMutableArray alloc]init];
-    }
-   
-    
+    myArray = _myInterval.getListOfTimers;
     [self.tableView reloadData];
 }
 
@@ -113,6 +74,7 @@ NSString *stempArray = @"tempArray";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    
     return [myArray count];
 }
 
@@ -120,12 +82,7 @@ NSString *stempArray = @"tempArray";
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
-
     cell.textLabel.text = [myArray objectAtIndex:indexPath.row];
-    
-
-    
     return cell;
 }
 

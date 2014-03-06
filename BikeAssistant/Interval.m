@@ -37,6 +37,9 @@
     dictionaryName = @"intervalDictionary";
     defaults = [[NSUserDefaults alloc]init];
     dictionary = [[defaults dictionaryForKey:dictionaryName]mutableCopy];
+    if(dictionary == nil){
+        dictionary = [[NSMutableDictionary alloc]init];
+    }
     timers = [[NSMutableArray alloc]init];
     return self;
 }
@@ -160,6 +163,7 @@
     
     [dictionary setObject:timers forKey:intervalName];
     [dictionary writeToFile:dictionaryName atomically:YES];
+    [defaults setObject:dictionary forKey:dictionaryName];
 }
 
 /**
@@ -186,6 +190,9 @@
 - (void) getInterval:(NSString *)key{
     
     timers = [dictionary objectForKey:key];
+    if(timers == nil){
+        timers = [[NSMutableArray alloc]init];
+    }
     intervalName = key;
 }
 

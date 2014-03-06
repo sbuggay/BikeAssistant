@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Interval.h"
 
 @interface IntervalTimerViewController : UITableViewController
 {
@@ -23,5 +24,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *intervalTimerLabel;
 @property (strong, nonatomic) NSMutableArray* cellList;
+@property (strong, nonatomic) Interval* myInterval;
 
 @end

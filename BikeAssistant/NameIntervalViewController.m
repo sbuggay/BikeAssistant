@@ -32,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if(_interval != nil){
+        _nameTextField.text = [_interval getIntervalName];
+    }
 	// Do any additional setup after loading the view.
 }
 
@@ -51,7 +54,9 @@
     }
     else
     {
-        _interval =[[Interval alloc] initWithDefaults];
+        if(_interval == nil){
+            _interval =[[Interval alloc] initWithDefaults];
+        }
         [_interval setIntervalName:_nameTextField.text];
         [self segueToCreateInterval:self];
     }

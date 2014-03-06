@@ -7,6 +7,7 @@
 //
 
 #import "IntervalTimerViewController.h"
+#import "NameIntervalViewController.h"
 
 @interface IntervalTimerViewController ()
 
@@ -25,7 +26,8 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    NameIntervalViewController *vc = [segue destinationViewController];
+    vc.interval = _myInterval;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -43,7 +45,8 @@
     globalDefaults = [[NSUserDefaults alloc]init];
     globalDictionary = [[globalDefaults valueForKey:pressedButton]mutableCopy];
     if(![pressedButton isEqual:@("Create Interval")]){
-    
+        [_myInterval setIntervalName:pressedButton];
+        
     }
     
     NSLog(@"%@", pressedButton);
@@ -53,7 +56,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _cellList = [[NSMutableArray alloc]init];
+    
+    [_cellList setObject:@"Create Interval" atIndexedSubscript:0];
+    [_cellList addObjectsFromArray:[_myInterval getListOfIntervals]];
+    
     [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height-self.tableView.frame.size.height) animated:YES];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -63,6 +69,12 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated{
+
+    //_cellList = [_myInterval getListOfIntervals];
+    _myInterval = [[Interval alloc] initWithDefaults];
+    _cellList = [[NSMutableArray alloc]init];
+    [_cellList setObject:@"Create Interval" atIndexedSubscript:0];
+    [_cellList addObjectsFromArray:[_myInterval getListOfIntervals]];
     [self.tableView reloadData];
 }
 
@@ -83,20 +95,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
-    NSMutableArray *myArray = [[NSMutableArray alloc]init];
-    NSMutableDictionary *dictionary = [[defaults dictionaryForKey:@"myDictionary"]mutableCopy];
-    
-    myArray = [[dictionary objectForKey:[defaults valueForKey:@"tempIntervalName5"]]mutableCopy];
-    
-    if(dictionary == nil){
-        dictionary = [[NSMutableDictionary alloc]init];
-    }
-    if(myArray == nil){
-        myArray = [[NSMutableArray alloc]init];
-    }
-    
-    return ([dictionary count] + 1);
+    return ([[_myInterval getListOfIntervals] count] + 1);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,44 +103,12 @@
     
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
+        cell.textLabel.text = [_cellList objectAtIndex:indexPath.row];
     
-    
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
-    NSMutableDictionary *dictionary = [[defaults dictionaryForKey:@"myDictionary"]mutableCopy];
-    
-    if(dictionary == nil){
-        dictionary = [[NSMutableDictionary alloc]init];
-    }
-    
-    int i = 0;
-    NSString *intervalName = [[NSString alloc]init];
-    for (NSString* key in dictionary) {
-        
-        if(i == indexPath.row - 1){
-            intervalName = key;
-        }
-        i = i + 1;
-    }
-    
-    NSString *firstString = _cellList.firstObject;
-    if(indexPath.row == 0 && ![firstString isEqual:@("Create Interval")]){
-        
-        cell.textLabel.text = @"Create Interval";
-        NSLog(@"%@", (firstString));
-        [_cellList addObject:@"Create Interval"];
-    }
-    else if (![intervalName isEqual:@("")]){
-        cell.textLabel.text = intervalName;
-        [_cellList addObject:intervalName];
-    }
-  
-    [dictionary writeToFile:@"myDictionary" atomically:YES];
     
     return cell;
 }
-
-
-
 
 
 
