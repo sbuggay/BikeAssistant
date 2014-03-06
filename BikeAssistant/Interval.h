@@ -12,6 +12,7 @@
 @interface Interval : NSObject
 {
     int currentTimer;
+    NSString *intervalName;
     NSString *dictionaryName;
     NSMutableDictionary *dictionary;
     NSUserDefaults *defaults;
@@ -27,5 +28,8 @@
 - (NSMutableArray *) getListOfIntervals;
 - (void) saveInterval;
 - (BOOL) isLastTimer;
+- (void) addTimer:(NSNumber *)newTimer;
+- (BOOL) timerExist:(NSString *)timerName;
+- (NSNumber *) getTimer:(NSString *)timerName;
 
 @end

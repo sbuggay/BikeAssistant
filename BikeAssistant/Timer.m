@@ -73,9 +73,10 @@
 
 -(void)timer{
     
+    
     timerNameLabel.text = timerName;
     timer = [NSTimer timerWithTimeInterval:1.0f
-                                             target:self
+                                            target:self
                                            selector:@selector(updateLabels)
                                            userInfo:nil
                                             repeats:YES];

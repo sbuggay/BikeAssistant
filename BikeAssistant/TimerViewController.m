@@ -13,9 +13,9 @@
 
 - (IBAction)startButton:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UILabel *timerNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
-@property (weak, nonatomic) IBOutlet UITextField *intervalField;
+@property (nonatomic, strong) IBOutlet UILabel *timerNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *timerLabel;
+@property (nonatomic, strong) IBOutlet UITextField *intervalField;
 
 @end
 
@@ -39,9 +39,8 @@
 {
     [super viewDidLoad];
     
-    
-    interval = [[Interval alloc] init];
-	
+    if(_timer == nil)
+        _timer = [[Timer alloc]init];
 }
 
 
@@ -52,8 +51,8 @@
 }
 
 - (IBAction)startButton:(id)sender {
-    [timer stopTimer];
-    timer = [[Timer alloc] initWithLabels:_timerNameLabel label:_timerLabel name:[_intervalField text]];
-    [timer timerStart];
+    [_timer stopTimer];
+    _timer = [[Timer alloc] initWithLabels:_timerNameLabel label:_timerLabel name:[_intervalField text]];
+    [_timer timerStart];
 }
 @end

@@ -40,13 +40,33 @@
     return isTrue;
 }
 
+- (void) addTimer :(NSNumber *)newTimer{
+    [timers addObject:newTimer];
+}
+
+- (NSNumber *) getTimer: (NSString *)timerName{
+    int reserveCount = currentTimer;
+    NSNumber *timer;
+    for (int i = 0; i < [timers count] / 2  ; i = i + 2) {
+        if(timerName == [self getTimeName]){
+            timer = [self getTimer];
+        }
+    }
+    
+    currentTimer = reserveCount;
+    return NULL;
+}
+
 - (void) saveInterval{
+    
+    [dictionary setObject:timers forKey:intervalName];
     [dictionary writeToFile:dictionaryName atomically:YES];
 }
 
 - (void) getInterval:(NSString *)key{
     
     timers = [dictionary objectForKey:key];
+    intervalName = key;
 }
 
 - (NSNumber *) getTimer{
