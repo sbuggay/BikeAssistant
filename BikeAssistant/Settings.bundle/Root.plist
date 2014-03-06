@@ -22,7 +22,7 @@
 			<key>Key</key>
 			<string>weight</string>
 			<key>KeyboardType</key>
-			<string>NumberPad</string>
+			<string>NumbersAndPunctuation</string>
 			<key>Title</key>
 			<string>Weight (lb)</string>
 			<key>Type</key>
@@ -40,7 +40,7 @@
 			<key>Key</key>
 			<string>height</string>
 			<key>KeyboardType</key>
-			<string>NumberPad</string>
+			<string>NumbersAndPunctuation</string>
 			<key>Title</key>
 			<string>Height (ft)</string>
 			<key>Type</key>

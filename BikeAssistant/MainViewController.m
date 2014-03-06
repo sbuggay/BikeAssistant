@@ -17,12 +17,12 @@
 
 @interface MainViewController ()
 
+
 @end
 
 @implementation MainViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     self.title = @"Map";
@@ -40,6 +40,8 @@
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
+    
+    startLocation = [locationManager location];
     
     [_map setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
     
@@ -70,23 +72,20 @@
         [_map addOverlay:route];
         
     }];
-    
-    
-    
-    
-
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark CLLocationManager
 
--(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"%f", [[defaults objectForKey:@"weight"] floatValue]);
+    
     //simply get the speed provided by the phone from newLocation
     double gpsSpeed = newLocation.speed;
     
@@ -96,13 +95,23 @@
     _locationLabel1.text = [NSString stringWithFormat:@"%3.3f", gpsSpeed * 2.23694];
     
     
+    double totalWeight = [[defaults objectForKey:@"weight"] floatValue];
+    double distance = abs([newLocation distanceFromLocation:startLocation]);
+    double totalTime = .033;
+    double resistance = .1;
+    // Calories Burned Formula
+//    double caloriesBurned = ((.046 * (distance/totalTime) * totalWeight) + (.066 * pow((distance/totalTime), 3)) * totalTime);
+//    _caloriesLabel.text = [NSString stringWithFormat: @"Calories Burned: %f.2", caloriesBurned];
+    // Watts Generated Formula
+    double wattsGenerated = (totalWeight * resistance * distance) / totalTime;
+    _metricsLabel1.text = [NSString stringWithFormat: @"%.2f", wattsGenerated];
+    
 }
 
 
 #pragma mark MKMapView
 
--(void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-{
+-(void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
 
     
 }
@@ -157,8 +166,7 @@
 
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"AddPlayer"]) {
         
 //        UINavigationController *navigationController = segue.destinationViewController;
