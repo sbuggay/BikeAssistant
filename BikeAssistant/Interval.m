@@ -53,6 +53,27 @@
     return listOfInterval;
 }
 
+- (NSMutableArray *) getListOfTimers{
+    NSMutableArray *list = [[NSMutableArray alloc]init];
+    
+    int reserveCount = currentTimer;
+    
+    for (int i = 0; i < [timers count] / 2  ; i++) {
+        
+        [list addObject:[self getTimeName]];
+        [self getNextTimer];
+    }
+    
+    currentTimer = reserveCount;
+    
+    return list;
+}
+
+- (NSInteger) numOfTimers{
+    
+    return [timers count] /2;
+}
+
 /**
  This is primarily for the Timer class so it knows if 
  it is a the last timer in the interval.
