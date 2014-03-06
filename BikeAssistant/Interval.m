@@ -64,6 +64,10 @@
     return timer;
 }
 
+- (void) setIntervalName:(NSString *)newName{
+    intervalName = newName;
+}
+
 - (void) deleteInterval{
     [dictionary removeObjectForKey:intervalName];
 }
