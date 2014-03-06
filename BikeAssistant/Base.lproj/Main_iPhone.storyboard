@@ -183,7 +183,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIq-Vz-KBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1238" y="2971"/>
+            <point key="canvasLocation" x="-1174" y="2999"/>
         </scene>
         <!--Add Interval View Controller-->
         <scene sceneID="hZM-0b-FNe">

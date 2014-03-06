@@ -24,6 +24,7 @@
 - (void) getInterval:(NSString *)key;
 - (NSNumber *) getTimer;
 - (NSString *) getTimeName;
+- (NSString *) getIntervalName;
 - (void) getNextTimer;
 - (NSMutableArray *) getListOfIntervals;
 - (void) saveInterval;
@@ -31,5 +32,6 @@
 - (void) addTimer:(NSNumber *)newTimer;
 - (BOOL) timerExist:(NSString *)timerName;
 - (NSNumber *) getTimer:(NSString *)timerName;
-
+- (void) deleteInterval;
+- (void) addInterval;
 @end

@@ -12,7 +12,7 @@
 @implementation Interval
 
 - (id) initWithDefaults{
-    dictionaryName = @"myDictionary";
+    dictionaryName = @"intervalDictionary";
     defaults = [[NSUserDefaults alloc]init];
     dictionary = [[defaults dictionaryForKey:dictionaryName]mutableCopy];
     timers = [[NSMutableArray alloc]init];
@@ -44,17 +44,32 @@
     [timers addObject:newTimer];
 }
 
+- (NSString *) getIntervalName{
+    return intervalName;
+}
+
 - (NSNumber *) getTimer: (NSString *)timerName{
+    
     int reserveCount = currentTimer;
     NSNumber *timer;
-    for (int i = 0; i < [timers count] / 2  ; i = i + 2) {
-        if(timerName == [self getTimeName]){
+    
+    for (int i = 0; i < [timers count] / 2  ; i++) {
+        
+        if([timerName isEqualToString:[self getTimeName]]){
             timer = [self getTimer];
         }
     }
     
     currentTimer = reserveCount;
-    return NULL;
+    return timer;
+}
+
+- (void) deleteInterval{
+    [dictionary removeObjectForKey:intervalName];
+}
+
+- (void) addInterval{
+    [dictionary setObject:timers forKey:intervalName];
 }
 
 - (void) saveInterval{
