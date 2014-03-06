@@ -40,8 +40,9 @@
     return isTrue;
 }
 
-- (void) addTimer :(NSNumber *)newTimer{
-    [timers addObject:newTimer];
+- (void) addTimer:(NSNumber *)newTimerAmount newTimerName:(NSString *)newTimerName{
+    [timers addObject:newTimerName];
+    [timers addObject:newTimerAmount];
 }
 
 - (NSString *) getIntervalName{

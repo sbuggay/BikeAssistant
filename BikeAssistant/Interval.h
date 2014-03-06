@@ -30,7 +30,7 @@
 - (NSMutableArray *) getListOfIntervals;
 - (void) saveInterval;
 - (BOOL) isLastTimer;
-- (void) addTimer:(NSNumber *)newTimer;
+- (void) addTimer:(NSNumber *)newTimerAmount newTimerName:(NSString *)newTimerName;
 - (BOOL) timerExist:(NSString *)timerName;
 - (NSNumber *) getTimer:(NSString *)timerName;
 - (void) deleteInterval;
