@@ -37,4 +37,6 @@
 - (void) addInterval;
 - (void) updateIntervalName:(NSString *)newName;
 - (void) deleteTimer:(NSString *)timerToDelete;
+- (NSInteger) numOfTimers;
+- (NSMutableArray *) getListOfTimers;
 @end
