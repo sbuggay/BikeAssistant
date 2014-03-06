@@ -189,7 +189,7 @@
  */
 - (void) getInterval:(NSString *)key{
     
-    timers = [dictionary objectForKey:key];
+    timers = [[dictionary objectForKey:key] mutableCopy];
     if(timers == nil){
         timers = [[NSMutableArray alloc]init];
     }
