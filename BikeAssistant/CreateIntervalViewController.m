@@ -113,27 +113,18 @@ NSString *stempArray = @"tempArray";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [myArray count]/2;
+    return [myArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
+
+    cell.textLabel.text = [myArray objectAtIndex:indexPath.row];
     
-    
-    
-    if(dictionary == nil){
-        dictionary = [[NSMutableDictionary alloc]init];
-    }
-    if(myArray == nil){
-        myArray = [[NSMutableArray alloc]init];
-    }
-    NSLog(@"Index path.row: %ld", (long)indexPath.row);
-    NSLog(@"Array object at index: %@", [myArray objectAtIndex:indexPath.row]);
-    cell.textLabel.text = [myArray objectAtIndex:indexPath.row * 2];
-    
-    [dictionary writeToFile:dictName atomically:YES];
+
     
     return cell;
 }

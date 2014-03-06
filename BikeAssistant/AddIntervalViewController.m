@@ -24,6 +24,7 @@
     totalSeconds += [[_iSeconds text] intValue];
 
     NSNumber *seconds = [NSNumber numberWithInt:totalSeconds];
+    [_interval addTimer:seconds newTimerName:[_iName text]];
 
     [self performSegueWithIdentifier:@"returnToCreateInterval" sender:self];
    
