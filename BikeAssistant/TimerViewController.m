@@ -9,13 +9,22 @@
 #import "TimerViewController.h"
 
 @interface TimerViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
-@property (weak, nonatomic) IBOutlet UILabel *timerNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+
+
+- (IBAction)startButton:(id)sender;
+
+@property (nonatomic, strong) IBOutlet UILabel *timerNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *timerLabel;
+@property (nonatomic, strong) IBOutlet UITextField *intervalField;
 
 @end
 
 @implementation TimerViewController
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,14 +39,10 @@
 {
     [super viewDidLoad];
     
-    timer = [[Timer alloc] initWithLabels:_timerNameLabel label:_timerLabel name:@"test"];
-    interval = [[Interval alloc] init];
-	
+    if(_timer == nil)
+        _timer = [[Timer alloc]init];
 }
 
--(IBAction)startButton:(id)sender{
-    [timer timerStart];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -45,4 +50,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)startButton:(id)sender {
+    [_timer stopTimer];
+    _timer = [[Timer alloc] initWithLabels:_timerNameLabel label:_timerLabel name:[_intervalField text]];
+    [_timer timerStart];
+}
 @end
