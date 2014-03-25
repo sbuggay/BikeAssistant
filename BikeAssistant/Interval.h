@@ -22,6 +22,7 @@
 
 - (id) initWithDefaults;
 - (void) getInterval:(NSString *)key;
+- (NSMutableArray *) getTimers:(NSString *)key;
 - (NSNumber *) getTimer;
 - (NSString *) getTimeName;
 - (NSString *) getIntervalName;

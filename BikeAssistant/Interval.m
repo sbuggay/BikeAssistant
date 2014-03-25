@@ -106,6 +106,12 @@
     [timers addObject:newTimerAmount];
 }
 
+- (NSMutableArray *) getTimers: (NSString *)key
+{
+    timers = [[dictionary objectForKey:key] mutableCopy];
+    return timers;
+}
+
 /**
  Returns the name of the interval timer.
  */

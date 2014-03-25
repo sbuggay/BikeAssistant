@@ -17,6 +17,8 @@
     NSUserDefaults *defaults;
     NSMutableArray *myArray;
     NSMutableDictionary *dictionary;
+    NSNumber *pressedButton;
+
 }
 
 

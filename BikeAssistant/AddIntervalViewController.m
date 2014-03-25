@@ -35,8 +35,16 @@
     [self.view endEditing:YES];
 }
 
+
+
 -(void) viewDidLoad {
     
+    NSMutableArray *iTimers = [[NSMutableArray alloc] init];
+    iTimers = [[_interval getTimers:_interval.getIntervalName] mutableCopy];
+    
+    NSLog(@"%@", iTimers[0]);
+    NSLog(@"%@", iTimers[1]);
+   
 }
 
 - (IBAction)goBackToFirstView:(id)sender {

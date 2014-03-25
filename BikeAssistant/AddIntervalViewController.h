@@ -15,8 +15,8 @@
 {
     
 }
+@property (weak, nonatomic) NSNumber *incomingTimerIndex;
 @property (strong, nonatomic) Interval *interval;
-
 @property (weak, nonatomic) IBOutlet UITextField *iName;
 @property (weak, nonatomic) IBOutlet UITextField *iHours;
 @property (weak, nonatomic) IBOutlet UITextField *iMinutes;
