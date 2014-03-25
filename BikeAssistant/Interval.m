@@ -135,8 +135,7 @@
 
 /**
  This will set the intervalName.
- Should only be used if adding a new interval timer or updating
- an old one.
+ Should only be used if adding a new interval timer 
  */
 - (void) setIntervalName:(NSString *)newName{
     intervalName = newName;
@@ -173,9 +172,14 @@
  and then saveInterval.
  */
 - (void) updateIntervalName:(NSString *)newName{
-    
-    [self deleteInterval:intervalName];
+    NSString * oldName = [self getIntervalName];
     [self setIntervalName:newName];
+    
+    if (oldName != nil)
+    {
+    timers = [[dictionary objectForKey:oldName] mutableCopy];
+    [self deleteInterval:oldName];
+    }
     [self saveInterval];
     
 }

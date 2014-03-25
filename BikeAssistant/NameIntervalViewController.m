@@ -57,8 +57,15 @@
         if(_interval == nil){
             _interval =[[Interval alloc] initWithDefaults];
         }
-        [_interval setIntervalName:_nameTextField.text];
-        [self segueToCreateInterval:self];
+        if (_interval.getIntervalName != nil && ![_interval.getIntervalName isEqualToString:_nameTextField.text])
+        {
+            [_interval updateIntervalName:_nameTextField.text];
+        }
+        else if (_interval.getIntervalName == nil)
+        {
+            [_interval setIntervalName:_nameTextField.text];
+        }
+         [self segueToCreateInterval:self];
     }
 }
 
