@@ -41,7 +41,8 @@
     
     NSMutableArray *iTimers = [[NSMutableArray alloc] init];
     iTimers = [[_interval getTimers:_interval.getIntervalName] mutableCopy];
-    
+ //   NSString * output = [iTimers objectAtIndex:_incomingTimerIndex];
+  //  _iName.text = iTimers[_incomingTimerIndex];
     NSLog(@"%@", iTimers[0]);
     NSLog(@"%@", iTimers[1]);
    
