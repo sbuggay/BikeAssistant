@@ -6,12 +6,6 @@
 // project.
 
 
-// GPXParser
-#define COCOAPODS_POD_AVAILABLE_GPXParser
-#define COCOAPODS_VERSION_MAJOR_GPXParser 1
-#define COCOAPODS_VERSION_MINOR_GPXParser 0
-#define COCOAPODS_VERSION_PATCH_GPXParser 0
-
 // InAppSettingsKit
 #define COCOAPODS_POD_AVAILABLE_InAppSettingsKit
 #define COCOAPODS_VERSION_MAJOR_InAppSettingsKit 2

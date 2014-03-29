@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-GPXParser.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-InAppSettingsKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0ACCD6A1531341B4A108A693</key>
+		<key>0609DC0DE7D94D69AAF435CF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B13252DE57A344B8B3AB956B</key>
+		<key>8EB75B9004AB4E44ADF5B38E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CB4E8191CC58485E83201FB9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D1A543EBCB354CE6BF7DE1A0</key>
+		<key>FA507BB4A9F745FBBC3F5E83</key>
 		<dict>
 			<key>primary</key>
 			<true/>

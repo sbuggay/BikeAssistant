@@ -10,14 +10,21 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
-#import <GPX.h>
-#import <GPXParser/GPX.h>
-#import <GPXParser/GPXParser.h>
+#import <GPX/GPX.h>
 
+typedef enum MapState : NSUInteger {
+    kNoRoute,
+    kFreeRide,
+    kCreatingRoute,
+    kFollowingRoute
+} MapState;
 
 @interface MainViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIActionSheetDelegate> {
     CLLocationManager *locationManager;
     CLLocation *startLocation;
+    GPXRoot *root;
+    NSInteger mapState;
+    
 }
 
 - (IBAction)showActionSheet:(id)sender;
@@ -29,6 +36,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *metricsButton;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *metricsLabel1;
+
+- (void)newRoute;
+- (void)saveRoute;
+- (void)loadRoute;
+- (void)clearRoute;
 
 
 @end

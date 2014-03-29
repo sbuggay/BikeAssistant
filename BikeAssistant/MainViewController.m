@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.title = @"Map";
     
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
@@ -34,7 +34,9 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-
+    
+    mapState = kNoRoute;
+    
     locationManager = [[CLLocationManager alloc] init];
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     locationManager.delegate = self;
@@ -49,33 +51,67 @@
     MKCoordinateRegion adjustedRegion = [self.map regionThatFits:viewRegion];
     [self.map setRegion:adjustedRegion animated:YES];
     self.map.showsUserLocation = YES;
-
+    
     
     NSString *file=[[NSBundle mainBundle] pathForResource:@"Auburn__Alabama" ofType:@"gpx"];
     
     NSData *fileData = [NSData dataWithContentsOfFile:file];
-
     
-    [GPXParser parse:fileData completion:^(BOOL success, GPX *gpx) {
-        CLLocationCoordinate2D coordinates[[[gpx waypoints]count]];
-        int i = 0;
-        NSLog(@"%@", [gpx waypoints]);
-        for (Waypoint *ckpt in [gpx waypoints])
-        {
-            coordinates[i] = CLLocationCoordinate2DMake([ckpt latitude] , [ckpt longitude]);
-            i++;
-            NSLog(@"%f | %f", [ckpt latitude], [ckpt longitude]);
-        }
-        
-        MKPolyline *route = [MKPolyline polylineWithCoordinates: coordinates count: [[gpx waypoints] count]];
-        [_map addOverlay:route];
-        
-    }];
+    
+    //    [GPXParser parse:fileData completion:^(BOOL success, GPX *gpx) {
+    //        CLLocationCoordinate2D coordinates[[[gpx waypoints]count]];
+    //        int i = 0;
+    //        NSLog(@"%@", [gpx waypoints]);
+    //        for (Waypoint *ckpt in [gpx waypoints])
+    //        {
+    //            coordinates[i] = CLLocationCoordinate2DMake([ckpt latitude] , [ckpt longitude]);
+    //            i++;
+    //            NSLog(@"%f | %f", [ckpt latitude], [ckpt longitude]);
+    //        }
+    //
+    //        MKPolyline *route = [MKPolyline polylineWithCoordinates: coordinates count: [[gpx waypoints] count]];
+    //        [_map addOverlay:route];
+    //
+    //    }];
+    
+    
+    root = [GPXParser parseGPXWithData:fileData];
+    
+    CLLocationCoordinate2D coors[[[root waypoints] count]];
+    
+    int i = 0;
+    for (GPXRoutePoint *routepoint in [root waypoints]) {
+        coors[i] = CLLocationCoordinate2DMake(routepoint.latitude, routepoint.longitude);
+        NSLog(@"%f | %f", routepoint.latitude, routepoint.longitude);
+        i++;
+    }
+    
+    MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coors count:[[root waypoints] count]];
+    [_map addOverlay:polyline];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)newRoute {
+    NSArray *pointsArray = [_map overlays];
+    [_map removeOverlays:pointsArray];
+    
+    mapState = kCreatingRoute;
+    
+    root = [GPXRoot rootWithCreator:@"Free Ride"];
+    NSLog(@"New Route has been started");
+    NSLog(@"%lu", [[root waypoints] count]);
+}
+
+- (void)clearRoute {
+    NSArray *pointsArray = [_map overlays];
+    [_map removeOverlays:pointsArray];
+    
+    mapState = kNoRoute;
 }
 
 #pragma mark CLLocationManager
@@ -99,8 +135,8 @@
     double totalTime = .033;
     double resistance = .1;
     // Calories Burned Formula
-//    double caloriesBurned = ((.046 * (distance/totalTime) * totalWeight) + (.066 * pow((distance/totalTime), 3)) * totalTime);
-//    _caloriesLabel.text = [NSString stringWithFormat: @"Calories Burned: %f.2", caloriesBurned];
+    //    double caloriesBurned = ((.046 * (distance/totalTime) * totalWeight) + (.066 * pow((distance/totalTime), 3)) * totalTime);
+    //    _caloriesLabel.text = [NSString stringWithFormat: @"Calories Burned: %f.2", caloriesBurned];
     // Watts Generated Formula
     double wattsGenerated = (totalWeight * resistance * distance) / totalTime;
     _metricsLabel1.text = [NSString stringWithFormat: @"%.2f", distance];
@@ -109,29 +145,28 @@
     
     
     
-//    GPX generator
-//    GPXRoot *root = [GPX rootWithCreator:@"Sample Application"];
-//    
-//    Waypoint *waypoint = [root way:35.658609f longitude:139.745447f];
-//    waypoint.name = @"Tokyo Tower";
-//    waypoint.comment = @"The old TV tower in Tokyo.";
-//    
-//    GPXTrack *track = [root newTrack];
-//    track.name = @"My New Track";
-//    
-//    [track newTrackpointWithLatitude:35.658609f longitude:139.745447f];
-//    [track newTrackpointWithLatitude:35.758609f longitude:139.745447f];
-//    [track newTrackpointWithLatitude:35.828609f longitude:139.745447f];
+    //    GPX generator
     
+    if(mapState == kCreatingRoute) {
+    [root newWaypointWithLatitude:[newLocation coordinate].latitude longitude:[newLocation coordinate].longitude];
     
+    CLLocationCoordinate2D coors[[[root waypoints] count]];
     
+    int i = 0;
+    for (GPXRoutePoint *routepoint in [root waypoints]) {
+        coors[i] = CLLocationCoordinate2DMake(routepoint.latitude, routepoint.longitude);
+        i++;
+    }
+    MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coors count:[[root waypoints] count]];
+    [_map addOverlay:polyline];
+    }
 }
 
 
 #pragma mark MKMapView
 
 -(void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-
+    
     
 }
 
@@ -147,50 +182,101 @@
 #pragma mark ActionSheet
 
 - (IBAction)showActionSheet:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                             delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                                        destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"New Route", @"Load Route", @"Settings", nil];
+    UIActionSheet *actionSheet;
+    switch (mapState) {
+        case kNoRoute:
+            actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                      delegate:self
+                                             cancelButtonTitle:@"Cancel"
+                                        destructiveButtonTitle:nil
+                                             otherButtonTitles:@"New Route", @"Load Route", @"Settings", nil];
+            break;
+            
+        case kCreatingRoute:
+            actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                      delegate:self
+                                             cancelButtonTitle:@"Cancel"
+                                        destructiveButtonTitle:@"Delete Route"
+                                             otherButtonTitles:@"Save Route", @"Settings", nil];
+            break;
+            
+        case kFollowingRoute:
+            actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                      delegate:self
+                                             cancelButtonTitle:@"Cancel"
+                                        destructiveButtonTitle:nil
+                                             otherButtonTitles:@"New Route", @"Load Route", @"Settings", nil];
+            break;
+            
+        default:
+            break;
+    }
+    
     [actionSheet showInView:self.view];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     UIStoryboard *storyBoard = [self storyboard];
-     IASKAppSettingsViewController *settingsViewController  = [storyBoard instantiateViewControllerWithIdentifier:@"settings"];
+    IASKAppSettingsViewController *settingsViewController  = [storyBoard instantiateViewControllerWithIdentifier:@"settings"];
     
-    switch (buttonIndex) {
-        
-        case 0:
-            
-            
-
+    switch (mapState) {
+        case kNoRoute:
+            switch (buttonIndex) {
+                    
+                case 0:
+                    [self newRoute];
+                    
+                    
+                    break;
+                    
+                case 1:
+                    
+                    break;
+                    
+                case 2:
+                    [self.navigationController pushViewController:settingsViewController animated:YES];
+                    break;
+                    
+                default:
+                    
+                    break;
+            }
             break;
-            
-        case 1:
-            
-            break;
-            
-        case 2:
-            [self.navigationController pushViewController:settingsViewController animated:YES];
-            break;
-        
-        default:
-            
+        case kCreatingRoute:
+            switch (buttonIndex) {
+                    
+                case 0:
+                    [self clearRoute];
+                    
+                    
+                    break;
+                    
+                case 1:
+                    [self saveRoute];
+                    break;
+                    
+                case 2:
+                    [self.navigationController pushViewController:settingsViewController animated:YES];
+                    break;
+                    
+                default:
+                    
+                    break;
+            }
             break;
     }
 }
 
-
-
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"AddPlayer"]) {
-        
-//        UINavigationController *navigationController = segue.destinationViewController;
-//        LocationViewController *locationViewController = [navigationController viewControllers][0];
-//        locationViewController.delegate = self;
+    
+    
+    
+    
+    - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+        if ([segue.identifier isEqualToString:@"AddPlayer"]) {
+            
+            //        UINavigationController *navigationController = segue.destinationViewController;
+            //        LocationViewController *locationViewController = [navigationController viewControllers][0];
+            //        locationViewController.delegate = self;
+        }
     }
-}
-@end
+    @end
