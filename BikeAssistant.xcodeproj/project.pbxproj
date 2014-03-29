@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01DF5BA918E76635007EFD2F /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF5BA218E76635007EFD2F /* History.m */; };
+		01DF5BAA18E76635007EFD2F /* Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF5BA418E76635007EFD2F /* Interval.m */; };
+		01DF5BAB18E76635007EFD2F /* IntervalTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF5BA618E76635007EFD2F /* IntervalTimer.m */; };
+		01DF5BAC18E76635007EFD2F /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF5BA818E76635007EFD2F /* Timer.m */; };
 		0707547818C2AF1A007174C2 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0707547718C2AF1A007174C2 /* LocationViewController.m */; };
 		0707547A18C30C88007174C2 /* fells_loop.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 0707547918C30C88007174C2 /* fells_loop.gpx */; };
 		0707547C18C3F3AD007174C2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707547B18C3F3AD007174C2 /* MessageUI.framework */; };
@@ -50,6 +54,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01DF5BA118E76635007EFD2F /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = History.h; path = ../../../../Documents/Test/BikeAssistant/History.h; sourceTree = "<group>"; };
+		01DF5BA218E76635007EFD2F /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = History.m; path = ../../../../Documents/Test/BikeAssistant/History.m; sourceTree = "<group>"; };
+		01DF5BA318E76635007EFD2F /* Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Interval.h; path = ../../../../Documents/Test/BikeAssistant/Interval.h; sourceTree = "<group>"; };
+		01DF5BA418E76635007EFD2F /* Interval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Interval.m; path = ../../../../Documents/Test/BikeAssistant/Interval.m; sourceTree = "<group>"; };
+		01DF5BA518E76635007EFD2F /* IntervalTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntervalTimer.h; path = ../../../../Documents/Test/BikeAssistant/IntervalTimer.h; sourceTree = "<group>"; };
+		01DF5BA618E76635007EFD2F /* IntervalTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IntervalTimer.m; path = ../../../../Documents/Test/BikeAssistant/IntervalTimer.m; sourceTree = "<group>"; };
+		01DF5BA718E76635007EFD2F /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timer.h; path = ../../../../Documents/Test/BikeAssistant/Timer.h; sourceTree = "<group>"; };
+		01DF5BA818E76635007EFD2F /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Timer.m; path = ../../../../Documents/Test/BikeAssistant/Timer.m; sourceTree = "<group>"; };
 		0707547618C2AF1A007174C2 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		0707547718C2AF1A007174C2 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		0707547918C30C88007174C2 /* fells_loop.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = fells_loop.gpx; sourceTree = "<group>"; };
@@ -134,6 +146,14 @@
 		07C9F64418C199C50060BAE3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				01DF5BA118E76635007EFD2F /* History.h */,
+				01DF5BA218E76635007EFD2F /* History.m */,
+				01DF5BA318E76635007EFD2F /* Interval.h */,
+				01DF5BA418E76635007EFD2F /* Interval.m */,
+				01DF5BA518E76635007EFD2F /* IntervalTimer.h */,
+				01DF5BA618E76635007EFD2F /* IntervalTimer.m */,
+				01DF5BA718E76635007EFD2F /* Timer.h */,
+				01DF5BA818E76635007EFD2F /* Timer.m */,
 				07D89A9C18C05E0800AF9192 /* MainViewController.h */,
 				07D89A9D18C05E0800AF9192 /* MainViewController.m */,
 				07D89A9E18C05E0800AF9192 /* SidebarViewController.h */,
@@ -383,14 +403,18 @@
 			files = (
 				07D89AA418C05E0800AF9192 /* AppDelegate.m in Sources */,
 				071DA82B18C6E238001CDBA4 /* IntervalViewController.m in Sources */,
+				01DF5BAA18E76635007EFD2F /* Interval.m in Sources */,
 				07D89AA618C05E0800AF9192 /* MainViewController.m in Sources */,
 				0707547818C2AF1A007174C2 /* LocationViewController.m in Sources */,
+				01DF5BAB18E76635007EFD2F /* IntervalTimer.m in Sources */,
 				07FD5E6318C0F9FA008D6EEB /* RoutesViewController.m in Sources */,
+				01DF5BA918E76635007EFD2F /* History.m in Sources */,
 				07E8668018C4EE6800EA309B /* CLLocationViewController.m in Sources */,
 				07E8668318C4EE7100EA309B /* MetricsViewController.m in Sources */,
 				07D89A6E18C05BBD00AF9192 /* main.m in Sources */,
 				07D89AA718C05E0800AF9192 /* SidebarViewController.m in Sources */,
 				07C9F64818C19A350060BAE3 /* Route.m in Sources */,
+				01DF5BAC18E76635007EFD2F /* Timer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
