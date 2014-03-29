@@ -105,6 +105,26 @@
     double wattsGenerated = (totalWeight * resistance * distance) / totalTime;
     _metricsLabel1.text = [NSString stringWithFormat: @"%.2f", distance];
     
+    
+    
+    
+    
+//    GPX generator
+//    GPXRoot *root = [GPX rootWithCreator:@"Sample Application"];
+//    
+//    Waypoint *waypoint = [root way:35.658609f longitude:139.745447f];
+//    waypoint.name = @"Tokyo Tower";
+//    waypoint.comment = @"The old TV tower in Tokyo.";
+//    
+//    GPXTrack *track = [root newTrack];
+//    track.name = @"My New Track";
+//    
+//    [track newTrackpointWithLatitude:35.658609f longitude:139.745447f];
+//    [track newTrackpointWithLatitude:35.758609f longitude:139.745447f];
+//    [track newTrackpointWithLatitude:35.828609f longitude:139.745447f];
+    
+    
+    
 }
 
 

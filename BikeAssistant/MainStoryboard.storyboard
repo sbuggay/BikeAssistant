@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="1207" y="-1884"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Routes Detail Table View Controller-->
         <scene sceneID="EEN-2t-Ovf">
             <objects>
-                <tableViewController id="0ra-24-NWg" sceneMemberID="viewController">
+                <tableViewController id="0ra-24-NWg" customClass="RoutesDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="d8k-nY-HES">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -520,6 +520,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6qP-hW-yNy"/>
+        <segue reference="zaF-c6-UNR"/>
     </inferredMetricsTieBreakers>
 </document>

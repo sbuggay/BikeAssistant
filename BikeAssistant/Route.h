@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <GPXParser.h>
-
 @interface Route : NSObject
 
-@property GPX *gpx;
 
 @end

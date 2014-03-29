@@ -16,6 +16,7 @@
 		0707547C18C3F3AD007174C2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0707547B18C3F3AD007174C2 /* MessageUI.framework */; };
 		0707547E18C3FF93007174C2 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0707547D18C3FF93007174C2 /* Settings.bundle */; };
 		071DA82B18C6E238001CDBA4 /* IntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071DA82A18C6E238001CDBA4 /* IntervalViewController.m */; };
+		076844AC18E76C0100465489 /* RoutesDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 076844AB18E76C0100465489 /* RoutesDetailTableViewController.m */; };
 		07C9F64818C19A350060BAE3 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C9F64718C19A350060BAE3 /* Route.m */; };
 		07D89A6218C05BBD00AF9192 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D89A6118C05BBD00AF9192 /* Foundation.framework */; };
 		07D89A6418C05BBD00AF9192 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D89A6318C05BBD00AF9192 /* CoreGraphics.framework */; };
@@ -69,6 +70,8 @@
 		0707547D18C3FF93007174C2 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		071DA82918C6E238001CDBA4 /* IntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalViewController.h; sourceTree = "<group>"; };
 		071DA82A18C6E238001CDBA4 /* IntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalViewController.m; sourceTree = "<group>"; };
+		076844AA18E76C0100465489 /* RoutesDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesDetailTableViewController.h; sourceTree = "<group>"; };
+		076844AB18E76C0100465489 /* RoutesDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesDetailTableViewController.m; sourceTree = "<group>"; };
 		07C9F64618C19A350060BAE3 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
 		07C9F64718C19A350060BAE3 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
 		07D89A5E18C05BBD00AF9192 /* BikeAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +149,8 @@
 		07C9F64418C199C50060BAE3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				076844AA18E76C0100465489 /* RoutesDetailTableViewController.h */,
+				076844AB18E76C0100465489 /* RoutesDetailTableViewController.m */,
 				01DF5BBF18E769EF007EFD2F /* CommonLibrary.h */,
 				01DF5BC018E769EF007EFD2F /* CommonLibrary.m */,
 				01DF5BB618E76894007EFD2F /* History.h */,
@@ -414,6 +419,7 @@
 				07D89A6E18C05BBD00AF9192 /* main.m in Sources */,
 				07D89AA718C05E0800AF9192 /* SidebarViewController.m in Sources */,
 				07C9F64818C19A350060BAE3 /* Route.m in Sources */,
+				076844AC18E76C0100465489 /* RoutesDetailTableViewController.m in Sources */,
 				01DF5BBE18E76894007EFD2F /* Timer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

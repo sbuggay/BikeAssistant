@@ -10,7 +10,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
-#import "Route.h"
+#import <GPX.h>
+#import <GPXParser/GPX.h>
+#import <GPXParser/GPXParser.h>
 
 
 @interface MainViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIActionSheetDelegate> {
@@ -19,8 +21,6 @@
 }
 
 - (IBAction)showActionSheet:(id)sender;
-
-@property Route *currentRoute;
 
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
