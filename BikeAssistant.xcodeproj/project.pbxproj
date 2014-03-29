@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		014642C618E777FC00BD4DEF /* NameIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014642C518E777FC00BD4DEF /* NameIntervalViewController.m */; };
+		01B6867118E7834000DBF156 /* CreateIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B6867018E7834000DBF156 /* CreateIntervalViewController.m */; };
+		01B6867418E7836000DBF156 /* AddIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B6867318E7836000DBF156 /* AddIntervalViewController.m */; };
 		01DF5BBC18E76894007EFD2F /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF5BB718E76894007EFD2F /* History.m */; };
 		01DF5BBD18E76894007EFD2F /* Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF5BB918E76894007EFD2F /* Interval.m */; };
 		01DF5BBE18E76894007EFD2F /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF5BBB18E76894007EFD2F /* Timer.m */; };
@@ -56,6 +59,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		014642C418E777FC00BD4DEF /* NameIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameIntervalViewController.h; sourceTree = "<group>"; };
+		014642C518E777FC00BD4DEF /* NameIntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameIntervalViewController.m; sourceTree = "<group>"; };
+		01B6866F18E7834000DBF156 /* CreateIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateIntervalViewController.h; sourceTree = "<group>"; };
+		01B6867018E7834000DBF156 /* CreateIntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateIntervalViewController.m; sourceTree = "<group>"; };
+		01B6867218E7836000DBF156 /* AddIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIntervalViewController.h; sourceTree = "<group>"; };
+		01B6867318E7836000DBF156 /* AddIntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIntervalViewController.m; sourceTree = "<group>"; };
 		01DF5BB618E76894007EFD2F /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
 		01DF5BB718E76894007EFD2F /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
 		01DF5BB818E76894007EFD2F /* Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interval.h; sourceTree = "<group>"; };
@@ -152,6 +161,12 @@
 		07C9F64418C199C50060BAE3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				01B6867218E7836000DBF156 /* AddIntervalViewController.h */,
+				01B6867318E7836000DBF156 /* AddIntervalViewController.m */,
+				01B6866F18E7834000DBF156 /* CreateIntervalViewController.h */,
+				01B6867018E7834000DBF156 /* CreateIntervalViewController.m */,
+				014642C418E777FC00BD4DEF /* NameIntervalViewController.h */,
+				014642C518E777FC00BD4DEF /* NameIntervalViewController.m */,
 				076844AA18E76C0100465489 /* RoutesDetailTableViewController.h */,
 				076844AB18E76C0100465489 /* RoutesDetailTableViewController.m */,
 				01DF5BBF18E769EF007EFD2F /* CommonLibrary.h */,
@@ -410,18 +425,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01B6867118E7834000DBF156 /* CreateIntervalViewController.m in Sources */,
 				07D89AA418C05E0800AF9192 /* AppDelegate.m in Sources */,
 				071DA82B18C6E238001CDBA4 /* IntervalViewController.m in Sources */,
 				01DF5BBD18E76894007EFD2F /* Interval.m in Sources */,
 				07D89AA618C05E0800AF9192 /* MainViewController.m in Sources */,
 				01DF5BC118E769EF007EFD2F /* CommonLibrary.m in Sources */,
 				0707547818C2AF1A007174C2 /* LocationViewController.m in Sources */,
+				01B6867418E7836000DBF156 /* AddIntervalViewController.m in Sources */,
 				07FD5E6318C0F9FA008D6EEB /* RoutesViewController.m in Sources */,
 				01DF5BBC18E76894007EFD2F /* History.m in Sources */,
 				07E8668018C4EE6800EA309B /* CLLocationViewController.m in Sources */,
 				07E8668318C4EE7100EA309B /* MetricsViewController.m in Sources */,
 				07D89A6E18C05BBD00AF9192 /* main.m in Sources */,
 				07D89AA718C05E0800AF9192 /* SidebarViewController.m in Sources */,
+				014642C618E777FC00BD4DEF /* NameIntervalViewController.m in Sources */,
 				07C9F64818C19A350060BAE3 /* Route.m in Sources */,
 				076844AC18E76C0100465489 /* RoutesDetailTableViewController.m in Sources */,
 				01DF5BBE18E76894007EFD2F /* Timer.m in Sources */,
@@ -551,6 +569,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BikeAssistant/BikeAssistant-Prefix.pch";
 				INFOPLIST_FILE = "BikeAssistant/BikeAssistant-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 arm64 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -570,6 +589,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BikeAssistant/BikeAssistant-Prefix.pch";
 				INFOPLIST_FILE = "BikeAssistant/BikeAssistant-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 arm64 armv7s";
 				WRAPPER_EXTENSION = app;

@@ -1,80 +1,58 @@
 //
-//  IntervalTimerViewController.m
+//  CreateIntervalViewController.m
 //  BikeAssistant
 //
-//  Created by Chauncey Philpot on 2/22/14.
+//  Created by Chauncey Philpot on 2/15/14.
 //  Copyright (c) 2014 Devan Buggay. All rights reserved.
 //
 
-#import "IntervalViewController.h"
-#import "NameIntervalViewController.h"
-#import <SWRevealViewController/SWRevealViewController.h>
-@interface IntervalViewController ()
+#import "CreateIntervalViewController.h"
 
-@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
-@property BOOL isFinalIntervalTimer;
-
+@interface CreateIntervalViewController ()
+- (IBAction)finishedButton:(id)sender;
 
 @end
 
-@implementation IntervalViewController
+@implementation CreateIntervalViewController
 
-- (void)segueToNameInterval:(id) sender
-{
-    [self performSegueWithIdentifier:@"IntervalToNameSegue" sender:self];
+
+- (IBAction)finishedButton:(id)sender {
+    [_myInterval saveInterval];
+ //   [self.navigationController popToRootViewControllerAnimated:YES];
+    [self performSegueWithIdentifier:@"popToRoot" sender:sender];
 }
 
-
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (id)initWithStyle:(UITableViewStyle)style
 {
-    NameIntervalViewController *vc = [segue destinationViewController];
-    vc.interval = _myInterval;
-}
-
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *pressedButton = [_cellList objectAtIndex:indexPath.row];
-    globalDefaults = [[NSUserDefaults alloc]init];
-    globalDictionary = [[globalDefaults valueForKey:pressedButton]mutableCopy];
-    if(![pressedButton isEqual:@("Create Interval")]){
-        [_myInterval setIntervalName:pressedButton];
-        
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
     }
-    
-    NSLog(@"%@", pressedButton);
-    [self segueToNameInterval:self];
+    return self;
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    _sidebarButton.target = self.revealViewController;
-    _sidebarButton.action = @selector(revealToggle:);
-    
-    // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
-    [_cellList setObject:@"Create Interval" atIndexedSubscript:0];
-    [_cellList addObjectsFromArray:[_myInterval getListOfIntervals]];
-    
-    [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height-self.tableView.frame.size.height) animated:YES];
+    if(_myInterval != nil){
+        [_myInterval getInterval:[_myInterval getIntervalName]];
+    }
+    //[nameInterval.contentView addSubView:]
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
+ 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Name" message:@"Enter name of Interval" delegate:self cancelButtonTitle:@"save" otherButtonTitles:nil, nil];
+    //alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+
 }
 
--(void) viewDidAppear:(BOOL)animated{
-    
-    //_cellList = [_myInterval getListOfIntervals];
-    _myInterval = [[Interval alloc] initWithDefaults];
-    _cellList = [[NSMutableArray alloc]init];
-    [_cellList setObject:@"Create Interval" atIndexedSubscript:0];
-    [_cellList addObjectsFromArray:[_myInterval getListOfIntervals]];
+- (void)viewDidAppear:(BOOL)animated {
+    myArray = _myInterval.getListOfTimers;
     [self.tableView reloadData];
 }
 
@@ -95,21 +73,46 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return ([_cellList count]);
+    
+    return [myArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    cell.textLabel.text = [_cellList objectAtIndex:indexPath.row];
-    
-    
+    cell.textLabel.text = [myArray objectAtIndex:indexPath.row];
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    pressedButton = indexPath;
+    defaults = [[NSUserDefaults alloc]init];
+    dictionary = [[defaults valueForKey:pressedButton]mutableCopy];
+    
+    [self segueToAddInterval:self];
+}
+
+- (void)segueToAddInterval:(id) sender
+{
+    [self performSegueWithIdentifier:@"CreateToAddSegue" sender:self];
+}
+
+- (IBAction)returnToCreateInterval:(UIStoryboardSegue*)segue {
+    
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    AddIntervalViewController *vc = [segue destinationViewController];
+    
+    vc.interval = _myInterval;
+    vc.incomingTimerIndex = pressedButton;
+    
+}
 
 /*
  // Override to support conditional editing of the table view.
@@ -148,18 +151,6 @@
  // Return NO if you do not want the item to be re-orderable.
  return YES;
  }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a story board-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- 
  */
 
 @end
