@@ -14,11 +14,16 @@
 		<string>https://github.com/sbuggay/BikeAssistant</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>BikeAssistant.xcworkspace</string>
+	<string>trunk/BikeAssistant.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>897F9180-8FBF-4C38-9610-FF308C2468A1</key>
 		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>897F9180-8FBF-4C38-9610-FF308C2468A1</key>
+		<string>https://github.com/sbuggay/BikeAssistant</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/sbuggay/BikeAssistant</string>
@@ -29,8 +34,12 @@
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
+			<key>IDESourceControlRepositoryBranchesRelativeLocationKey</key>
+			<string>branches</string>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
+			<string>trunk</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>897F9180-8FBF-4C38-9610-FF308C2468A1</string>
 			<key>IDESourceControlWCCName</key>
