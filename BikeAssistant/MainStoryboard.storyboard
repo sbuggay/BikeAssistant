@@ -359,7 +359,7 @@
                                     <segue destination="Ejm-bW-U7l" kind="custom" customClass="SWRevealViewControllerSegue" id="Fim-AW-5q6"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pk1-V0-zCf">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="history" id="pk1-V0-zCf">
                                 <rect key="frame" x="0.0" y="187" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pk1-V0-zCf" id="tZH-30-bTt">
