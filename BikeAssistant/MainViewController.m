@@ -27,7 +27,6 @@
 
     self.title = @"Map";
     
-    
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
@@ -104,7 +103,7 @@
 //    _caloriesLabel.text = [NSString stringWithFormat: @"Calories Burned: %f.2", caloriesBurned];
     // Watts Generated Formula
     double wattsGenerated = (totalWeight * resistance * distance) / totalTime;
-    _metricsLabel1.text = [NSString stringWithFormat: @"%.2f", wattsGenerated];
+    _metricsLabel1.text = [NSString stringWithFormat: @"%.2f", distance];
     
 }
 
