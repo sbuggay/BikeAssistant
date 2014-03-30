@@ -12,13 +12,17 @@
 - (IBAction)finishedButton:(id)sender;
 - (IBAction)addTimer:(id)sender;
 
+
+
 @end
 
 @implementation CreateIntervalViewController
-
+const int FINISHED = -2;
+const int ADD = -1;
 
 - (IBAction)finishedButton:(id)sender {
     [_interval saveInterval];
+    pressedButton = [NSNumber numberWithInt:FINISHED];
     [self.navigationController popToRootViewControllerAnimated:YES];
  
 }
@@ -105,7 +109,7 @@
 
 - (void)segueToAddInterval:(id) sender
 {
-    pressedButton = [NSNumber numberWithInt:-1];
+    pressedButton = [NSNumber numberWithInt:ADD];
     [self performSegueWithIdentifier:@"CreateToAddSegue" sender:self];
 }
 
@@ -118,7 +122,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"%@", pressedButton);
-    if (pressedButton != NULL)
+    if (pressedButton != NULL && [pressedButton intValue] != FINISHED)
     {
         AddIntervalViewController *vc = [segue destinationViewController];
     
