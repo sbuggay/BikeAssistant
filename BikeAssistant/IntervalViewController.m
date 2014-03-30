@@ -28,7 +28,7 @@
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NameIntervalViewController *vc = [segue destinationViewController];
-    vc.interval = _myInterval;
+    vc.interval = _interval;
 }
 
 
@@ -39,7 +39,7 @@
     globalDefaults = [[NSUserDefaults alloc]init];
     globalDictionary = [[globalDefaults valueForKey:pressedButton]mutableCopy];
     if(![pressedButton isEqual:@("Create Interval")]){
-        [_myInterval setIntervalName:pressedButton];
+        [_interval setIntervalName:pressedButton];
         
     }
     
@@ -58,7 +58,7 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     [_cellList setObject:@"Create Interval" atIndexedSubscript:0];
-    [_cellList addObjectsFromArray:[_myInterval getListOfIntervals]];
+    [_cellList addObjectsFromArray:[_interval getListOfIntervals]];
     
     [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height-self.tableView.frame.size.height) animated:YES];
     // Uncomment the following line to preserve selection between presentations.
@@ -71,10 +71,10 @@
 -(void) viewDidAppear:(BOOL)animated{
     
     //_cellList = [_myInterval getListOfIntervals];
-    _myInterval = [[Interval alloc] initWithDefaults];
+    _interval = [[Interval alloc] initWithDefaults];
     _cellList = [[NSMutableArray alloc]init];
     [_cellList setObject:@"Create Interval" atIndexedSubscript:0];
-    [_cellList addObjectsFromArray:[_myInterval getListOfIntervals]];
+    [_cellList addObjectsFromArray:[_interval getListOfIntervals]];
     [self.tableView reloadData];
 }
 

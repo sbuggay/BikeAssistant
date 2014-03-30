@@ -17,8 +17,12 @@
 
 
 - (IBAction)finishedButton:(id)sender {
-    [_myInterval saveInterval];
+    [_interval saveInterval];
  //   [self.navigationController popToRootViewControllerAnimated:YES];
+    [self segueToRoot:self];
+}
+
+-(IBAction)segueToRoot:(id)sender {
     [self performSegueWithIdentifier:@"popToRoot" sender:sender];
 }
 
@@ -35,8 +39,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if(_myInterval != nil){
-        [_myInterval getInterval:[_myInterval getIntervalName]];
+    if(_interval != nil){
+        [_interval getInterval:[_interval getIntervalName]];
     }
     //[nameInterval.contentView addSubView:]
     // Uncomment the following line to preserve selection between presentations.
@@ -52,7 +56,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    myArray = _myInterval.getListOfTimers;
+    myArray = _interval.getListOfTimers;
     [self.tableView reloadData];
 }
 
@@ -107,10 +111,14 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"%@", pressedButton);
+    if (pressedButton != NULL)
+    {
     AddIntervalViewController *vc = [segue destinationViewController];
     
-    vc.interval = _myInterval;
+    vc.interval = _interval;
     vc.incomingTimerIndex = pressedButton;
+    }
     
 }
 
