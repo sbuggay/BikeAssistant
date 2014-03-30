@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FUu-XX-1jG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FUu-XX-1jG">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Table View Controller-->
@@ -123,7 +123,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="43" id="1MP-71-ahb">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="43" id="1MP-71-ahb">
                                 <rect key="frame" x="0.0" y="86" width="320" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1MP-71-ahb" id="n4O-Kc-hjt">
@@ -151,13 +151,16 @@
                                 <segue destination="Ejm-bW-U7l" kind="push" identifier="popToRoot" id="rlB-bh-Nh1"/>
                             </connections>
                         </button>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="hU6-Ni-cJF">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="jVO-ZK-FJp">
                             <connections>
-                                <segue destination="15z-S9-dXD" kind="push" id="yCQ-9A-tWf"/>
+                                <action selector="addTimer:" destination="KEk-HN-a6V" id="lRD-ye-xhQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <segue destination="15z-S9-dXD" kind="push" identifier="CreateToAddSegue" id="FlA-Kf-Dhr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5M-WT-qhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -229,23 +232,23 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="scm-Ib-0GC">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="09L-3D-qPU">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="YjB-Gm-8gh">
                             <connections>
-                                <action selector="finishedButton:" destination="15z-S9-dXD" id="FaW-W5-Wqt"/>
+                                <action selector="addButton:" destination="15z-S9-dXD" id="Vqg-Ri-Sc5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="finishedButton" destination="09L-3D-qPU" id="oCB-dx-qAv"/>
                         <outlet property="iHours" destination="kb6-Bo-xBp" id="ZsT-Ko-CUu"/>
                         <outlet property="iMinutes" destination="PFn-4R-s8w" id="4zg-ET-xU3"/>
                         <outlet property="iName" destination="HVc-9M-HAY" id="Zu1-ck-dwu"/>
                         <outlet property="iSeconds" destination="pIr-Hi-bpg" id="F20-65-r1D"/>
+                        <segue destination="GVV-pp-JHJ" kind="unwind" identifier="returnToCreateInterval" unwindAction="returnToCreateInterval:" id="h3e-mW-jT8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IiR-mB-gVt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GVV-pp-JHJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2538" y="-1131"/>
         </scene>

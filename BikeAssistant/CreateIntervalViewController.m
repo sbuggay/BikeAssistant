@@ -10,6 +10,7 @@
 
 @interface CreateIntervalViewController ()
 - (IBAction)finishedButton:(id)sender;
+- (IBAction)addTimer:(id)sender;
 
 @end
 
@@ -18,8 +19,12 @@
 
 - (IBAction)finishedButton:(id)sender {
     [_interval saveInterval];
- //   [self.navigationController popToRootViewControllerAnimated:YES];
-    [self segueToRoot:self];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+ 
+}
+
+- (IBAction)addTimer:(id)sender {
+    [self segueToAddInterval:sender];
 }
 
 -(IBAction)segueToRoot:(id)sender {
@@ -100,6 +105,7 @@
 
 - (void)segueToAddInterval:(id) sender
 {
+    pressedButton = [NSNumber numberWithInt:-1];
     [self performSegueWithIdentifier:@"CreateToAddSegue" sender:self];
 }
 
@@ -114,10 +120,10 @@
     NSLog(@"%@", pressedButton);
     if (pressedButton != NULL)
     {
-    AddIntervalViewController *vc = [segue destinationViewController];
+        AddIntervalViewController *vc = [segue destinationViewController];
     
-    vc.interval = _interval;
-    vc.incomingTimerIndex = pressedButton;
+        vc.interval = _interval;
+        vc.incomingTimerIndex = pressedButton;
     }
     
 }
