@@ -12,6 +12,7 @@
 @interface History : NSObject
 {
     NSString *route;
+    NSString *sInterval;
     NSNumber *time;
     NSUserDefaults *defaults;
     Interval *interval;
@@ -25,6 +26,7 @@
     NSNumber *wattsHolder;
     NSNumber *caloriesHolder;
     NSNumber *distanceHolder;
+    NSNumber *timeHolder;
     NSNumber *elevation;
     
     NSString *routesDictName;
@@ -44,6 +46,7 @@
 
 - (void)setRoute:(NSString *)routeNameIn;
 - (void)setTime:(NSNumber *)timeIn;
+- (void)setTimerHolder:(NSNumber *)timeIn;
 - (void)setInterval:(Interval *)intervalIn;
 - (void)setDate;
 - (void)setWattsHolder:(NSNumber *)wattsIn;
@@ -61,7 +64,9 @@
 - (NSNumber *)getTotalCalories;
 - (NSNumber *)getElevationClimbed;
 
-- (void)loadHistory; //loads the historyDict dictionary and assigns the object to historyItems
+- (NSMutableArray *) getListOfHistoryItems;
+- (void)saveHisotry;
+- (void)loadHistory:(NSString *)routeName; //loads the historyDict dictionary and assigns the object to historyItems
 - (void)addHistoryItem; //using route + date + intervalDict, save to historyDict dictioary
 - (void)deleteHistoryItem; //Delete from historyDict using key + any intervalDict items added
 - (NSString *)fixName:(int)counterIn nameToCheck:(NSString *)nameIn; //Using route + date, see if combination exist in historyDict.

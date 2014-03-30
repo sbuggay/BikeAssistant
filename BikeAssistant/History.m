@@ -12,6 +12,7 @@
 
 - (id)initWithDefaults{
     route = @"";
+    sInterval = @"";
     time = 0;
     interval = [[Interval alloc]initWithDefaults];
     defaults = [[NSUserDefaults alloc]init];
@@ -52,6 +53,11 @@
 - (void)setTime:(NSNumber *)timeIn{
     time = timeIn;
 }
+
+- (void)setTimerHolder:(NSNumber *)timeIn{
+    timeHolder = timeIn;
+}
+
 - (void)setInterval:(Interval *)intervalIn{
     interval = intervalIn;
 }
@@ -115,13 +121,93 @@
     return elevation;
 }
 
-- (void)loadHistory{} //loads the historyDict dictionary and assigns the object to historyItems
-- (void)addHistoryItem{} //using route + date + intervalDict, save to historyDict dictioary
+- (NSMutableArray *) getListOfHistoryItems{
+    NSMutableArray *list = [[NSMutableArray alloc]init];
+    for (NSString* key in historyDict) {
+        [list addObject:key];
+    }
+    
+    return list;
+}
+
+- (void)loadHistory:(NSString *)routeName{
+    
+    route = routeName;
+    for (NSString* key in historyDict) {
+        if([key isEqual:route]){
+            historyItems = [[historyDict objectForKey:key]mutableCopy];
+        }
+    }
+    
+} //loads the historyDict dictionary and assigns the object to historyItems
+
+- (void)addHistoryItem{
+    
+} //using route + date + intervalDict, save to historyDict dictioary
+
 - (void)deleteHistoryItem{} //Delete from historyDict using key + any intervalDict items added
-- (NSString *)fixName:(int)counterIn nameToCheck:(NSString *)nameIn{return NULL;} //Using route + date, see if combination exist in historyDict.
-- (void)addInterval{} //set intervals to intervalDict
-- (void)addIntervalData{} //add intervalData to intervals and reset intervalData
-- (void)prepIntervalData{} //Adds holder variables to intervalData array and updates them
-- (void)resetIntervalData{} //Clears the intervalData array
+
+- (NSString *)fixName:(int)counterIn nameToCheck:(NSString *)nameIn{
+    
+    return NULL;
+
+} //Using route + date, see if combination exist in historyDict.
+
+- (void)addInterval{
+     
+    sInterval = [self fixName:0 nameToCheck:[interval getIntervalName]];
+    [intervalDict setObject:intervals forKey:sInterval];
+    [intervalDict writeToFile:sInterval atomically:YES];
+    historyItems[1] = intervalDict;
+    
+} //set intervals to intervalDict
+
+- (void)saveHisotry{
+    
+    overallData[0] = time;
+    overallData[1] = totalDistance;
+    overallData[2] = totalWatts;
+    overallData[3] = totalCalories;
+    
+    route = [self fixName:0 nameToCheck:route];
+    historyItems[0] = overallData;
+    historyItems[1] = intervalDict;
+    
+    [historyDict setObject:historyItems forKey:route];
+}
+
+- (void)addIntervalData{
+    int tempTime = [time intValue];
+    int tempTimeHolder = [timeHolder intValue];
+    NSNumber *difference = [NSNumber numberWithInt:tempTime - tempTimeHolder];
+    timeHolder = time;
+    
+    int tempCalHolder = [caloriesHolder intValue];
+    int tempCal = [totalCalories intValue];
+    
+    int tempWatts = [totalWatts intValue];
+    int tempWattsHolder = [wattsHolder intValue];
+    
+    intervalData[0] = [interval getTimeName];
+    intervalData[1] = difference;
+    intervalData[2] = [NSNumber numberWithInt:tempCal - tempCalHolder];
+    intervalData[3] = [NSNumber numberWithInt:tempWatts - tempWattsHolder];
+    
+    [self setWattsHolder:[intervalData objectAtIndex:3]];
+    [self setTimerHolder:[intervalData objectAtIndex:1]];
+    [self setCaloriesHolder:[intervalData objectAtIndex:2]];
+    
+    [intervals addObject:intervalData];
+    
+    
+} //add intervalData to intervals and reset intervalData
+
+- (void)prepIntervalData{
+    
+} //Adds holder variables to intervalData array and updates them
+
+- (void)resetIntervalData{
+    intervalData = [[NSMutableArray alloc]init];
+} //Clears the intervalData array
 
 @end
