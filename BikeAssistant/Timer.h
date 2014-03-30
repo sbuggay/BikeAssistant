@@ -19,6 +19,7 @@
     CommonLibrary *lib;
     Interval *interval;
     NSTimer* timer;
+    BOOL repeat;
 }
 
 - (id) initWithLabels:(UILabel *)intervalLabel label:(UILabel *)timerLabelIn name:(NSString *)nameIn;
@@ -30,5 +31,7 @@
 - (BOOL) didIntervalFinish;
 - (void) timer;
 - (void) stopTimer;
+- (void) repeat;
+- (void) noRepeat;
 
 @end

@@ -19,6 +19,7 @@
         intervalName = nameIn;
         lib = [[CommonLibrary alloc]init];
         interval = [[Interval alloc] initWithDefaults];
+        repeat = false;
     }
     return self;
 }
@@ -33,6 +34,14 @@
     
 }
 
+- (void) repeat{
+    repeat = true;
+}
+
+- (void) noRepeat{
+    repeat = false;
+}
+
 - (BOOL) didTimerFinish{
     BOOL didFinish = false;
     if(time == [NSNumber numberWithInt:0]){
@@ -44,7 +53,13 @@
 
 - (BOOL) didIntervalFinish{
     
-    return [interval isLastTimer];
+    if(repeat == true){
+        [interval resetTimer];
+        return [interval isLastTimer];
+    }
+    else{
+        return [interval isLastTimer];
+    }
 }
 
 - (void) updateLabels{

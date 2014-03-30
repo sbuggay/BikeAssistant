@@ -119,6 +119,10 @@
     return intervalName;
 }
 
+- (void) resetTimer{
+    currentTimer = 0;
+}
+
 /**
  This will get the amount of time based on the name given.
  */
