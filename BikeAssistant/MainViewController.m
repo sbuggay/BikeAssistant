@@ -18,6 +18,8 @@
 
 
 @interface MainViewController ()
+- (IBAction)startTimer:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 
 @end
@@ -26,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _timerLabel.hidden = true;
     self.title = @"Map";
     
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
@@ -58,6 +60,9 @@
     NSString *file=[[NSBundle mainBundle] pathForResource:@"Auburn__Alabama" ofType:@"gpx"];
     
     NSData *fileData = [NSData dataWithContentsOfFile:file];
+    
+    
+    interval = [[Interval alloc]initWithDefaults];
     
     
     //    [GPXParser parse:fileData completion:^(BOOL success, GPX *gpx) {
@@ -293,4 +298,7 @@
             //        locationViewController.delegate = self;
         }
     }
+- (IBAction)startTimer:(id)sender {
+    
+}
     @end

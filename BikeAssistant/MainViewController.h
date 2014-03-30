@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
-
+#import "Interval.h"
+#import "Timer.h"
 #import <GPX/GPX.h>
 
 typedef enum MapState : NSUInteger {
@@ -25,7 +26,8 @@ typedef enum MapState : NSUInteger {
     CLLocation *startLocation;
     GPXRoot *root;
     NSInteger mapState;
-    
+    Interval *interval;
+    Timer *timer;
 }
 
 - (IBAction)showActionSheet:(id)sender;
