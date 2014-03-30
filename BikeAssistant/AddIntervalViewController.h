@@ -21,5 +21,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *iHours;
 @property (weak, nonatomic) IBOutlet UITextField *iMinutes;
 @property (weak, nonatomic) IBOutlet UITextField *iSeconds;
+- (IBAction)addButton:(id)sender;
+
+
+
 
 @end

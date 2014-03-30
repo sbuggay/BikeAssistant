@@ -22,7 +22,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *intervalTimerLabel;
 @property (strong, nonatomic) NSMutableArray* cellList;
-@property (strong, nonatomic) Interval* myInterval;
+@property (strong, nonatomic) Interval* interval;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+
 
 @end

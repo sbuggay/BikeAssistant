@@ -63,7 +63,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     IntervalViewController *vc = [segue destinationViewController];
-    vc.myInterval = _interval;
+    vc.interval = _interval;
     
 }
 
