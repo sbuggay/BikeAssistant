@@ -10,6 +10,7 @@
 		014642C618E777FC00BD4DEF /* NameIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014642C518E777FC00BD4DEF /* NameIntervalViewController.m */; };
 		01B6867118E7834000DBF156 /* CreateIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B6867018E7834000DBF156 /* CreateIntervalViewController.m */; };
 		01B6867418E7836000DBF156 /* AddIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B6867318E7836000DBF156 /* AddIntervalViewController.m */; };
+		01CCD9FE18E8DA1A009B841F /* LoadIntervalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CCD9FD18E8DA1A009B841F /* LoadIntervalTableViewController.m */; };
 		01DF5BBC18E76894007EFD2F /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF5BB718E76894007EFD2F /* History.m */; };
 		01DF5BBD18E76894007EFD2F /* Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF5BB918E76894007EFD2F /* Interval.m */; };
 		01DF5BBE18E76894007EFD2F /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF5BBB18E76894007EFD2F /* Timer.m */; };
@@ -65,6 +66,8 @@
 		01B6867018E7834000DBF156 /* CreateIntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateIntervalViewController.m; sourceTree = "<group>"; };
 		01B6867218E7836000DBF156 /* AddIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIntervalViewController.h; sourceTree = "<group>"; };
 		01B6867318E7836000DBF156 /* AddIntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIntervalViewController.m; sourceTree = "<group>"; };
+		01CCD9FC18E8DA1A009B841F /* LoadIntervalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadIntervalTableViewController.h; sourceTree = "<group>"; };
+		01CCD9FD18E8DA1A009B841F /* LoadIntervalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadIntervalTableViewController.m; sourceTree = "<group>"; };
 		01DF5BB618E76894007EFD2F /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
 		01DF5BB718E76894007EFD2F /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
 		01DF5BB818E76894007EFD2F /* Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interval.h; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 				07E8667F18C4EE6800EA309B /* CLLocationViewController.m */,
 				07E8668118C4EE7100EA309B /* MetricsViewController.h */,
 				07E8668218C4EE7100EA309B /* MetricsViewController.m */,
+				01CCD9FC18E8DA1A009B841F /* LoadIntervalTableViewController.h */,
+				01CCD9FD18E8DA1A009B841F /* LoadIntervalTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 				07D89AA418C05E0800AF9192 /* AppDelegate.m in Sources */,
 				071DA82B18C6E238001CDBA4 /* IntervalViewController.m in Sources */,
 				01DF5BBD18E76894007EFD2F /* Interval.m in Sources */,
+				01CCD9FE18E8DA1A009B841F /* LoadIntervalTableViewController.m in Sources */,
 				07D89AA618C05E0800AF9192 /* MainViewController.m in Sources */,
 				01DF5BC118E769EF007EFD2F /* CommonLibrary.m in Sources */,
 				0707547818C2AF1A007174C2 /* LocationViewController.m in Sources */,

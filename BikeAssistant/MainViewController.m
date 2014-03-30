@@ -14,6 +14,8 @@
 
 #import <IASKAppSettingsViewController.h>
 
+#import "LoadIntervalTableViewController.h"
+
 
 @interface MainViewController ()
 
@@ -189,7 +191,7 @@
                                                       delegate:self
                                              cancelButtonTitle:@"Cancel"
                                         destructiveButtonTitle:nil
-                                             otherButtonTitles:@"New Route", @"Load Route", @"Settings", nil];
+                                             otherButtonTitles:@"New Route", @"Load Route", @"Settings", @"Load Interval", nil];
             break;
             
         case kCreatingRoute:
@@ -208,6 +210,14 @@
                                              otherButtonTitles:@"New Route", @"Load Route", @"Settings", nil];
             break;
             
+        case kSelectInterval:
+            actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                      delegate:self
+                                             cancelButtonTitle:@"Cancel"
+                                        destructiveButtonTitle:nil
+                                             otherButtonTitles:@"New Route", @"Load Route", @"Settings", nil];
+            break;
+            
         default:
             break;
     }
@@ -218,6 +228,8 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     UIStoryboard *storyBoard = [self storyboard];
     IASKAppSettingsViewController *settingsViewController  = [storyBoard instantiateViewControllerWithIdentifier:@"settings"];
+    LoadIntervalTableViewController *loadInterval = [storyBoard instantiateViewControllerWithIdentifier:@"loadInterval"];
+    
     
     switch (mapState) {
         case kNoRoute:
@@ -236,6 +248,8 @@
                 case 2:
                     [self.navigationController pushViewController:settingsViewController animated:YES];
                     break;
+                case 3:
+                    [self.navigationController pushViewController:loadInterval animated:YES];
                     
                 default:
                     

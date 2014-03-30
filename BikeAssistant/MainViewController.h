@@ -16,7 +16,8 @@ typedef enum MapState : NSUInteger {
     kNoRoute,
     kFreeRide,
     kCreatingRoute,
-    kFollowingRoute
+    kFollowingRoute,
+    kSelectInterval
 } MapState;
 
 @interface MainViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIActionSheetDelegate> {
