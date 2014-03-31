@@ -22,7 +22,8 @@
 
 - (id) initWithDefaults;
 - (void) getInterval:(NSString *)key;
-- (NSMutableArray *) getTimers:(NSString *)key;
+- (NSMutableArray *) getTimers;
+- (void) resetTimer;
 - (NSNumber *) getTimer;
 - (NSString *) getTimeName;
 - (NSString *) getIntervalName;
@@ -40,4 +41,5 @@
 - (void) deleteTimer:(NSString *)timerToDelete;
 - (NSInteger) numOfTimers;
 - (NSMutableArray *) getListOfTimers;
+- (void) updateTimers: (NSMutableArray *)newTimes;
 @end

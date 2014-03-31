@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
-
+#import "Interval.h"
+#import "Timer.h"
 #import <GPX/GPX.h>
 
 typedef enum MapState : NSUInteger {
     kNoRoute,
     kFreeRide,
     kCreatingRoute,
-    kFollowingRoute
+    kFollowingRoute,
+    kSelectInterval
 } MapState;
 
 @interface MainViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIActionSheetDelegate> {
@@ -24,11 +26,12 @@ typedef enum MapState : NSUInteger {
     CLLocation *startLocation;
     GPXRoot *root;
     NSInteger mapState;
-    
+
+    Timer *timer;
 }
 
 - (IBAction)showActionSheet:(id)sender;
-
+@property (strong, nonatomic) Interval *interval;
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
@@ -41,6 +44,7 @@ typedef enum MapState : NSUInteger {
 - (void)saveRoute;
 - (void)loadRoute;
 - (void)clearRoute;
+
 
 
 @end

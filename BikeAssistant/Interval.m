@@ -106,9 +106,8 @@
     [timers addObject:newTimerAmount];
 }
 
-- (NSMutableArray *) getTimers: (NSString *)key
+- (NSMutableArray *) getTimers
 {
-    timers = [[dictionary objectForKey:key] mutableCopy];
     return timers;
 }
 
@@ -117,6 +116,10 @@
  */
 - (NSString *) getIntervalName{
     return intervalName;
+}
+
+- (void) resetTimer{
+    currentTimer = 0;
 }
 
 /**
@@ -276,6 +279,10 @@
     currentTimer = reserveCount;
 }
 
+- (void) updateTimers: (NSMutableArray *)newTimes
+{
+    timers = newTimes;
+}
 
 @end
 
