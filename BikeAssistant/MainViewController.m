@@ -21,15 +21,18 @@
 - (IBAction)startTimer:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UIButton *hideButton;
+- (IBAction)stopTimer:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *hideStopTimer;
 
 
 @end
 
 @implementation MainViewController
-@synthesize interval;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     _timerLabel.hidden = true;
+    _hideStopTimer.hidden = true;
     self.title = @"Map";
     
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
@@ -63,7 +66,7 @@
     NSData *fileData = [NSData dataWithContentsOfFile:file];
     
     
-    interval = [[Interval alloc]initWithDefaults];
+    _interval = [[Interval alloc]initWithDefaults];
     
     
     //    [GPXParser parse:fileData completion:^(BOOL success, GPX *gpx) {
@@ -256,7 +259,7 @@
                     break;
                 case 3:
                     if(loadInterval.view){
-                        loadInterval.interval = interval;
+                        loadInterval.interval = _interval;
                     }
                     [self.navigationController pushViewController:loadInterval animated:YES];
                     
@@ -293,9 +296,6 @@
 }
 
     
-    
-    
-    
     - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
         if ([segue.identifier isEqualToString:@"AddPlayer"]) {
             
@@ -306,16 +306,19 @@
         
     }
 - (IBAction)startTimer:(id)sender {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector   (getIntervalObject:) name:@"getInterval" object:nil];
-    timer = [[Timer alloc]initWithLabels:_timerLabel name:[interval getIntervalName]];
+
+    timer = [[Timer alloc]initWithLabels:_timerLabel name:@"test"];
     [timer timerStart];
+    _timerLabel.hidden = false;
+    _hideButton.hidden = true;
+    _hideStopTimer.hidden = false;
 }
 
--(void) getIntervalObject:(NSNotification *) obj{
-    interval = (Interval *)[obj object];
-}
 
 - (IBAction)stopTimer:(id)sender {
     [timer stopTimer];
+    _timerLabel.hidden = true;
+    _hideButton.hidden = false;
+    _hideStopTimer.hidden = true;
 }
     @end

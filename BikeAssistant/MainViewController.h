@@ -44,7 +44,7 @@ typedef enum MapState : NSUInteger {
 - (void)saveRoute;
 - (void)loadRoute;
 - (void)clearRoute;
-- (void) getIntervalObject:(NSNotification *) obj;
+
 
 
 @end

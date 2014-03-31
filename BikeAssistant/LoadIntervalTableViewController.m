@@ -30,10 +30,14 @@
     globalDefaults = [[NSUserDefaults alloc]init];
     globalDictionary = [[globalDefaults valueForKey:pressedButton]mutableCopy];
     [_interval getInterval:pressedButton];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"getInterval" object:_interval];
-     
+
+
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
 }
 
 - (void)viewDidLoad

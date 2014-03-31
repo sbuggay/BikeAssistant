@@ -63,7 +63,7 @@
 }
 
 - (NSString *)concatLabelName{
-    return [timerName stringByAppendingString:[self formatTime]];
+    return [timerName stringByAppendingFormat:@": %@", [self formatTime]];
 }
 
 - (void) updateLabels{

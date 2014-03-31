@@ -133,7 +133,7 @@ const int ADD = -1;
     
         vc.interval = _interval;
         vc.incomingTimerIndex = pressedButton;
-        NSLog(@"%@", myArray[0]);
+        
     }
     
 }

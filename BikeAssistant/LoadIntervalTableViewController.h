@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Interval.h"
-#import "MainViewController.h"
+
 @interface LoadIntervalTableViewController : UITableViewController{
     NSUserDefaults *globalDefaults;
     NSMutableDictionary *globalDictionary;
  
-    MainViewController *main;
+
 }
 
 
