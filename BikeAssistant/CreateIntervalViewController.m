@@ -65,7 +65,9 @@ const int ADD = -1;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    pressedButton = NULL;
     myArray = _interval.getListOfTimers;
+    
     [self.tableView reloadData];
 }
 
@@ -100,16 +102,19 @@ const int ADD = -1;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    pressedButton = indexPath;
+    pressedButton = [NSNumber numberWithInteger:indexPath.row];
     defaults = [[NSUserDefaults alloc]init];
-    dictionary = [[defaults valueForKey:pressedButton]mutableCopy];
+    NSString *pressedButtonOut = [pressedButton stringValue];
+    dictionary = [[defaults valueForKey:pressedButtonOut]mutableCopy];
     
     [self segueToAddInterval:self];
 }
 
 - (void)segueToAddInterval:(id) sender
 {
+    if (pressedButton == NULL) {
     pressedButton = [NSNumber numberWithInt:ADD];
+    }
     [self performSegueWithIdentifier:@"CreateToAddSegue" sender:self];
 }
 
@@ -128,6 +133,7 @@ const int ADD = -1;
     
         vc.interval = _interval;
         vc.incomingTimerIndex = pressedButton;
+        NSLog(@"%@", myArray[0]);
     }
     
 }

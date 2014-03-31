@@ -19,15 +19,18 @@
 
 
 -(void) viewDidLoad {
-    
-    NSMutableArray *iTimers = [[NSMutableArray alloc] init];
     NSNumber *addButCheck = [NSNumber numberWithInt:-1];
     if(_incomingTimerIndex != addButCheck){
-        iTimers = [[_interval getTimers:_interval.getIntervalName] mutableCopy];
+        CommonLibrary *cLibrary = [[CommonLibrary alloc] init];
+        NSMutableArray *iTimers = [[NSMutableArray alloc] init];
+        iTimers = [[_interval getTimers] mutableCopy];
+        int timerIndex = [_incomingTimerIndex intValue] * 2;
+        _iName.text = iTimers[timerIndex];
+        int totalSeconds = [iTimers[timerIndex + 1] integerValue];
+        _iHours.text = [[cLibrary timeToHours:totalSeconds] stringValue];
+        _iMinutes.text = [[cLibrary timeToMinutes:totalSeconds] stringValue];
+        _iSeconds.text = [[cLibrary timeToSeconds:totalSeconds] stringValue];
     }
- //   NSString * output = [iTimers objectAtIndex:_incomingTimerIndex];
-  //  _iName.text = iTimers[_incomingTimerIndex];
-
    
 }
 
@@ -48,8 +51,28 @@
     totalSeconds += [[_iSeconds text] intValue];
     
     NSNumber *seconds = [NSNumber numberWithInt:totalSeconds];
-    [_interval addTimer:seconds newTimerName:[_iName text]];
+    
+    if ([_incomingTimerIndex intValue] != -1)
+    {
+        NSMutableArray *iTimers = [[NSMutableArray alloc] init];
+        iTimers = [[_interval getTimers] mutableCopy];
+        int timerIndex = [_incomingTimerIndex intValue] * 2;
+        iTimers[timerIndex] = _iName.text;
+        iTimers[timerIndex + 1] = [NSString stringWithFormat:@"%d", totalSeconds];
+        [_interval updateTimers:iTimers];
+        //[_interval saveInterval];
+    }
+    else
+    {
+        [_interval addTimer:seconds newTimerName:[_iName text]];
+    }
     
     [self performSegueWithIdentifier:@"returnToCreateInterval" sender:self];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CreateIntervalViewController *vc = [segue destinationViewController];
+    vc.interval = _interval;
 }
 @end
