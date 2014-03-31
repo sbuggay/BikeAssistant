@@ -26,12 +26,12 @@ typedef enum MapState : NSUInteger {
     CLLocation *startLocation;
     GPXRoot *root;
     NSInteger mapState;
-    Interval *interval;
+
     Timer *timer;
 }
 
 - (IBAction)showActionSheet:(id)sender;
-
+@property (strong, nonatomic) Interval *interval;
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
@@ -44,6 +44,7 @@ typedef enum MapState : NSUInteger {
 - (void)saveRoute;
 - (void)loadRoute;
 - (void)clearRoute;
+- (void) getIntervalObject:(NSNotification *) obj;
 
 
 @end

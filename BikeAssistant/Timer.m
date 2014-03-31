@@ -10,13 +10,13 @@
 
 @implementation Timer
 
--(id) initWithLabels:(UILabel *)intervalLabel label:(UILabel *)timerLabelIn name:(NSString *)nameIn{
+-(id) initWithLabels:(UILabel *)intervalLabel name:(NSString *)name{
     
     self = [self init];
     if(self){
-        timerNameLabel = intervalLabel;
-        timerLabel = timerLabelIn;
-        intervalName = nameIn;
+        //timerNameLabel = intervalLabel;
+        timerLabel = intervalLabel;
+        intervalName = name;
         lib = [[CommonLibrary alloc]init];
         interval = [[Interval alloc] initWithDefaults];
         repeat = false;
@@ -62,24 +62,28 @@
     }
 }
 
+- (NSString *)concatLabelName{
+    return [timerName stringByAppendingString:[self formatTime]];
+}
+
 - (void) updateLabels{
    
     if([self didTimerFinish] == false){
-        timerNameLabel.text = timerName;
-        timerLabel.text = [self formatTime];
+        //timerNameLabel.text = timerName;
+        timerLabel.text = [self concatLabelName];
     }
     else if ([self didIntervalFinish] == false){
         [interval getNextTimer];
         time = [interval getTimer];
         timerName = [interval getTimeName];
         
-        timerNameLabel.text = timerName;
-        timerLabel.text = [self formatTime];
+        //timerNameLabel.text = timerName;
+        timerLabel.text = [self concatLabelName];
     }
     else{
         [self stopTimer];
-        timerNameLabel.text = @"Finished";
-        timerLabel.text = [self formatTime];
+        //timerNameLabel.text = @"Finished";
+        timerLabel.text = [self concatLabelName];
     }
     int tempTime = [time integerValue];
     tempTime--;
@@ -89,7 +93,7 @@
 -(void)timer{
     
     
-    timerNameLabel.text = timerName;
+    timerLabel.text = timerName;
     timer = [NSTimer timerWithTimeInterval:1.0f
                                             target:self
                                            selector:@selector(updateLabels)

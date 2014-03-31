@@ -20,12 +20,13 @@
 @interface MainViewController ()
 - (IBAction)startTimer:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (weak, nonatomic) IBOutlet UIButton *hideButton;
 
 
 @end
 
 @implementation MainViewController
-
+@synthesize interval;
 - (void)viewDidLoad {
     [super viewDidLoad];
     _timerLabel.hidden = true;
@@ -254,8 +255,12 @@
                     [self.navigationController pushViewController:settingsViewController animated:YES];
                     break;
                 case 3:
+                    if(loadInterval.view){
+                        loadInterval.interval = interval;
+                    }
                     [self.navigationController pushViewController:loadInterval animated:YES];
                     
+                 
                 default:
                     
                     break;
@@ -275,6 +280,7 @@
                     break;
                     
                 case 2:
+                    
                     [self.navigationController pushViewController:settingsViewController animated:YES];
                     break;
                     
@@ -297,8 +303,19 @@
             //        LocationViewController *locationViewController = [navigationController viewControllers][0];
             //        locationViewController.delegate = self;
         }
+        
     }
 - (IBAction)startTimer:(id)sender {
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector   (getIntervalObject:) name:@"getInterval" object:nil];
+    timer = [[Timer alloc]initWithLabels:_timerLabel name:[interval getIntervalName]];
+    [timer timerStart];
+}
+
+-(void) getIntervalObject:(NSNotification *) obj{
+    interval = (Interval *)[obj object];
+}
+
+- (IBAction)stopTimer:(id)sender {
+    [timer stopTimer];
 }
     @end
