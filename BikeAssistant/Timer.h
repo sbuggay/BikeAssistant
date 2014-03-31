@@ -14,7 +14,6 @@
     NSString *intervalName;
     NSString *timerName;
     NSNumber *time;
-    UILabel *timerNameLabel;
     UILabel *timerLabel;
     CommonLibrary *lib;
     Interval *interval;
@@ -22,7 +21,7 @@
     BOOL repeat;
 }
 
-- (id) initWithLabels:(UILabel *)intervalLabel label:(UILabel *)timerLabelIn name:(NSString *)nameIn;
+- (id) initWithLabels:(UILabel *)intervalLabel name:(NSString *)name;
 - (void) timerStart;
 - (void) updateLabels;
 - (void) fixTime;

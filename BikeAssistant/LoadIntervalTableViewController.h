@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Interval.h"
 
-@interface LoadIntervalTableViewController : UITableViewController
+@interface LoadIntervalTableViewController : UITableViewController{
+    NSUserDefaults *globalDefaults;
+    NSMutableDictionary *globalDictionary;
+ 
 
+}
+
+
+@property (strong, nonatomic) NSMutableArray* cellList;
+@property (strong, nonatomic) Interval *interval;
 @end

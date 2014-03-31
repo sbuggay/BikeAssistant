@@ -18,6 +18,11 @@
 
 
 @interface MainViewController ()
+- (IBAction)startTimer:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (weak, nonatomic) IBOutlet UIButton *hideButton;
+- (IBAction)stopTimer:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *hideStopTimer;
 
 
 @end
@@ -26,7 +31,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _timerLabel.hidden = true;
+    _hideStopTimer.hidden = true;
     self.title = @"Map";
     
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
@@ -58,6 +64,9 @@
     NSString *file=[[NSBundle mainBundle] pathForResource:@"Auburn__Alabama" ofType:@"gpx"];
     
     NSData *fileData = [NSData dataWithContentsOfFile:file];
+    
+    
+    _interval = [[Interval alloc]initWithDefaults];
     
     
     //    [GPXParser parse:fileData completion:^(BOOL success, GPX *gpx) {
@@ -249,8 +258,12 @@
                     [self.navigationController pushViewController:settingsViewController animated:YES];
                     break;
                 case 3:
+                    if(loadInterval.view){
+                        loadInterval.interval = _interval;
+                    }
                     [self.navigationController pushViewController:loadInterval animated:YES];
                     
+                 
                 default:
                     
                     break;
@@ -270,6 +283,7 @@
                     break;
                     
                 case 2:
+                    
                     [self.navigationController pushViewController:settingsViewController animated:YES];
                     break;
                     
@@ -282,9 +296,6 @@
 }
 
     
-    
-    
-    
     - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
         if ([segue.identifier isEqualToString:@"AddPlayer"]) {
             
@@ -292,5 +303,22 @@
             //        LocationViewController *locationViewController = [navigationController viewControllers][0];
             //        locationViewController.delegate = self;
         }
+        
     }
+- (IBAction)startTimer:(id)sender {
+
+    timer = [[Timer alloc]initWithLabels:_timerLabel name:@"test"];
+    [timer timerStart];
+    _timerLabel.hidden = false;
+    _hideButton.hidden = true;
+    _hideStopTimer.hidden = false;
+}
+
+
+- (IBAction)stopTimer:(id)sender {
+    [timer stopTimer];
+    _timerLabel.hidden = true;
+    _hideButton.hidden = false;
+    _hideStopTimer.hidden = true;
+}
     @end
