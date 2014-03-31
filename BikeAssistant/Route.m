@@ -10,5 +10,21 @@
 
 @implementation Route
 
+- (void)encodeWithCoder:(NSCoder *)coder;
+{
+    [coder encodeObject:aLabel forKey:@"label"];
+    [coder encodeInteger:aNumberID forKey:@"numberID"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder;
+{
+    self = [[CustomObject alloc] init];
+    if (self != nil)
+    {
+        aLabel = [coder decodeObjectForKey:@"label"];
+        aNumberID = [coder decodeIntegerForKey:@"numberID"];
+    }
+    return self;
+}
 
 @end

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import <GPX/GPX.h>
+
 @interface Route : NSObject
 
 
