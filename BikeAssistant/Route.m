@@ -10,19 +10,17 @@
 
 @implementation Route
 
-- (void)encodeWithCoder:(NSCoder *)coder;
-{
-    [coder encodeObject:aLabel forKey:@"label"];
-    [coder encodeInteger:aNumberID forKey:@"numberID"];
+@synthesize root;
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:root forKey:@"root"];
 }
 
-- (id)initWithCoder:(NSCoder *)coder;
-{
-    self = [[CustomObject alloc] init];
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [[Route alloc] init];
     if (self != nil)
     {
-        aLabel = [coder decodeObjectForKey:@"label"];
-        aNumberID = [coder decodeIntegerForKey:@"numberID"];
+        root = [coder decodeObjectForKey:@"root"];
     }
     return self;
 }

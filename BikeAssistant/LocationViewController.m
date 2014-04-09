@@ -10,9 +10,12 @@
 
 @interface LocationViewController ()
 
+
 @end
 
 @implementation LocationViewController
+
+@synthesize locationManager;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,13 +29,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	locationManager = [[CLLocationManager alloc] init];
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.delegate = self;
+    [locationManager startUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    
+    _distance.text = @"0";
+    _latitude.text = [NSString stringWithFormat:@"%.2f", [newLocation coordinate].latitude];
+    _longitude.text = [NSString stringWithFormat:@"%.2f", [newLocation coordinate].longitude];
+    _elevation.text = [NSString stringWithFormat:@"%.2f", [newLocation altitude]];
+    
 }
 
 @end

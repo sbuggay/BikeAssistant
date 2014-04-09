@@ -12,5 +12,6 @@
 
 @interface Route : NSObject
 
+@property GPXRoot *root;
 
 @end

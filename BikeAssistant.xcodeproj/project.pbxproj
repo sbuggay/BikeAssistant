@@ -22,6 +22,8 @@
 		071DA82B18C6E238001CDBA4 /* IntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071DA82A18C6E238001CDBA4 /* IntervalViewController.m */; };
 		076844AC18E76C0100465489 /* RoutesDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 076844AB18E76C0100465489 /* RoutesDetailTableViewController.m */; };
 		0778DC6218E7827500E8B2F9 /* GPX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0778DC6118E7827500E8B2F9 /* GPX.framework */; };
+		0778DC6518EA29EA00E8B2F9 /* RouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0778DC6418EA29EA00E8B2F9 /* RouteManager.m */; };
+		0778DC6818EA652400E8B2F9 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0778DC6718EA652400E8B2F9 /* LocationManager.m */; };
 		07C9F64818C19A350060BAE3 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C9F64718C19A350060BAE3 /* Route.m */; };
 		07D89A6218C05BBD00AF9192 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D89A6118C05BBD00AF9192 /* Foundation.framework */; };
 		07D89A6418C05BBD00AF9192 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D89A6318C05BBD00AF9192 /* CoreGraphics.framework */; };
@@ -86,6 +88,10 @@
 		076844AA18E76C0100465489 /* RoutesDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesDetailTableViewController.h; sourceTree = "<group>"; };
 		076844AB18E76C0100465489 /* RoutesDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesDetailTableViewController.m; sourceTree = "<group>"; };
 		0778DC6118E7827500E8B2F9 /* GPX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPX.framework; sourceTree = "<group>"; };
+		0778DC6318EA29EA00E8B2F9 /* RouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteManager.h; sourceTree = "<group>"; };
+		0778DC6418EA29EA00E8B2F9 /* RouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteManager.m; sourceTree = "<group>"; };
+		0778DC6618EA652400E8B2F9 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		0778DC6718EA652400E8B2F9 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		07C9F64618C19A350060BAE3 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
 		07C9F64718C19A350060BAE3 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
 		07D89A5E18C05BBD00AF9192 /* BikeAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,14 +178,6 @@
 				014642C518E777FC00BD4DEF /* NameIntervalViewController.m */,
 				076844AA18E76C0100465489 /* RoutesDetailTableViewController.h */,
 				076844AB18E76C0100465489 /* RoutesDetailTableViewController.m */,
-				01DF5BBF18E769EF007EFD2F /* CommonLibrary.h */,
-				01DF5BC018E769EF007EFD2F /* CommonLibrary.m */,
-				01DF5BB618E76894007EFD2F /* History.h */,
-				01DF5BB718E76894007EFD2F /* History.m */,
-				01DF5BB818E76894007EFD2F /* Interval.h */,
-				01DF5BB918E76894007EFD2F /* Interval.m */,
-				01DF5BBA18E76894007EFD2F /* Timer.h */,
-				01DF5BBB18E76894007EFD2F /* Timer.m */,
 				07D89A9C18C05E0800AF9192 /* MainViewController.h */,
 				07D89A9D18C05E0800AF9192 /* MainViewController.m */,
 				07D89A9E18C05E0800AF9192 /* SidebarViewController.h */,
@@ -205,6 +203,18 @@
 			children = (
 				07C9F64618C19A350060BAE3 /* Route.h */,
 				07C9F64718C19A350060BAE3 /* Route.m */,
+				01DF5BB618E76894007EFD2F /* History.h */,
+				01DF5BB718E76894007EFD2F /* History.m */,
+				01DF5BB818E76894007EFD2F /* Interval.h */,
+				01DF5BB918E76894007EFD2F /* Interval.m */,
+				01DF5BBA18E76894007EFD2F /* Timer.h */,
+				01DF5BBB18E76894007EFD2F /* Timer.m */,
+				0778DC6318EA29EA00E8B2F9 /* RouteManager.h */,
+				0778DC6418EA29EA00E8B2F9 /* RouteManager.m */,
+				01DF5BBF18E769EF007EFD2F /* CommonLibrary.h */,
+				01DF5BC018E769EF007EFD2F /* CommonLibrary.m */,
+				0778DC6618EA652400E8B2F9 /* LocationManager.h */,
+				0778DC6718EA652400E8B2F9 /* LocationManager.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -437,6 +447,7 @@
 				01CCD9FE18E8DA1A009B841F /* LoadIntervalTableViewController.m in Sources */,
 				07D89AA618C05E0800AF9192 /* MainViewController.m in Sources */,
 				01DF5BC118E769EF007EFD2F /* CommonLibrary.m in Sources */,
+				0778DC6518EA29EA00E8B2F9 /* RouteManager.m in Sources */,
 				0707547818C2AF1A007174C2 /* LocationViewController.m in Sources */,
 				01B6867418E7836000DBF156 /* AddIntervalViewController.m in Sources */,
 				07FD5E6318C0F9FA008D6EEB /* RoutesViewController.m in Sources */,
@@ -444,6 +455,7 @@
 				07E8668018C4EE6800EA309B /* CLLocationViewController.m in Sources */,
 				07E8668318C4EE7100EA309B /* MetricsViewController.m in Sources */,
 				07D89A6E18C05BBD00AF9192 /* main.m in Sources */,
+				0778DC6818EA652400E8B2F9 /* LocationManager.m in Sources */,
 				07D89AA718C05E0800AF9192 /* SidebarViewController.m in Sources */,
 				014642C618E777FC00BD4DEF /* NameIntervalViewController.m in Sources */,
 				07C9F64818C19A350060BAE3 /* Route.m in Sources */,

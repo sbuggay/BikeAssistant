@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Appcoda. All rights reserved.
 //
 
+#import <IASKAppSettingsViewController.h>
+
 #import "MainViewController.h"
 
 #import "SWRevealViewController.h"
 
 #import "LocationViewController.h"
-
-#import <IASKAppSettingsViewController.h>
 
 #import "LoadIntervalTableViewController.h"
 
@@ -100,6 +100,9 @@
     MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coors count:[[root waypoints] count]];
     [_map addOverlay:polyline];
     
+//    Route *temp = Route alloc;
+//    temp.root = root;
+//    [[RouteManager sharedInstance] saveRoute:temp];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,6 +126,14 @@
     [_map removeOverlays:pointsArray];
     
     mapState = kNoRoute;
+}
+
+- (void)loadRoute {
+    
+}
+
+- (void)saveRoute {
+    
 }
 
 #pragma mark CLLocationManager
@@ -152,24 +163,20 @@
     double wattsGenerated = (totalWeight * resistance * distance) / totalTime;
     _metricsLabel1.text = [NSString stringWithFormat: @"%.2f", distance];
     
-    
-    
-    
-    
     //    GPX generator
     
     if(mapState == kCreatingRoute) {
-    [root newWaypointWithLatitude:[newLocation coordinate].latitude longitude:[newLocation coordinate].longitude];
-    
-    CLLocationCoordinate2D coors[[[root waypoints] count]];
-    
-    int i = 0;
-    for (GPXRoutePoint *routepoint in [root waypoints]) {
-        coors[i] = CLLocationCoordinate2DMake(routepoint.latitude, routepoint.longitude);
-        i++;
-    }
-    MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coors count:[[root waypoints] count]];
-    [_map addOverlay:polyline];
+        [root newWaypointWithLatitude:[newLocation coordinate].latitude longitude:[newLocation coordinate].longitude];
+        
+        CLLocationCoordinate2D coors[[[root waypoints] count]];
+        
+        int i = 0;
+        for (GPXRoutePoint *routepoint in [root waypoints]) {
+            coors[i] = CLLocationCoordinate2DMake(routepoint.latitude, routepoint.longitude);
+            i++;
+        }
+        MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coors count:[[root waypoints] count]];
+        [_map addOverlay:polyline];
     }
 }
 
@@ -200,7 +207,7 @@
                                                       delegate:self
                                              cancelButtonTitle:@"Cancel"
                                         destructiveButtonTitle:nil
-                                             otherButtonTitles:@"New Route", @"Load Route", @"Settings", @"Load Interval", nil];
+                                             otherButtonTitles:@"New Route", @"Load Route", @"Load Interval", nil];
             break;
             
         case kCreatingRoute:
@@ -252,18 +259,19 @@
                     
                 case 1:
                     
+                    
+                    
+                    
                     break;
                     
                 case 2:
-                    [self.navigationController pushViewController:settingsViewController animated:YES];
-                    break;
-                case 3:
-                    if(loadInterval.view){
-                        loadInterval.interval = _interval;
-                    }
-                    [self.navigationController pushViewController:loadInterval animated:YES];
                     
-                 
+                    
+                    [self.navigationController pushViewController:loadInterval animated:YES];
+                
+                    _interval = loadInterval.interval;
+                    
+                    
                 default:
                     
                     break;
@@ -295,19 +303,19 @@
     }
 }
 
-    
-    - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-        if ([segue.identifier isEqualToString:@"AddPlayer"]) {
-            
-            //        UINavigationController *navigationController = segue.destinationViewController;
-            //        LocationViewController *locationViewController = [navigationController viewControllers][0];
-            //        locationViewController.delegate = self;
-        }
-        
-    }
-- (IBAction)startTimer:(id)sender {
 
-    timer = [[Timer alloc]initWithLabels:_timerLabel name:@"test"];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"AddPlayer"]) {
+        
+        //        UINavigationController *navigationController = segue.destinationViewController;
+        //        LocationViewController *locationViewController = [navigationController viewControllers][0];
+        //        locationViewController.delegate = self;
+    }
+    
+}
+- (IBAction)startTimer:(id)sender {
+    
+    timer = [[Timer alloc]initWithLabels:_timerLabel name:_interval.getIntervalName];
     [timer timerStart];
     _timerLabel.hidden = false;
     _hideButton.hidden = true;
@@ -321,4 +329,4 @@
     _hideButton.hidden = false;
     _hideStopTimer.hidden = true;
 }
-    @end
+@end
