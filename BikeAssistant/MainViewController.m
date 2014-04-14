@@ -157,9 +157,9 @@
     double totalTime = .033;
     double resistance = .1;
     // Calories Burned Formula
-    //    double caloriesBurned = ((.046 * (distance/totalTime) * totalWeight) + (.066 * pow((distance/totalTime), 3)) * totalTime);
-    //    _caloriesLabel.text = [NSString stringWithFormat: @"Calories Burned: %f.2", caloriesBurned];
-    // Watts Generated Formula
+        double caloriesBurned = ((.046 * (distance/totalTime) * totalWeight) + (.066 * pow((distance/totalTime), 3)) * totalTime);
+     //   _caloriesLabel.text = [NSString stringWithFormat: @"Calories Burned: %f.2", caloriesBurned];
+     //Watts Generated Formula
     double wattsGenerated = (totalWeight * resistance * distance) / totalTime;
     _metricsLabel1.text = [NSString stringWithFormat: @"%.2f", distance];
     

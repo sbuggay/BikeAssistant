@@ -377,10 +377,10 @@
             </objects>
             <point key="canvasLocation" x="1207" y="349"/>
         </scene>
-        <!--View Controller - Metrics-->
+        <!--Metrics View Controller - Metrics-->
         <scene sceneID="q9C-tz-zEE">
             <objects>
-                <viewController id="r5g-Za-moM" sceneMemberID="viewController">
+                <viewController id="r5g-Za-moM" customClass="MetricsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k6X-77-44r"/>
                         <viewControllerLayoutGuide type="bottom" id="ua6-rE-rD9"/>
@@ -445,6 +445,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Metrics" id="aE5-LZ-Qa7"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="caloriesLabel" destination="ev6-06-eSu" id="dNv-4q-0zB"/>
+                        <outlet property="wattsLabel" destination="C7f-tX-6lI" id="gQa-eX-laf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kKE-cp-TOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
