@@ -41,7 +41,7 @@
 @implementation Stats
 - (id) initWithDefaults{
     resistance = .1;
-    time = 1.0;
+    time = 0.0;
     distance = 0.0;
     return self;
 }
