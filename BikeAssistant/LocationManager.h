@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-
+#import "Timer.h"
 
 @interface LocationManager : NSObject <CLLocationManagerDelegate> {
     bool timerRunning;
@@ -17,6 +17,8 @@
 @property CLLocation *currentLocation;
 @property CLLocationManager *locationManager;
 @property int timeElapsed; //seconds
+@property BOOL timerLoaded;
+@property Timer* timer;
 
 
 +(LocationManager *)sharedInstance;

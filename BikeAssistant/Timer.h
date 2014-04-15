@@ -19,15 +19,19 @@
     Interval *interval;
     NSTimer* timer;
     BOOL repeat;
+    BOOL isRunning;
 }
 
 - (id) initWithLabels:(UILabel *)intervalLabel name:(NSString *)name;
+- (void) updateLabel:(UILabel *)intervalLabel;
+- (void) setTimerName:(NSString *)name;
 - (void) timerStart;
 - (void) updateLabels;
 - (void) fixTime;
 - (NSString *) formatTime;
 - (BOOL) didTimerFinish;
 - (BOOL) didIntervalFinish;
+- (BOOL) isRunning;
 - (void) timer;
 - (void) stopTimer;
 - (void) repeat;

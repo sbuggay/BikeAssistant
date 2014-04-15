@@ -20,8 +20,21 @@
         lib = [[CommonLibrary alloc]init];
         interval = [[Interval alloc] initWithDefaults];
         repeat = false;
+        isRunning = false;
     }
     return self;
+}
+
+- (void) updateLabel:(UILabel *)intervalLabel{
+    timerLabel = intervalLabel;
+}
+
+- (BOOL) isRunning{
+    return isRunning;
+}
+
+- (void) setTimerName:(NSString *)name{
+    intervalName = name;
 }
 
 - (void) timerStart{
@@ -30,6 +43,7 @@
     time = [interval getTimer];
     timerName = [interval getTimeName];
     [self timer];
+    isRunning = true;
     
     
 }
@@ -106,6 +120,7 @@
 -(void) stopTimer{
     [timer invalidate];
     timer = nil;
+    isRunning = false;
 }
 
 -(void) fixTime {

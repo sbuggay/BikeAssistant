@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Interval.h"
+#import "LocationManager.h"
 
 @interface LoadIntervalTableViewController : UITableViewController{
     NSUserDefaults *globalDefaults;
     NSMutableDictionary *globalDictionary;
- 
+    CLLocationManager *locationManager;
 
 }
 

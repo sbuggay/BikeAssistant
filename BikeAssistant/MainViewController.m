@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _timerLabel.hidden = true;
+    //_timerLabel.hidden = true;
     _hideStopTimer.hidden = true;
     self.title = @"Map";
     
@@ -79,6 +79,22 @@
     
     MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coors count:[[root waypoints] count]];
     [_map addOverlay:polyline];
+}
+
+- (void) viewDidAppear:(BOOL)animated{
+    
+    if([LocationManager sharedInstance].timerLoaded == false){
+        timer = [[Timer alloc]initWithLabels:_timerLabel name:@"tempHolder010101"];
+        [LocationManager sharedInstance].timer = timer;
+        [LocationManager sharedInstance].timerLoaded = true;
+    }
+    
+    if([[[LocationManager sharedInstance] timer] isRunning] == true){
+        _timerLabel.hidden = false;
+        _hideButton.hidden = true;
+        _hideStopTimer.hidden = false;
+    }
+    [[[LocationManager sharedInstance] timer] updateLabel:_timerLabel];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -291,7 +307,7 @@
 - (IBAction)startTimer:(id)sender {
     
 //    timer = [[Timer alloc]initWithLabels:_timerLabel name:_interval.getIntervalName];
-    [timer timerStart];
+    [[[LocationManager sharedInstance] timer] timerStart];
     _timerLabel.hidden = false;
     _hideButton.hidden = true;
     _hideStopTimer.hidden = false;

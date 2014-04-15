@@ -13,6 +13,7 @@
 @synthesize currentLocation;
 @synthesize locationManager;
 @synthesize timeElapsed;
+@synthesize timerLoaded;
 
 +(LocationManager *)sharedInstance {
     static LocationManager *sharedSingleton;
@@ -33,6 +34,7 @@
         
         timeElapsed = 0;
         timerRunning = false;
+        timerLoaded = false;
     }
     return self;
 }
