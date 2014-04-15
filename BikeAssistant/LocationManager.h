@@ -10,9 +10,17 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-@interface LocationManager : NSObject <CLLocationManagerDelegate>
+@interface LocationManager : NSObject <CLLocationManagerDelegate> {
+    bool timerRunning;
+}
 
 @property CLLocation *currentLocation;
 @property CLLocationManager *locationManager;
+@property int timeElapsed; //seconds
+
+
++(LocationManager *)sharedInstance;
+-(void)start;
+-(void)end;
 
 @end

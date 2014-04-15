@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <GPX/GPX.h>
 
+#import "LocationManager.h"
 #import "RouteManager.h"
 #import "Interval.h"
 #import "Timer.h"
@@ -34,8 +35,6 @@ typedef enum MapState : NSUInteger {
 
 - (IBAction)showActionSheet:(id)sender;
 
-@property (strong, nonatomic) Interval *interval;
-@property (strong, nonatomic) Route *route;
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;

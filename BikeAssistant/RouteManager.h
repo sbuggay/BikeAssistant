@@ -9,10 +9,14 @@
 #import <Foundation/Foundation.h>
 
 #import "Route.h"
+#import "Timer.h"
 
 @interface RouteManager : NSObject
-
 @property (strong, nonatomic) NSMutableArray *routes;
+
+@property Route *currentRoute;
+@property Timer *currentTimer;
+@property BOOL hasUpdated;
 
 +(RouteManager *)sharedInstance;
 

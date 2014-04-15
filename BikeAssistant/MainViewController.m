@@ -39,6 +39,7 @@
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
     
+    [LocationManager sharedInstance];
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
@@ -65,27 +66,6 @@
     
     NSData *fileData = [NSData dataWithContentsOfFile:file];
     
-    
-    _interval = [[Interval alloc]initWithDefaults];
-    
-    
-    //    [GPXParser parse:fileData completion:^(BOOL success, GPX *gpx) {
-    //        CLLocationCoordinate2D coordinates[[[gpx waypoints]count]];
-    //        int i = 0;
-    //        NSLog(@"%@", [gpx waypoints]);
-    //        for (Waypoint *ckpt in [gpx waypoints])
-    //        {
-    //            coordinates[i] = CLLocationCoordinate2DMake([ckpt latitude] , [ckpt longitude]);
-    //            i++;
-    //            NSLog(@"%f | %f", [ckpt latitude], [ckpt longitude]);
-    //        }
-    //
-    //        MKPolyline *route = [MKPolyline polylineWithCoordinates: coordinates count: [[gpx waypoints] count]];
-    //        [_map addOverlay:route];
-    //
-    //    }];
-    
-    
     root = [GPXParser parseGPXWithData:fileData];
     
     CLLocationCoordinate2D coors[[[root waypoints] count]];
@@ -99,10 +79,6 @@
     
     MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coors count:[[root waypoints] count]];
     [_map addOverlay:polyline];
-    
-//    Route *temp = Route alloc;
-//    temp.root = root;
-//    [[RouteManager sharedInstance] saveRoute:temp];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -141,7 +117,6 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSLog(@"%f", [[defaults objectForKey:@"weight"] floatValue]);
     
     //simply get the speed provided by the phone from newLocation
     double gpsSpeed = newLocation.speed;
@@ -269,7 +244,7 @@
                     
                     [self.navigationController pushViewController:loadInterval animated:YES];
                 
-                    _interval = loadInterval.interval;
+//                    _interval = loadInterval.interval;
                     
                     
                 default:
@@ -315,7 +290,7 @@
 }
 - (IBAction)startTimer:(id)sender {
     
-    timer = [[Timer alloc]initWithLabels:_timerLabel name:_interval.getIntervalName];
+//    timer = [[Timer alloc]initWithLabels:_timerLabel name:_interval.getIntervalName];
     [timer timerStart];
     _timerLabel.hidden = false;
     _hideButton.hidden = true;

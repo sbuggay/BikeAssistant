@@ -11,6 +11,9 @@
 @implementation RouteManager
 
 @synthesize routes;
+@synthesize currentRoute;
+@synthesize currentTimer;
+@synthesize hasUpdated;
 
 +(RouteManager *)sharedInstance {
     static RouteManager *sharedSingleton;
@@ -25,6 +28,7 @@
 -(id)init {
     if (self = [super init]) {
         [self loadRouteList];
+        hasUpdated = NO;
     }
     return self;
 }

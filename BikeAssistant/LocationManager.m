@@ -12,6 +12,7 @@
 
 @synthesize currentLocation;
 @synthesize locationManager;
+@synthesize timeElapsed;
 
 +(LocationManager *)sharedInstance {
     static LocationManager *sharedSingleton;
@@ -29,11 +30,28 @@
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         locationManager.delegate = self;
         [locationManager startUpdatingLocation];
+        
+        timeElapsed = 0;
+        timerRunning = false;
     }
     return self;
 }
 
+-(void)start {
+    timerRunning = true;
+    timeElapsed = 0;
+}
+
+-(void)end {
+    timerRunning = false;
+    timeElapsed = 0;
+}
 
 
+#pragma mark locationManager
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    NSLog(@"%@", newLocation);
+    currentLocation = newLocation;
+}
 
 @end
