@@ -155,6 +155,8 @@
  */
 - (void) deleteInterval:(NSString *)intervalToDelete{
     [dictionary removeObjectForKey:intervalToDelete];
+     [dictionary writeToFile:dictionaryName atomically:YES];
+    [defaults setObject:dictionary forKey:dictionaryName];
 }
 
 /**

@@ -24,6 +24,21 @@
     [self performSegueWithIdentifier:@"IntervalToNameSegue" sender:self];
 }
 
+- (BOOL)tableView: (UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *) indexPath {
+    return YES;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"@boop");
+    if(editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        NSString * temp =[_cellList objectAtIndex:indexPath.row];
+        NSLog(@"%@", temp);
+        [_interval deleteInterval:[_cellList objectAtIndex:indexPath.row]];
+        [self.tableView reloadData];
+    }
+}
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -65,7 +80,8 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(void) viewDidAppear:(BOOL)animated{
