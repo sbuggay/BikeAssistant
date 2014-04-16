@@ -22,6 +22,7 @@ const int ADD = -1;
 
 - (IBAction)finishedButton:(id)sender {
     [_interval saveInterval];
+    [LocationManager sharedInstance].intervalTimerAdded = true;
     pressedButton = [NSNumber numberWithInt:FINISHED];
     [self.navigationController popToRootViewControllerAnimated:YES];
  

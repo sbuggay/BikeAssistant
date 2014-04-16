@@ -10,6 +10,7 @@
 
 #import "AddIntervalViewController.h"
 #import "Interval.h"
+#import "LocationManager.h"
 
 @interface CreateIntervalViewController : UITableViewController
 {
@@ -18,7 +19,7 @@
     NSMutableArray *myArray;
     NSMutableDictionary *dictionary;
     NSNumber *pressedButton;
-
+    CLLocationManager *locationManager;
 }
 
 
