@@ -83,7 +83,8 @@
 
 - (void) viewDidAppear:(BOOL)animated{
     
-    if([LocationManager sharedInstance].timerLoaded == false){
+    if([LocationManager sharedInstance].timerLoaded == false || [LocationManager sharedInstance].intervalTimerAdded == true){
+        [LocationManager sharedInstance].intervalTimerAdded = false;
         timer = [[Timer alloc]initWithLabels:_timerLabel name:@"tempHolder010101"];
         [LocationManager sharedInstance].timer = timer;
         [LocationManager sharedInstance].timerLoaded = true;
@@ -95,6 +96,7 @@
         _hideStopTimer.hidden = false;
     }
     [[[LocationManager sharedInstance] timer] updateLabel:_timerLabel];
+    
 }
 
 - (void)didReceiveMemoryWarning {

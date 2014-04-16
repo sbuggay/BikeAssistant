@@ -35,6 +35,7 @@
         timeElapsed = 0;
         timerRunning = false;
         timerLoaded = false;
+        _intervalTimerAdded = false;
     }
     return self;
 }

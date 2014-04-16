@@ -19,7 +19,7 @@
 @property int timeElapsed; //seconds
 @property BOOL timerLoaded;
 @property Timer* timer;
-
+@property BOOL intervalTimerAdded;
 
 +(LocationManager *)sharedInstance;
 -(void)start;
