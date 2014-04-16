@@ -10,6 +10,8 @@
 
 @interface LoadIntervalTableViewController ()
 
+
+
 @end
 
 @implementation LoadIntervalTableViewController
@@ -21,6 +23,7 @@
     if (self) {
         // Custom initialization
     }
+ 
     return self;
 }
 
@@ -29,7 +32,7 @@
     NSString *pressedButton = [_cellList objectAtIndex:indexPath.row];
 
     [LocationManager sharedInstance];
-    
+    [[[LocationManager sharedInstance] timer] setRepeat:[self toggleRepeat].isOn];
     [[[LocationManager sharedInstance] timer] setTimerName:pressedButton];
 
     [self.navigationController popToRootViewControllerAnimated:YES];
@@ -140,5 +143,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

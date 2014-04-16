@@ -68,7 +68,7 @@
 - (NSNumber *)getElevationClimbed;
 
 - (NSMutableArray *) getListOfHistoryItems;
-- (void)saveHisotry;
+- (void)saveHistory;
 - (void)loadHistory:(NSString *)routeName; //loads the historyDict dictionary and assigns the object to historyItems
 - (void)addHistoryItem; //using route + date + intervalDict, save to historyDict dictioary
 - (void)deleteHistoryItem; //Delete from historyDict using key + any intervalDict items added

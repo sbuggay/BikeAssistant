@@ -38,7 +38,7 @@
 - (BOOL) isRunning;
 - (void) timer;
 - (void) stopTimer;
-- (void) repeat;
-- (void) noRepeat;
+- (void) setRepeat:(BOOL)repeatIn;
+- (BOOL) isRepeat;
 
 @end

@@ -25,13 +25,13 @@
     
     sDate = [[NSString alloc]init];
     
-    totalWatts = [[NSNumber alloc]init];
-    totalCalories = 0;
-    totalDistance = 0;
-    wattsHolder = 0;
-    caloriesHolder = 0;
-    distanceHolder = 0;
-    elevation = 0;
+    totalWatts = [NSNumber numberWithInt:0];
+    totalCalories = [NSNumber numberWithInt:0];
+    totalDistance = [NSNumber numberWithInt:0];
+    wattsHolder = [NSNumber numberWithInt:0];
+    caloriesHolder = [NSNumber numberWithInt:0];
+    distanceHolder = [NSNumber numberWithInt:0];
+    elevation = [NSNumber numberWithInt:0];
     
     routesDictName = @"routes";
     intervalDictName = [[NSString alloc]init];
@@ -167,7 +167,7 @@
     
 } //set intervals to intervalDict
 
-- (void)saveHisotry{
+- (void)saveHistory{
     
     overallData[0] = time;
     overallData[1] = totalDistance;
@@ -204,8 +204,9 @@
     [self setTimerHolder:[intervalData objectAtIndex:1]];
     [self setCaloriesHolder:[intervalData objectAtIndex:2]];
 */
-    
-    [intervals addObject:intervalData];
+  
+    intervals[[intervals count]] = intervalData;
+    //[intervals add:intervalData];
     
     
 } //add intervalData to intervals and reset intervalData
