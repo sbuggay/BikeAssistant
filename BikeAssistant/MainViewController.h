@@ -14,7 +14,7 @@
 #import "RouteManager.h"
 #import "Interval.h"
 #import "Timer.h"
-
+#import "History.h"
 
 typedef enum MapState : NSUInteger {
     kNoRoute,
@@ -29,7 +29,8 @@ typedef enum MapState : NSUInteger {
     CLLocation *startLocation;
     GPXRoot *root;
     NSInteger mapState;
-
+    
+    History *history;
     Timer *timer;
 }
 

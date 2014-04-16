@@ -37,12 +37,17 @@
     intervalDictName = [[NSString alloc]init];
     
     historyDict = [[defaults dictionaryForKey:routesDictName]mutableCopy];
+    if(historyDict == nil){
+        historyDict = [[NSMutableDictionary alloc]init];
+    }
     intervalDict = [[NSMutableDictionary alloc]init];
     
     historyItems = [[NSMutableArray alloc]init];
     overallData = [[NSMutableArray alloc]init];
     intervalData = [[NSMutableArray alloc]init];
     intervals = [[NSMutableArray alloc]init];
+    
+    historyItems [0] = overallData;
     
     return self;
 }
@@ -149,13 +154,13 @@
 
 - (NSString *)fixName:(int)counterIn nameToCheck:(NSString *)nameIn{
     
-    return NULL;
+    return nameIn;
 
 } //Using route + date, see if combination exist in historyDict.
 
 - (void)addInterval{
      
-    sInterval = [self fixName:0 nameToCheck:[interval getIntervalName]];
+    sInterval = [self fixName:0 nameToCheck:[[[LocationManager sharedInstance] timer] getIntervalName]];
     [intervalDict setObject:intervals forKey:sInterval];
     [intervalDict writeToFile:sInterval atomically:YES];
     historyItems[1] = intervalDict;

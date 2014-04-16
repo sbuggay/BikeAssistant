@@ -20,6 +20,7 @@
 @property CLLocationManager *locationManager;
 @property int timeElapsed; //seconds
 @property BOOL timerLoaded;
+@property BOOL intervalTimerAdded;
 
 @property Timer *timer;
 @property History *history;

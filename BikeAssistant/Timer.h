@@ -31,6 +31,7 @@
 - (void) updateLabels;
 - (void) fixTime;
 - (NSString *) getIntervalTimeName;
+- (NSString *) getIntervalName;
 - (NSString *) formatTime;
 - (BOOL) didTimerFinish;
 - (BOOL) didIntervalFinish;

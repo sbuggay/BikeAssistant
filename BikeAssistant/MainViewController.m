@@ -88,6 +88,9 @@
         timer = [[Timer alloc]initWithLabels:_timerLabel name:@"tempHolder010101"];
         [LocationManager sharedInstance].timer = timer;
         [LocationManager sharedInstance].timerLoaded = true;
+        
+        history = [[History alloc]initWithDefaults];
+        [LocationManager sharedInstance].history = history;
     }
     
     if([[[LocationManager sharedInstance] timer] isRunning] == true){

@@ -77,6 +77,10 @@
     }
 }
 
+- (NSString *) getIntervalName{
+    return [interval getIntervalName];
+}
+
 - (NSString *)concatLabelName{
     return [timerName stringByAppendingFormat:@": %@", [self formatTime]];
 }
