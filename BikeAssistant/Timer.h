@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CommonLibrary.h"
 #import "Interval.h"
+#import "LocationManager.h"
 
 @interface Timer : NSObject{
     NSString *intervalName;
@@ -20,6 +21,7 @@
     NSTimer* timer;
     BOOL repeat;
     BOOL isRunning;
+    CLLocationManager *locationManager;
 }
 
 - (id) initWithLabels:(UILabel *)intervalLabel name:(NSString *)name;
@@ -28,6 +30,7 @@
 - (void) timerStart;
 - (void) updateLabels;
 - (void) fixTime;
+- (NSString *) getIntervalTimeName;
 - (NSString *) formatTime;
 - (BOOL) didTimerFinish;
 - (BOOL) didIntervalFinish;

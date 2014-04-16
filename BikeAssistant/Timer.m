@@ -38,6 +38,7 @@
 }
 
 - (void) timerStart{
+    
     [self stopTimer];
     [interval getInterval:intervalName];
     time = [interval getTimer];
@@ -87,6 +88,10 @@
         timerLabel.text = [self concatLabelName];
     }
     else if ([self didIntervalFinish] == false){
+        
+        [[[LocationManager sharedInstance] history] prepIntervalData];
+        [[[LocationManager sharedInstance] history] addIntervalData];
+        
         [interval getNextTimer];
         time = [interval getTimer];
         timerName = [interval getTimeName];
@@ -95,6 +100,8 @@
         timerLabel.text = [self concatLabelName];
     }
     else{
+        [[[LocationManager sharedInstance] history] addInterval];
+        [[[LocationManager sharedInstance] history] saveHisotry];
         [self stopTimer];
         //timerNameLabel.text = @"Finished";
         timerLabel.text = [self concatLabelName];
@@ -102,6 +109,10 @@
     int tempTime = [time integerValue];
     tempTime--;
     time = [NSNumber numberWithInt:tempTime];
+}
+
+- (NSString *) getIntervalTimeName{
+    return  [interval getTimeName];
 }
 
 -(void)timer{

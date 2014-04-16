@@ -11,12 +11,12 @@
 @implementation History
 
 - (id)initWithDefaults{
-    route = @"";
+    route = @"test";
     sInterval = @"";
     time = 0;
     interval = [[Interval alloc]initWithDefaults];
     defaults = [[NSUserDefaults alloc]init];
-   
+    [LocationManager sharedInstance];
     
     NSCalendar* calendar = [NSCalendar currentCalendar];
     NSDateComponents* components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit
@@ -171,12 +171,14 @@
     
     route = [self fixName:0 nameToCheck:route];
     historyItems[0] = overallData;
-    historyItems[1] = intervalDict;
     
     [historyDict setObject:historyItems forKey:route];
+    [historyDict writeToFile:route atomically:YES];
+    [defaults setObject:historyDict forKey:routesDictName];
 }
 
 - (void)addIntervalData{
+    /*
     int tempTime = [time intValue];
     int tempTimeHolder = [timeHolder intValue];
     NSNumber *difference = [NSNumber numberWithInt:tempTime - tempTimeHolder];
@@ -196,6 +198,7 @@
     [self setWattsHolder:[intervalData objectAtIndex:3]];
     [self setTimerHolder:[intervalData objectAtIndex:1]];
     [self setCaloriesHolder:[intervalData objectAtIndex:2]];
+*/
     
     [intervals addObject:intervalData];
     
@@ -203,6 +206,8 @@
 } //add intervalData to intervals and reset intervalData
 
 - (void)prepIntervalData{
+    
+    intervalData[0] = [[[LocationManager sharedInstance] timer] getIntervalTimeName];
     
 } //Adds holder variables to intervalData array and updates them
 

@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Interval.h"
+#import "LocationManager.h"
 
 @interface History : NSObject
 {
+    CLLocationManager *locationManager;
+    
     NSString *route;
     NSString *sInterval;
     NSNumber *time;

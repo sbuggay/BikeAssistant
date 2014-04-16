@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //_timerLabel.hidden = true;
+    _timerLabel.hidden = true;
     _hideStopTimer.hidden = true;
     self.title = @"Map";
     

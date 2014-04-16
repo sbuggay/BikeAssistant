@@ -27,9 +27,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *pressedButton = [_cellList objectAtIndex:indexPath.row];
-    globalDefaults = [[NSUserDefaults alloc]init];
-    globalDictionary = [[globalDefaults valueForKey:pressedButton]mutableCopy];
-    [_interval getInterval:pressedButton];
+
     [LocationManager sharedInstance];
     
     [[[LocationManager sharedInstance] timer] setTimerName:pressedButton];
