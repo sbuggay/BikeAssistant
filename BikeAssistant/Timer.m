@@ -38,7 +38,8 @@
 }
 
 - (void) timerStart{
-    [self stopTimer];
+    
+   
     [interval getInterval:intervalName];
     time = [interval getTimer];
     timerName = [interval getTimeName];
@@ -48,17 +49,13 @@
     
 }
 
-- (void) repeat{
-    repeat = true;
-}
-
-- (void) noRepeat{
-    repeat = false;
+- (void) setRepeat:(BOOL)repeatIn{
+    repeat = repeatIn;
 }
 
 - (BOOL) didTimerFinish{
     BOOL didFinish = false;
-    if(time == [NSNumber numberWithInt:0]){
+    if(time == [NSNumber numberWithInt:-1]){
         didFinish = true;
     }
     
@@ -67,13 +64,12 @@
 
 - (BOOL) didIntervalFinish{
     
-    if(repeat == true){
-        [interval resetTimer];
-        return [interval isLastTimer];
-    }
-    else{
-        return [interval isLastTimer];
-    }
+    return [interval isLastTimer];
+    
+}
+
+- (NSString *) getIntervalName{
+    return [interval getIntervalName];
 }
 
 - (NSString *)concatLabelName{
@@ -87,6 +83,10 @@
         timerLabel.text = [self concatLabelName];
     }
     else if ([self didIntervalFinish] == false){
+        
+        [[[LocationManager sharedInstance] history] prepIntervalData];
+        [[[LocationManager sharedInstance] history] addIntervalData];
+        
         [interval getNextTimer];
         time = [interval getTimer];
         timerName = [interval getTimeName];
@@ -95,13 +95,37 @@
         timerLabel.text = [self concatLabelName];
     }
     else{
-        [self stopTimer];
-        //timerNameLabel.text = @"Finished";
-        timerLabel.text = [self concatLabelName];
+        /**
+        [[[LocationManager sharedInstance] history] prepIntervalData];
+        [[[LocationManager sharedInstance] history] addIntervalData];
+        
+        [[[LocationManager sharedInstance] history] addInterval];
+        
+        [[[LocationManager sharedInstance] history] setTime:[NSNumber numberWithInt:[LocationManager sharedInstance].timeElapsed]];
+        [[[LocationManager sharedInstance] history] saveHistory];
+         */
+        if(repeat == false){
+            [self stopTimer];
+        
+            timerLabel.text = [self concatLabelName];
+        }
+        else{
+            [interval resetTimer];
+            time = [interval getTimer];
+            timerName = [interval getTimeName];
+            timerLabel.text = [self concatLabelName];
+        }
     }
     int tempTime = [time integerValue];
     tempTime--;
     time = [NSNumber numberWithInt:tempTime];
+}
+- (BOOL) isRepeat{
+    return repeat;
+}
+
+- (NSString *) getIntervalTimeName{
+    return  [interval getTimeName];
 }
 
 -(void)timer{
@@ -121,6 +145,9 @@
     [timer invalidate];
     timer = nil;
     isRunning = false;
+    [interval resetTimer];
+    time = [interval getTimer];
+    timerName = [interval getTimeName];
 }
 
 -(void) fixTime {

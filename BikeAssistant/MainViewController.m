@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //_timerLabel.hidden = true;
+    _timerLabel.hidden = true;
     _hideStopTimer.hidden = true;
     self.title = @"Map";
     
@@ -83,10 +83,14 @@
 
 - (void) viewDidAppear:(BOOL)animated{
     
-    if([LocationManager sharedInstance].timerLoaded == false){
+    if([LocationManager sharedInstance].timerLoaded == false || [LocationManager sharedInstance].intervalTimerAdded == true){
+        [LocationManager sharedInstance].intervalTimerAdded = false;
         timer = [[Timer alloc]initWithLabels:_timerLabel name:@"tempHolder010101"];
         [LocationManager sharedInstance].timer = timer;
         [LocationManager sharedInstance].timerLoaded = true;
+        
+        history = [[History alloc]initWithDefaults];
+        [LocationManager sharedInstance].history = history;
     }
     
     if([[[LocationManager sharedInstance] timer] isRunning] == true){
@@ -95,6 +99,7 @@
         _hideStopTimer.hidden = false;
     }
     [[[LocationManager sharedInstance] timer] updateLabel:_timerLabel];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -307,17 +312,17 @@
 - (IBAction)startTimer:(id)sender {
     
 //    timer = [[Timer alloc]initWithLabels:_timerLabel name:_interval.getIntervalName];
-    [[[LocationManager sharedInstance] timer] timerStart];
-    _timerLabel.hidden = false;
-    _hideButton.hidden = true;
-    _hideStopTimer.hidden = false;
+    if([[[LocationManager sharedInstance] timer] isRunning] == true){
+        [[[LocationManager sharedInstance] timer] stopTimer];
+        [sender setTitle:@"Start Timer" forState:UIControlStateNormal];
+        _timerLabel.hidden = true;
+    }
+    else{
+        [[[LocationManager sharedInstance] timer] timerStart];
+        [sender setTitle:@"Stop Timer" forState:UIControlStateNormal];
+        _timerLabel.hidden = false;
+    }
+
 }
 
-
-- (IBAction)stopTimer:(id)sender {
-    [timer stopTimer];
-    _timerLabel.hidden = true;
-    _hideButton.hidden = false;
-    _hideStopTimer.hidden = true;
-}
 @end

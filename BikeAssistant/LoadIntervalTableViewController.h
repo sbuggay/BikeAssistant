@@ -17,6 +17,9 @@
 
 }
 
+@property (weak, nonatomic) IBOutlet UISwitch *toggleRepeat;
+
+
 
 @property (strong, nonatomic) NSMutableArray* cellList;
 @property (strong, nonatomic) Interval *interval;

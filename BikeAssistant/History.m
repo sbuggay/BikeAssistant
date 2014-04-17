@@ -11,12 +11,12 @@
 @implementation History
 
 - (id)initWithDefaults{
-    route = @"";
+    route = @"test";
     sInterval = @"";
     time = 0;
     interval = [[Interval alloc]initWithDefaults];
     defaults = [[NSUserDefaults alloc]init];
-   
+    [LocationManager sharedInstance];
     
     NSCalendar* calendar = [NSCalendar currentCalendar];
     NSDateComponents* components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit
@@ -25,24 +25,29 @@
     
     sDate = [[NSString alloc]init];
     
-    totalWatts = [[NSNumber alloc]init];
-    totalCalories = 0;
-    totalDistance = 0;
-    wattsHolder = 0;
-    caloriesHolder = 0;
-    distanceHolder = 0;
-    elevation = 0;
+    totalWatts = [NSNumber numberWithInt:0];
+    totalCalories = [NSNumber numberWithInt:0];
+    totalDistance = [NSNumber numberWithInt:0];
+    wattsHolder = [NSNumber numberWithInt:0];
+    caloriesHolder = [NSNumber numberWithInt:0];
+    distanceHolder = [NSNumber numberWithInt:0];
+    elevation = [NSNumber numberWithInt:0];
     
     routesDictName = @"routes";
     intervalDictName = [[NSString alloc]init];
     
     historyDict = [[defaults dictionaryForKey:routesDictName]mutableCopy];
+    if(historyDict == nil){
+        historyDict = [[NSMutableDictionary alloc]init];
+    }
     intervalDict = [[NSMutableDictionary alloc]init];
     
     historyItems = [[NSMutableArray alloc]init];
     overallData = [[NSMutableArray alloc]init];
     intervalData = [[NSMutableArray alloc]init];
     intervals = [[NSMutableArray alloc]init];
+    
+    historyItems [0] = overallData;
     
     return self;
 }
@@ -149,20 +154,20 @@
 
 - (NSString *)fixName:(int)counterIn nameToCheck:(NSString *)nameIn{
     
-    return NULL;
+    return nameIn;
 
 } //Using route + date, see if combination exist in historyDict.
 
 - (void)addInterval{
      
-    sInterval = [self fixName:0 nameToCheck:[interval getIntervalName]];
+    sInterval = [self fixName:0 nameToCheck:[[[LocationManager sharedInstance] timer] getIntervalName]];
     [intervalDict setObject:intervals forKey:sInterval];
     [intervalDict writeToFile:sInterval atomically:YES];
     historyItems[1] = intervalDict;
     
 } //set intervals to intervalDict
 
-- (void)saveHisotry{
+- (void)saveHistory{
     
     overallData[0] = time;
     overallData[1] = totalDistance;
@@ -171,12 +176,14 @@
     
     route = [self fixName:0 nameToCheck:route];
     historyItems[0] = overallData;
-    historyItems[1] = intervalDict;
     
     [historyDict setObject:historyItems forKey:route];
+    [historyDict writeToFile:route atomically:YES];
+    [defaults setObject:historyDict forKey:routesDictName];
 }
 
 - (void)addIntervalData{
+    /*
     int tempTime = [time intValue];
     int tempTimeHolder = [timeHolder intValue];
     NSNumber *difference = [NSNumber numberWithInt:tempTime - tempTimeHolder];
@@ -196,13 +203,17 @@
     [self setWattsHolder:[intervalData objectAtIndex:3]];
     [self setTimerHolder:[intervalData objectAtIndex:1]];
     [self setCaloriesHolder:[intervalData objectAtIndex:2]];
-    
-    [intervals addObject:intervalData];
+*/
+  
+    intervals[[intervals count]] = intervalData;
+    //[intervals add:intervalData];
     
     
 } //add intervalData to intervals and reset intervalData
 
 - (void)prepIntervalData{
+    
+    intervalData[0] = [[[LocationManager sharedInstance] timer] getIntervalTimeName];
     
 } //Adds holder variables to intervalData array and updates them
 
