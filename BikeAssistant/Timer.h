@@ -10,6 +10,7 @@
 #import "CommonLibrary.h"
 #import "Interval.h"
 #import "LocationManager.h"
+#define systemSoundID    1005
 
 @interface Timer : NSObject{
     NSString *intervalName;
@@ -27,7 +28,7 @@
 - (id) initWithLabels:(UILabel *)intervalLabel name:(NSString *)name;
 - (void) updateLabel:(UILabel *)intervalLabel;
 - (void) setTimerName:(NSString *)name;
-- (void) timerStart;
+- (NSNumber *) timerStart;
 - (void) updateLabels;
 - (void) fixTime;
 - (NSString *) getIntervalTimeName;

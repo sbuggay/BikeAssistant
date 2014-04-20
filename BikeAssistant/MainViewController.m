@@ -7,6 +7,7 @@
 //
 
 #import <IASKAppSettingsViewController.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 #import "MainViewController.h"
 
@@ -15,6 +16,8 @@
 #import "LocationViewController.h"
 
 #import "LoadIntervalTableViewController.h"
+
+
 
 
 @interface MainViewController ()
@@ -31,6 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _timerLabel.hidden = true;
     _hideStopTimer.hidden = true;
     self.title = @"Map";
@@ -85,7 +89,7 @@
     
     if([LocationManager sharedInstance].timerLoaded == false || [LocationManager sharedInstance].intervalTimerAdded == true){
         [LocationManager sharedInstance].intervalTimerAdded = false;
-        timer = [[Timer alloc]initWithLabels:_timerLabel name:@"tempHolder010101"];
+        timer = [[Timer alloc]initWithLabels:_timerLabel name:@"NULL"];
         [LocationManager sharedInstance].timer = timer;
         [LocationManager sharedInstance].timerLoaded = true;
         
@@ -318,9 +322,17 @@
         _timerLabel.hidden = true;
     }
     else{
-        [[[LocationManager sharedInstance] timer] timerStart];
-        [sender setTitle:@"Stop Timer" forState:UIControlStateNormal];
-        _timerLabel.hidden = false;
+        NSNumber *didTimerStart = [[[LocationManager sharedInstance] timer] timerStart];
+        NSLog(@"Result of timerStart: %@", didTimerStart);
+        if(didTimerStart == [NSNumber numberWithInt:0]){;
+        
+            [sender setTitle:@"Stop Timer" forState:UIControlStateNormal];
+            _timerLabel.hidden = false;
+        }
+        else{
+            _timerLabel.hidden = false;
+            _timerLabel.text = @"No Timer Selected";
+        }
     }
 
 }

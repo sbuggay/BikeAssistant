@@ -7,6 +7,7 @@
 //
 
 #import "Timer.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @implementation Timer
 
@@ -37,16 +38,25 @@
     intervalName = name;
 }
 
-- (void) timerStart{
-    
-   
+- (NSNumber *) timerStart{
+    NSNumber *timerStarted;
     [interval getInterval:intervalName];
-    time = [interval getTimer];
-    timerName = [interval getTimeName];
-    [self timer];
-    isRunning = true;
+    NSLog(@"IntervalName: %@", intervalName);
+    if(![[interval getTimeName]  isEqual: @"NULL"]){
+        
+        
+        time = [interval getTimer];
+        timerName = [interval getTimeName];
+        [self timer];
+        isRunning = true;
+        timerStarted = [NSNumber numberWithInt:0];
+    }
+    else{
+        timerLabel.text = @"No Timer Selected";
+        timerStarted = [NSNumber numberWithInt:1];
+    }
     
-    
+    return timerStarted;
 }
 
 - (void) setRepeat:(BOOL)repeatIn{
@@ -83,7 +93,9 @@
         timerLabel.text = [self concatLabelName];
     }
     else if ([self didIntervalFinish] == false){
-        
+        NSLog(@"Sound played");
+        SystemSoundID soundID = systemSoundID;
+        AudioServicesPlaySystemSound (soundID);
         [[[LocationManager sharedInstance] history] prepIntervalData];
         [[[LocationManager sharedInstance] history] addIntervalData];
         

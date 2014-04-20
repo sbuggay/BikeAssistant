@@ -243,7 +243,13 @@
  */
 - (NSString *) getTimeName{
     
-    return timers[(currentTimer * 2)];
+    if([timers count] > 0){
+        return timers[(currentTimer * 2)];
+    }
+    else{
+        return @"NULL";
+    }
+    
 }
 
 /**
