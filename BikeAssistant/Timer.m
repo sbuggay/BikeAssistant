@@ -18,6 +18,7 @@
         //timerNameLabel = intervalLabel;
         timerLabel = intervalLabel;
         intervalName = name;
+        totalTime = [NSNumber numberWithInt:0];
         lib = [[CommonLibrary alloc]init];
         interval = [[Interval alloc] initWithDefaults];
         repeat = false;
@@ -131,6 +132,10 @@
     int tempTime = (int) [time integerValue];
     tempTime--;
     time = [NSNumber numberWithInt:tempTime];
+    tempTime = (int) [totalTime integerValue];
+    tempTime++;
+    totalTime = [NSNumber numberWithInt:tempTime];
+    NSLog(@"TotalTime: %@", totalTime);
 }
 - (BOOL) isRepeat{
     return repeat;
