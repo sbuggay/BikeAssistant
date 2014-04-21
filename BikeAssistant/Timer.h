@@ -16,6 +16,7 @@
     NSString *intervalName;
     NSString *timerName;
     NSNumber *time;
+    NSNumber *totalTime;
     UILabel *timerLabel;
     CommonLibrary *lib;
     Interval *interval;
