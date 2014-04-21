@@ -29,6 +29,7 @@
     if (self = [super init]) {
         [self loadRouteList];
         hasUpdated = NO;
+        currentRoute = [[GPXRoot alloc] init];
     }
     return self;
 }
@@ -48,15 +49,23 @@
     
 }
 
--(void)saveRoute:(Route *)route {
+-(void)saveCurrentRoute {
+    [routes addObject:currentRoute];
+    
+    NSLog(@"%@", currentRoute);
+    
+    NSLog(@"saveRoute: %lu", [routes count]);
+}
+
+-(void)saveRoute:(GPXRoot *)route {
     
     [routes addObject:route];
     
-    NSLog(@"%@", [route root]);
+    NSLog(@"%@", route);
     
     NSLog(@"saveRoute: %lu", [routes count]);
     
-    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:routes] forKey:@"routes"];
+//    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:routes] forKey:@"routes"];
 
 }
 

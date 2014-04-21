@@ -17,6 +17,8 @@
 
 #import "LoadIntervalTableViewController.h"
 
+#import "SaveRouteTableViewController.h"
+
 
 
 
@@ -117,9 +119,7 @@
     
     mapState = kCreatingRoute;
     
-    root = [GPXRoot rootWithCreator:@"Free Ride"];
-    NSLog(@"New Route has been started");
-    NSLog(@"%lu", [[root waypoints] count]);
+    [RouteManager sharedInstance].currentRoute = [GPXRoot rootWithCreator:NULL];
 }
 
 - (void)clearRoute {
@@ -244,8 +244,11 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     UIStoryboard *storyBoard = [self storyboard];
     IASKAppSettingsViewController *settingsViewController  = [storyBoard instantiateViewControllerWithIdentifier:@"settings"];
+    SaveRouteTableViewController *saveRoute = [storyBoard instantiateViewControllerWithIdentifier:@"saveRoute"];
     LoadIntervalTableViewController *loadInterval = [storyBoard instantiateViewControllerWithIdentifier:@"loadInterval"];
     
+    UINavigationController *saveRouteNavigationController = [[UINavigationController alloc] initWithRootViewController:saveRoute];
+
     
     switch (mapState) {
         case kNoRoute:
@@ -287,7 +290,8 @@
                     break;
                     
                 case 1:
-                    [self saveRoute];
+                    [self.navigationController presentViewController:saveRouteNavigationController animated:YES completion:NULL];
+
                     break;
                     
                 case 2:

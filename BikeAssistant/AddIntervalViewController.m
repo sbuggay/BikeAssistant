@@ -26,7 +26,7 @@
         iTimers = [[_interval getTimers] mutableCopy];
         int timerIndex = [_incomingTimerIndex intValue] * 2;
         _iName.text = iTimers[timerIndex];
-        int totalSeconds = [iTimers[timerIndex + 1] integerValue];
+        int totalSeconds = (int) [iTimers[timerIndex + 1] integerValue];
         _iHours.text = [[cLibrary timeToHours:totalSeconds] stringValue];
         _iMinutes.text = [[cLibrary timeToMinutes:totalSeconds] stringValue];
         _iSeconds.text = [[cLibrary timeToSeconds:totalSeconds] stringValue];

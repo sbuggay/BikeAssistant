@@ -11,6 +11,12 @@
 @implementation Route
 
 @synthesize root;
+@synthesize name;
+
+- (id) initWithGPXRoot:(GPXRoot *)gpx {
+    root = gpx;
+    return self;
+}
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:root forKey:@"root"];

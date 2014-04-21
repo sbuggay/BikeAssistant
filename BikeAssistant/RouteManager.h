@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Route.h"
+#import <GPX/GPX.h>
 #import "Timer.h"
 
 @interface RouteManager : NSObject
 @property (strong, nonatomic) NSMutableArray *routes;
 
-@property Route *currentRoute;
+@property GPXRoot *currentRoute;
 @property Timer *currentTimer;
 @property BOOL hasUpdated;
 
@@ -22,6 +22,8 @@
 
 -(void)loadRouteList;
 
--(void)saveRoute:(Route *)route;
+-(void)saveCurrentRoute;
+
+-(void)saveRoute:(GPXRoot *)route;
 
 @end

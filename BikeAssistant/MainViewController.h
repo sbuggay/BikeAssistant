@@ -49,6 +49,4 @@ typedef enum MapState : NSUInteger {
 - (void)loadRoute;
 - (void)clearRoute;
 
-
-
 @end

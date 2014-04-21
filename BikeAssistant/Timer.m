@@ -128,7 +128,7 @@
             timerLabel.text = [self concatLabelName];
         }
     }
-    int tempTime = [time integerValue];
+    int tempTime = (int) [time integerValue];
     tempTime--;
     time = [NSNumber numberWithInt:tempTime];
 }
@@ -165,10 +165,10 @@
 -(void) fixTime {
     
     int ihours, iminutes, iseconds;
-    int seconds = [time integerValue];
-    ihours = [[lib timeToHours:seconds] integerValue];
-    iminutes = [[lib timeToMinutes:seconds] integerValue];
-    iseconds = [[lib timeToSeconds:seconds] integerValue];
+    int seconds = (int) [time integerValue]  ;
+    ihours = (int) [[lib timeToHours:seconds] integerValue];
+    iminutes = (int) [[lib timeToMinutes:seconds] integerValue];
+    iseconds = (int) [[lib timeToSeconds:seconds] integerValue];
     
     
     
@@ -204,10 +204,10 @@
     NSString *sHours, *sMinutes, *sSeconds;
     
     int ihours, iminutes, iseconds;
-    int seconds = [time integerValue];
-    ihours = [[lib timeToHours:seconds] integerValue];
-    iminutes = [[lib timeToMinutes:seconds] integerValue];
-    iseconds = [[lib timeToSeconds:seconds] integerValue];
+    int seconds = (int) [time integerValue];
+    ihours = (int) [[lib timeToHours:seconds] integerValue];
+    iminutes = (int) [[lib timeToMinutes:seconds] integerValue];
+    iseconds = (int) [[lib timeToSeconds:seconds] integerValue];
     
     sHours = [NSString stringWithFormat:@""];
     sMinutes = [NSString stringWithFormat:@""];
