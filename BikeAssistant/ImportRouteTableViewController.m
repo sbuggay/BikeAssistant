@@ -1,18 +1,18 @@
 //
-//  RoutesDetailTableViewController.m
+//  ImportRouteTableViewController.m
 //  BikeAssistant
 //
-//  Created by Devan Buggay on 3/29/14.
+//  Created by Devan Buggay on 4/21/14.
 //  Copyright (c) 2014 Devan Buggay. All rights reserved.
 //
 
-#import "RoutesDetailTableViewController.h"
+#import "ImportRouteTableViewController.h"
 
-@interface RoutesDetailTableViewController ()
+@interface ImportRouteTableViewController ()
 
 @end
 
-@implementation RoutesDetailTableViewController
+@implementation ImportRouteTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,12 +27,11 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
+    [self.navigationItem setLeftBarButtonItem:leftBarButton];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(presentActivities:)];
-    self.navigationItem.rightBarButtonItem = anotherButton;
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)];
+    [self.navigationItem setRightBarButtonItem:rightBarButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,30 +40,43 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)presentActivities:(id)sender
-{
-    UIActivityViewController * activities = [[UIActivityViewController alloc]
-                                             initWithActivityItems:@[@"test string"]
-                                             applicationActivities:nil];
-    
-    [self presentViewController:activities
-                       animated:YES
-                     completion:nil];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 0;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
+
+- (void)cancel {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)save {
+
+    NSLog(@"%@", [_NameField text]);
+    NSLog(@"%@", [_URLField text]);
+    
+    NSURL * url = [NSURL URLWithString:[_URLField text]];
+    
+    NSData * data = [NSData dataWithContentsOfURL:url];
+    
+    if (data != nil) {
+        NSLog(@"\nis not nil");
+        NSString *readdata = [[NSString alloc] initWithContentsOfURL:url encoding:NSASCIIStringEncoding error:NULL];
+        NSLog(@"%@", readdata);
+    }
+
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "Route.h"
+#import "RouteManager.h"
 
 @interface RoutesViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;

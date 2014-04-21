@@ -141,8 +141,6 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     //simply get the speed provided by the phone from newLocation
     double gpsSpeed = newLocation.speed;
     
@@ -151,16 +149,8 @@
     
     _locationLabel1.text = [NSString stringWithFormat:@"%3.3f", gpsSpeed * 2.23694];
     
-    
-    double totalWeight = [[defaults objectForKey:@"weight"] floatValue];
     double distance = abs([newLocation distanceFromLocation:startLocation]);
-    double totalTime = .033;
-    double resistance = .1;
-    // Calories Burned Formula
-        double caloriesBurned = ((.046 * (distance/totalTime) * totalWeight) + (.066 * pow((distance/totalTime), 3)) * totalTime);
-     //   _caloriesLabel.text = [NSString stringWithFormat: @"Calories Burned: %f.2", caloriesBurned];
-     //Watts Generated Formula
-    double wattsGenerated = (totalWeight * resistance * distance) / totalTime;
+    
     _metricsLabel1.text = [NSString stringWithFormat: @"%.2f", distance];
     
     //    GPX generator
@@ -262,18 +252,10 @@
                     
                 case 1:
                     
-                    
-                    
-                    
                     break;
                     
                 case 2:
-                    
-                    
                     [self.navigationController pushViewController:loadInterval animated:YES];
-                
-//                    _interval = loadInterval.interval;
-                    
                     
                 default:
                     
@@ -285,7 +267,6 @@
                     
                 case 0:
                     [self clearRoute];
-                    
                     
                     break;
                     
@@ -307,16 +288,6 @@
     }
 }
 
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"AddPlayer"]) {
-        
-        //        UINavigationController *navigationController = segue.destinationViewController;
-        //        LocationViewController *locationViewController = [navigationController viewControllers][0];
-        //        locationViewController.delegate = self;
-    }
-    
-}
 - (IBAction)startTimer:(id)sender {
     
 //    timer = [[Timer alloc]initWithLabels:_timerLabel name:_interval.getIntervalName];

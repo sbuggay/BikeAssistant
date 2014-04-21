@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
     
-    _menuItems = @[@"map", @"routes", @"interval", @"history", @"settings"];
+    _menuItems = @[@"map", @"routes", @"interval", @"settings"];
     
     self.title = @"Menu";
 
