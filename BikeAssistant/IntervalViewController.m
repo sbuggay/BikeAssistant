@@ -79,7 +79,7 @@
     _cellList = [[NSMutableArray alloc]init];
     [_cellList setObject:@"Create Interval" atIndexedSubscript:0];
     [_cellList addObjectsFromArray:[_interval getListOfIntervals]];
-    
+      //  [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height-self.tableView.frame.size.height) animated:YES];
     
     [self.tableView reloadData];
     [self refreshControl];
@@ -96,7 +96,7 @@
     [_cellList setObject:@"Create Interval" atIndexedSubscript:0];
     [_cellList addObjectsFromArray:[_interval getListOfIntervals]];
     
-    [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height-self.tableView.frame.size.height) animated:YES];
+
     // Uncomment the following line to preserve selection between presentations.
     //self.clearsSelectionOnViewWillAppear = NO;
     

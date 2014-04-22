@@ -73,7 +73,6 @@ const int ADD = -1;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"@boop");
     if(editingStyle == UITableViewCellEditingStyleDelete)
     {
         NSString * temp =[myArray objectAtIndex:indexPath.row];
@@ -82,15 +81,6 @@ const int ADD = -1;
         timerIndex = timerIndex * 2;
         [myArray removeObjectAtIndex:indexPath.row];
         [_interval removeTimer:timerIndex];
-        
-        //for (int i = indexPath.row*2; i < [myArray count]; i++)
-        //{
-          //  if (myArray[i] != NULL)
-            //{
-              //  myArray[i-2] = myArray[i];
-                //myArray[i] = NULL;
-            //}
-        //}
         [self.tableView reloadData];
     }
 }
