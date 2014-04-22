@@ -106,6 +106,11 @@
     [timers addObject:newTimerAmount];
 }
 
+-(void) removeTimer: (NSUInteger) index
+{
+    [timers removeObjectAtIndex:index];
+    [timers removeObjectAtIndex:index];
+}
 - (NSMutableArray *) getTimers
 {
     return timers;

@@ -78,7 +78,11 @@ const int ADD = -1;
     {
         NSString * temp =[myArray objectAtIndex:indexPath.row];
         NSLog(@"%@", temp);
+        NSUInteger timerIndex = indexPath.row;
+        timerIndex = timerIndex * 2;
         [myArray removeObjectAtIndex:indexPath.row];
+        [_interval removeTimer:timerIndex];
+        
         //for (int i = indexPath.row*2; i < [myArray count]; i++)
         //{
           //  if (myArray[i] != NULL)

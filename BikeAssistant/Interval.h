@@ -20,6 +20,7 @@
     
 }
 
+-(void) removeTimer: (NSUInteger) index;
 - (id) initWithDefaults;
 - (void) getInterval:(NSString *)key;
 - (NSMutableArray *) getTimers;
