@@ -23,6 +23,7 @@
     NSTimer* timer;
     BOOL repeat;
     BOOL isRunning;
+    BOOL distanceSet;
     CLLocationManager *locationManager;
 }
 
@@ -42,5 +43,9 @@
 - (void) stopTimer;
 - (void) setRepeat:(BOOL)repeatIn;
 - (BOOL) isRepeat;
+- (int) getTotalTime;
+- (BOOL) isDistanceSet;
+- (void) setDistance;
+
 
 @end

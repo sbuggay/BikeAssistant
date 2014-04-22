@@ -145,23 +145,44 @@
     
     //simply get the speed provided by the phone from newLocation
     double gpsSpeed = newLocation.speed;
+    double startDistance;
     
     if (gpsSpeed < 0)
         gpsSpeed = 0;
     
     _locationLabel1.text = [NSString stringWithFormat:@"%3.3f", gpsSpeed * 2.23694];
     
+    if([[[LocationManager sharedInstance]timer] isRunning] == true){
+        if([[[LocationManager sharedInstance]timer] isDistanceSet] == false){
+            [[[LocationManager sharedInstance]timer] setDistance];
+            startDistance = [newLocation distanceFromLocation:startLocation];
+            [[LocationManager sharedInstance] setStartDistance:(float)startDistance];
+            
+        }
+        else{
+            [[LocationManager sharedInstance] setCurrentDistance:(float)[newLocation distanceFromLocation:startLocation]];
+        }
+    }
     
-    double totalWeight = [[defaults objectForKey:@"weight"] floatValue];
     double distance = abs([newLocation distanceFromLocation:startLocation]);
-    double totalTime = .033;
-    double resistance = .1;
+    double resistance = 0.1;
     // Calories Burned Formula
-        double caloriesBurned = ((.046 * (distance/totalTime) * totalWeight) + (.066 * pow((distance/totalTime), 3)) * totalTime);
+    //    double caloriesBurned = ((.046 * (distance/totalTime) * totalWeight) + (.066 * pow((distance/totalTime), 3)) * totalTime);
      //   _caloriesLabel.text = [NSString stringWithFormat: @"Calories Burned: %f.2", caloriesBurned];
      //Watts Generated Formula
-    double wattsGenerated = (totalWeight * resistance * distance) / totalTime;
-    _metricsLabel1.text = [NSString stringWithFormat: @"%.2f", distance];
+    //double wattsGenerated = (totalWeight * resistance * distance) / totalTime;
+    float sDistance = [[LocationManager sharedInstance] startDistance];
+    float currentDistance = [[LocationManager sharedInstance] currentDistance];
+    float time = [[[LocationManager sharedInstance] timer] getTotalTime];
+    //abs([newLocation distanceFromLocation:startLocation]);
+    
+    distance = currentDistance - sDistance;
+    
+    float weight = [[defaults objectForKey:@"weight"] floatValue];
+    // Watts Generated Formula
+    float watts = (weight * resistance * distance) / time;
+    NSLog(@"watts: %f", watts);
+    _metricsLabel1.text = [NSString stringWithFormat: @"%.2f", watts];
     
     //    GPX generator
     

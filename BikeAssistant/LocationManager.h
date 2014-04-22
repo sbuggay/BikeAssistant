@@ -19,6 +19,8 @@
 @property CLLocation *currentLocation;
 @property CLLocationManager *locationManager;
 @property int timeElapsed; //seconds
+@property float startDistance;
+@property float currentDistance;
 @property BOOL timerLoaded;
 @property BOOL intervalTimerAdded;
 
@@ -29,5 +31,7 @@
 +(LocationManager *)sharedInstance;
 -(void)start;
 -(void)end;
+
+
 
 @end
