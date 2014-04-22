@@ -56,9 +56,7 @@
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
-    
     startLocation = [locationManager location];
-    
     [_map setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
     
     CLLocationCoordinate2D noLocation;
@@ -68,11 +66,11 @@
     self.map.showsUserLocation = YES;
     
     
-    NSString *file=[[NSBundle mainBundle] pathForResource:@"Auburn__Alabama" ofType:@"gpx"];
-    
-    NSData *fileData = [NSData dataWithContentsOfFile:file];
-    
-    root = [GPXParser parseGPXWithData:fileData];
+//    NSString *file=[[NSBundle mainBundle] pathForResource:@"Auburn__Alabama" ofType:@"gpx"];
+//    
+//    NSData *fileData = [NSData dataWithContentsOfFile:file];
+//    
+    root = [[RouteManager sharedInstance] currentRoute];
     
     CLLocationCoordinate2D coors[[[root waypoints] count]];
     
@@ -143,15 +141,46 @@
     
     //simply get the speed provided by the phone from newLocation
     double gpsSpeed = newLocation.speed;
+    double startDistance;
     
     if (gpsSpeed < 0)
         gpsSpeed = 0;
     
     _locationLabel1.text = [NSString stringWithFormat:@"%3.3f", gpsSpeed * 2.23694];
     
-    double distance = abs([newLocation distanceFromLocation:startLocation]);
+    if([[[LocationManager sharedInstance]timer] isRunning] == true){
+        if([[[LocationManager sharedInstance]timer] isDistanceSet] == false){
+            [[[LocationManager sharedInstance]timer] setDistance];
+            startDistance = [newLocation distanceFromLocation:startLocation];
+            [[LocationManager sharedInstance] setStartDistance:(float)startDistance];
+            
+        }
+        else{
+            [[LocationManager sharedInstance] setCurrentDistance:(float)[newLocation distanceFromLocation:startLocation]];
+        }
+    }
     
-    _metricsLabel1.text = [NSString stringWithFormat: @"%.2f", distance];
+    double distance = abs([newLocation distanceFromLocation:startLocation]);
+    double resistance = 0.1;
+    // Calories Burned Formula
+    //    double caloriesBurned = ((.046 * (distance/totalTime) * totalWeight) + (.066 * pow((distance/totalTime), 3)) * totalTime);
+     //   _caloriesLabel.text = [NSString stringWithFormat: @"Calories Burned: %f.2", caloriesBurned];
+     //Watts Generated Formula
+    //double wattsGenerated = (totalWeight * resistance * distance) / totalTime;
+    float sDistance = [[LocationManager sharedInstance] startDistance];
+    float currentDistance = [[LocationManager sharedInstance] currentDistance];
+    float time = [[[LocationManager sharedInstance] timer] getTotalTime];
+    //abs([newLocation distanceFromLocation:startLocation]);
+    
+    distance = (abs)(currentDistance - sDistance);
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];   
+    
+    float weight = [[defaults objectForKey:@"weight"] floatValue];
+    // Watts Generated Formula
+    float watts = (weight * resistance * distance) / time;
+    NSLog(@"watts: %f", watts);
+    _metricsLabel1.text = [NSString stringWithFormat: @"%.2f", watts];
     
     //    GPX generator
     
@@ -235,6 +264,8 @@
     UIStoryboard *storyBoard = [self storyboard];
     IASKAppSettingsViewController *settingsViewController  = [storyBoard instantiateViewControllerWithIdentifier:@"settings"];
     SaveRouteTableViewController *saveRoute = [storyBoard instantiateViewControllerWithIdentifier:@"saveRoute"];
+    
+    
     LoadIntervalTableViewController *loadInterval = [storyBoard instantiateViewControllerWithIdentifier:@"loadInterval"];
     
     UINavigationController *saveRouteNavigationController = [[UINavigationController alloc] initWithRootViewController:saveRoute];

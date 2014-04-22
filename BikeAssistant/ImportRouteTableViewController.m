@@ -8,6 +8,10 @@
 
 #import "ImportRouteTableViewController.h"
 
+
+#import <GPX/GPX.h>
+#import "RouteManager.h"
+
 @interface ImportRouteTableViewController ()
 
 @end
@@ -72,7 +76,26 @@
         NSString *readdata = [[NSString alloc] initWithContentsOfURL:url encoding:NSASCIIStringEncoding error:NULL];
         NSLog(@"%@", readdata);
     }
-
+    
+    GPXRoot *root = [GPXParser parseGPXWithData:data];
+    
+    CLLocationCoordinate2D coors[[[root waypoints] count]];
+    
+    int i = 0;
+    for (GPXRoutePoint *routepoint in [root waypoints]) {
+        coors[i] = CLLocationCoordinate2DMake(routepoint.latitude, routepoint.longitude);
+        NSLog(@"%f | %f", routepoint.latitude, routepoint.longitude);
+        i++;
+    }
+    
+    root.metadata = [GPXMetadata alloc];
+    
+    root.metadata.name = [_NameField text];
+    
+    NSLog(@"%@", [[root metadata] name]);
+    
+    
+    [[RouteManager sharedInstance] saveRoute:root];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

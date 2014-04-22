@@ -27,8 +27,31 @@
     return self;
 }
 
+- (BOOL) isDistanceSet{
+    if(distanceSet == false){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+- (void) setDistance{
+    if(distanceSet == false){
+        distanceSet = true;
+    }
+    else{
+        distanceSet = false;
+    }
+    
+}
+
 - (void) updateLabel:(UILabel *)intervalLabel{
     timerLabel = intervalLabel;
+}
+
+- (int) getTotalTime{
+    return (int) [totalTime integerValue];
 }
 
 - (BOOL) isRunning{

@@ -14,6 +14,8 @@
 @synthesize locationManager;
 @synthesize timeElapsed;
 @synthesize timerLoaded;
+@synthesize currentDistance;
+@synthesize startDistance;
 
 +(LocationManager *)sharedInstance {
     static LocationManager *sharedSingleton;
@@ -36,6 +38,8 @@
         timerRunning = false;
         timerLoaded = false;
         _intervalTimerAdded = false;
+        currentDistance = 0.0;
+        startDistance = 0.0;
     }
     return self;
 }
@@ -49,6 +53,10 @@
     timerRunning = false;
     timeElapsed = 0;
 }
+
+
+
+
 
 
 #pragma mark locationManager
