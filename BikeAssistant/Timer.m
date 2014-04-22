@@ -66,6 +66,9 @@
     NSNumber *timerStarted;
     [interval getInterval:intervalName];
     NSLog(@"IntervalName: %@", intervalName);
+    totalTime = [NSNumber numberWithInt:0];
+    
+    
     if(![[interval getTimeName]  isEqual: @"NULL"]){
         
         
@@ -188,6 +191,12 @@
     [interval resetTimer];
     time = [interval getTimer];
     timerName = [interval getTimeName];
+    
+    if([[[LocationManager sharedInstance]timer] isDistanceSet] == true){
+        
+        [[[LocationManager sharedInstance]timer] setDistance];
+        
+    }
     
 }
 
