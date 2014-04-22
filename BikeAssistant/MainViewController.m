@@ -141,8 +141,6 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     //simply get the speed provided by the phone from newLocation
     double gpsSpeed = newLocation.speed;
     double startDistance;
@@ -283,18 +281,10 @@
                     
                 case 1:
                     
-                    
-                    
-                    
                     break;
                     
                 case 2:
-                    
-                    
                     [self.navigationController pushViewController:loadInterval animated:YES];
-                
-//                    _interval = loadInterval.interval;
-                    
                     
                 default:
                     
@@ -306,7 +296,6 @@
                     
                 case 0:
                     [self clearRoute];
-                    
                     
                     break;
                     
@@ -328,16 +317,6 @@
     }
 }
 
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"AddPlayer"]) {
-        
-        //        UINavigationController *navigationController = segue.destinationViewController;
-        //        LocationViewController *locationViewController = [navigationController viewControllers][0];
-        //        locationViewController.delegate = self;
-    }
-    
-}
 - (IBAction)startTimer:(id)sender {
     
 //    timer = [[Timer alloc]initWithLabels:_timerLabel name:_interval.getIntervalName];

@@ -57,7 +57,7 @@ const int ADD = -1;
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Name" message:@"Enter name of Interval" delegate:self cancelButtonTitle:@"save" otherButtonTitles:nil, nil];
     //alert.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -70,6 +70,29 @@ const int ADD = -1;
     myArray = _interval.getListOfTimers;
     
     [self.tableView reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"@boop");
+    if(editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        NSString * temp =[myArray objectAtIndex:indexPath.row];
+        NSLog(@"%@", temp);
+        NSUInteger timerIndex = indexPath.row;
+        timerIndex = timerIndex * 2;
+        [myArray removeObjectAtIndex:indexPath.row];
+        [_interval removeTimer:timerIndex];
+        
+        //for (int i = indexPath.row*2; i < [myArray count]; i++)
+        //{
+          //  if (myArray[i] != NULL)
+            //{
+              //  myArray[i-2] = myArray[i];
+                //myArray[i] = NULL;
+            //}
+        //}
+        [self.tableView reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning

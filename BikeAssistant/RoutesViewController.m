@@ -10,6 +10,8 @@
 
 #import <SWRevealViewController.h>
 
+#import "ImportRouteTableViewController.h"
+
 @interface RoutesViewController ()
 
 @end
@@ -51,8 +53,23 @@
 //
     [_routes addObject:@"Auburn__Fells route"];
     [_routes addObject:@"Auburn__Tour route"];
+
     
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Import" style:UIBarButtonItemStylePlain target:self action:@selector(import)];
+    [self.navigationItem setRightBarButtonItem:rightBarButton];
+    
+    
+    
+}
+
+-(void)import {
+    
+    UIStoryboard *storyBoard = [self storyboard];
+    ImportRouteTableViewController *saveRoute = [storyBoard instantiateViewControllerWithIdentifier:@"importRoute"];
+    
+    UINavigationController *saveRouteNavigationController = [[UINavigationController alloc] initWithRootViewController:saveRoute];
+    
+    [self presentViewController:saveRouteNavigationController animated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,7 +89,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_routes count];;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
