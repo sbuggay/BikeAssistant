@@ -188,6 +188,7 @@
     [interval resetTimer];
     time = [interval getTimer];
     timerName = [interval getTimeName];
+    
 }
 
 -(void) fixTime {

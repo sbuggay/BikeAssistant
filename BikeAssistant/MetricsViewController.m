@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad
 {
+    [self calculateStats];
     _wattsLabel.text = [NSString stringWithFormat: @"%.2f", globalWatts];
     _caloriesLabel.text = [NSString stringWithFormat: @"%.2f", globalCals];
 }
@@ -35,10 +36,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-@end
 
-
-@implementation Stats
 - (id) initWithDefaults{
     resistance = .1;
     time = 0;

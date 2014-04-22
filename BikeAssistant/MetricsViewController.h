@@ -14,17 +14,9 @@
 #import "Interval.h"
 #import "Timer.h"
 
-@interface MetricsViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *wattsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *caloriesLabel;
-
-@end
-
-float globalCals;
-float globalWatts;
-
-@interface Stats : NSObject{
-    
+@interface MetricsViewController : UIViewController{
+    float globalCals;
+    float globalWatts;
     float weight;
     float distance;
     int time;
@@ -32,6 +24,10 @@ float globalWatts;
     float calBurnt;
     float watts;
 }
+
+@property (weak, nonatomic) IBOutlet UILabel *wattsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *caloriesLabel;
+
 
 - (id) initWithDefaults;
 - (void) calculateStats;
