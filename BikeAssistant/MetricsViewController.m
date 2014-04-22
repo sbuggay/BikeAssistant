@@ -41,14 +41,21 @@
 @implementation Stats
 - (id) initWithDefaults{
     resistance = .1;
-    time = 1.0;
+    time = 0;
     distance = 0.0;
     return self;
 }
 
 - (void)calculateStats
 {
+    float startDistance = [[LocationManager sharedInstance] startDistance];
+    float currentDistance = [[LocationManager sharedInstance] currentDistance];
+    time = [[[LocationManager sharedInstance] timer] getTotalTime];
+    //abs([newLocation distanceFromLocation:startLocation]);
+    
+    distance = currentDistance - startDistance;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     weight = [[defaults objectForKey:@"weight"] floatValue];
     // Calories Burned Formula
     calBurnt = ((.046 * (distance/time) * weight) + (.066 * pow((distance/time), 3)) * time);

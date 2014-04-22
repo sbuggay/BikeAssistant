@@ -27,7 +27,7 @@ float globalWatts;
     
     float weight;
     float distance;
-    float time;
+    int time;
     float resistance;
     float calBurnt;
     float watts;

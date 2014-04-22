@@ -36,6 +36,9 @@
         NSString * temp =[_cellList objectAtIndex:indexPath.row];
         NSLog(@"%@", temp);
         [_interval deleteInterval:[_cellList objectAtIndex:indexPath.row]];
+        _cellList = [[NSMutableArray alloc]init];
+        [_cellList setObject:@"Create Interval" atIndexedSubscript:0];
+        [_cellList addObjectsFromArray:[_interval getListOfIntervals]];
         [self.tableView reloadData];
     }
 }
