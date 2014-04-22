@@ -26,15 +26,10 @@
 }
 
 -(id)init {
-    if (self = [super init]) {
-//        [self loadRouteList];
-        hasUpdated = NO;
-        currentRoute = [[GPXRoot alloc] init];
-        currentRoute.metadata = [[GPXMetadata alloc] init];
-    }
+
     hasUpdated = NO;
     currentRoute = [[GPXRoot alloc] init];
-    currentRoute.metadata = [[GPXMetadata alloc] init];
+    currentRoute.metadata = [GPXMetadata alloc];
 
     self.routes = [[NSMutableArray alloc] init];
     return self;
@@ -58,7 +53,7 @@
 -(void)saveCurrentRoute {
     [routes addObject:currentRoute];
     
-    NSLog(@"%@", currentRoute);
+    NSLog(@"%@", currentRoute.metadata.name);
     
     NSLog(@"saveRoute: %lu", [routes count]);
 }
@@ -67,7 +62,7 @@
     
     [routes addObject:route];
     
-    NSLog(@"%@", route);
+    NSLog(@"%@", route.metadata.name);
     
     NSLog(@"saveRoute: %lu", [routes count]);
     

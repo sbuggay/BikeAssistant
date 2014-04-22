@@ -82,6 +82,10 @@
 
 #pragma mark - Table view data source
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [RouteManager sharedInstance].currentRoute = [[[RouteManager sharedInstance] routes] objectAtIndex:indexPath.row];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.

@@ -64,6 +64,7 @@
 
 - (void)save {
     NSLog(@"saving");
+    [[RouteManager sharedInstance] currentRoute].metadata = [GPXMetadata alloc];
     [[[RouteManager sharedInstance] currentRoute] metadata].name = [_NameField text];
     NSLog(@"%@|%@", [_NameField text], [[[RouteManager sharedInstance] currentRoute] metadata].name);
     [[RouteManager sharedInstance] saveCurrentRoute];

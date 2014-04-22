@@ -56,9 +56,7 @@
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
-    
     startLocation = [locationManager location];
-    
     [_map setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
     
     CLLocationCoordinate2D noLocation;
@@ -68,11 +66,11 @@
     self.map.showsUserLocation = YES;
     
     
-    NSString *file=[[NSBundle mainBundle] pathForResource:@"Auburn__Alabama" ofType:@"gpx"];
-    
-    NSData *fileData = [NSData dataWithContentsOfFile:file];
-    
-    root = [GPXParser parseGPXWithData:fileData];
+//    NSString *file=[[NSBundle mainBundle] pathForResource:@"Auburn__Alabama" ofType:@"gpx"];
+//    
+//    NSData *fileData = [NSData dataWithContentsOfFile:file];
+//    
+    root = [[RouteManager sharedInstance] currentRoute];
     
     CLLocationCoordinate2D coors[[[root waypoints] count]];
     
@@ -174,7 +172,9 @@
     float time = [[[LocationManager sharedInstance] timer] getTotalTime];
     //abs([newLocation distanceFromLocation:startLocation]);
     
-    distance = currentDistance - sDistance;
+    distance = (abs)(currentDistance - sDistance);
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];   
     
     float weight = [[defaults objectForKey:@"weight"] floatValue];
     // Watts Generated Formula
@@ -264,6 +264,8 @@
     UIStoryboard *storyBoard = [self storyboard];
     IASKAppSettingsViewController *settingsViewController  = [storyBoard instantiateViewControllerWithIdentifier:@"settings"];
     SaveRouteTableViewController *saveRoute = [storyBoard instantiateViewControllerWithIdentifier:@"saveRoute"];
+    
+    
     LoadIntervalTableViewController *loadInterval = [storyBoard instantiateViewControllerWithIdentifier:@"loadInterval"];
     
     UINavigationController *saveRouteNavigationController = [[UINavigationController alloc] initWithRootViewController:saveRoute];
