@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FUu-XX-1jG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FUu-XX-1jG">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -21,9 +21,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="2" kind="push" id="5LQ-EB-YvF"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -33,6 +30,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="sidebarButton" destination="68i-VM-V5H" id="JKl-EP-BaL"/>
+                        <segue destination="2" kind="push" identifier="toMain" id="HGp-39-lzQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKy-jd-OYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -890,6 +888,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="5LQ-EB-YvF"/>
+        <segue reference="HGp-39-lzQ"/>
     </inferredMetricsTieBreakers>
 </document>

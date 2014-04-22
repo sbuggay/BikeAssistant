@@ -80,16 +80,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-}
+
 
 #pragma mark - Table view data source
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    NSLog(@"%lu", indexPath.row);
+
+    
     [RouteManager sharedInstance].currentRoute = [[[RouteManager sharedInstance] routes] objectAtIndex:indexPath.row];
     NSLog(@"didSelect name:%@", [[RouteManager sharedInstance] currentRoute].metadata.name);
+
     [self performSegueWithIdentifier:@"toMain" sender:self];
 }
 
