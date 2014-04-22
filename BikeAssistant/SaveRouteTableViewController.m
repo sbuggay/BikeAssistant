@@ -64,8 +64,8 @@
 
 - (void)save {
     NSLog(@"saving");
-    [[RouteManager sharedInstance] currentRoute].metadata.name = [_NameField text];
-    NSLog(@"%@|%@", [_NameField text], [[RouteManager sharedInstance] currentRoute].metadata.name);
+    [[[RouteManager sharedInstance] currentRoute] metadata].name = [_NameField text];
+    NSLog(@"%@|%@", [_NameField text], [[[RouteManager sharedInstance] currentRoute] metadata].name);
     [[RouteManager sharedInstance] saveCurrentRoute];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

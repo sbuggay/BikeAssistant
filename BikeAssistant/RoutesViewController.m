@@ -51,8 +51,6 @@
 //        NSLog(@"%@", temp.gpx.filename);
 //    }];
 //
-    [_routes addObject:@"Auburn__Fells route"];
-    [_routes addObject:@"Auburn__Tour route"];
 
     
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Import" style:UIBarButtonItemStylePlain target:self action:@selector(import)];
@@ -60,6 +58,10 @@
     
     
     
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self.tableView reloadData];
 }
 
 -(void)import {
@@ -89,7 +91,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return [[[RouteManager sharedInstance] routes] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,7 +100,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [_routes objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[[[[RouteManager sharedInstance] routes] objectAtIndex:indexPath.row] metadata] name];
     
     return cell;
 }

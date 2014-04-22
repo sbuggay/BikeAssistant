@@ -27,10 +27,16 @@
 
 -(id)init {
     if (self = [super init]) {
-        [self loadRouteList];
+//        [self loadRouteList];
         hasUpdated = NO;
         currentRoute = [[GPXRoot alloc] init];
+        currentRoute.metadata = [[GPXMetadata alloc] init];
     }
+    hasUpdated = NO;
+    currentRoute = [[GPXRoot alloc] init];
+    currentRoute.metadata = [[GPXMetadata alloc] init];
+
+    self.routes = [[NSMutableArray alloc] init];
     return self;
 }
 
