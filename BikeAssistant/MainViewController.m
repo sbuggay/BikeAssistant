@@ -70,19 +70,7 @@
 //    
 //    NSData *fileData = [NSData dataWithContentsOfFile:file];
 //    
-    root = [[RouteManager sharedInstance] currentRoute];
     
-    CLLocationCoordinate2D coors[[[root waypoints] count]];
-    
-    int i = 0;
-    for (GPXRoutePoint *routepoint in [root waypoints]) {
-        coors[i] = CLLocationCoordinate2DMake(routepoint.latitude, routepoint.longitude);
-        NSLog(@"%f | %f", routepoint.latitude, routepoint.longitude);
-        i++;
-    }
-    
-    MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coors count:[[root waypoints] count]];
-    [_map addOverlay:polyline];
 }
 
 - (void) viewDidAppear:(BOOL)animated{
@@ -104,6 +92,21 @@
     }
     [[[LocationManager sharedInstance] timer] updateLabel:_timerLabel];
     
+    
+    CLLocationCoordinate2D coors[[[[[RouteManager sharedInstance] currentRoute] waypoints] count]];
+    
+    
+    
+    NSLog(@"name :%@", [[RouteManager sharedInstance] currentRoute].metadata.name);
+    int i = 0;
+    for (GPXRoutePoint *routepoint in [root waypoints]) {
+        coors[i] = CLLocationCoordinate2DMake(routepoint.latitude, routepoint.longitude);
+        NSLog(@"%f | %f", routepoint.latitude, routepoint.longitude);
+        i++;
+    }
+    
+    MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coors count:[[root waypoints] count]];
+    [_map addOverlay:polyline];
 }
 
 - (void)didReceiveMemoryWarning {
