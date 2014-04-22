@@ -37,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _timerLabel.hidden = true;
+    _timerLabel.text = @"";
     _hideStopTimer.hidden = true;
     self.title = @"Map";
     
@@ -99,7 +99,7 @@
     
     if([[[LocationManager sharedInstance] timer] isRunning] == true){
         _timerLabel.hidden = false;
-        _hideButton.hidden = true;
+        
         _hideStopTimer.hidden = false;
     }
     [[[LocationManager sharedInstance] timer] updateLabel:_timerLabel];
